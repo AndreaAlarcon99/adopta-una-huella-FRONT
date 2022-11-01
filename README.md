@@ -1,70 +1,60 @@
-# Getting Started with Create React App
+# Adopta una huella Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Developed as the final project of our web development bootcamp at Ironhack Barcelona. It's a MERN Stack application, check the backend repository [here](https://github.com/AndreaAlarcon99/adopta-una-huella-BACK).
 
-## Available Scripts
+## About
+Hi! We are Andrea, Leticia and Nahuel, web developers students. This project is about a web application where you can adopt pets from different foundations. Our main goal is to make easier the process to adopt a pet and also help foundations to promote pet adoptations.  
 
-In the project directory, you can run:
+![Project Image](https://....png "Project Image")
 
-### `npm start`
+## Deployment
+You can check the app fully deployed [here](https://herokuapp.com/). If you wish to view the API deployment instead, check [here](https://herokuapp.com/api/).
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Work structure
+We used [Trello](https://trello.com/home) tool to help us sharing the tasks during the project development. 
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Installation guide
+- Fork this repo
+- Clone this repo 
 
-### `npm test`
+```shell
+$ cd adopta-una-huella-FRONT
+$ npm install
+$ npm start
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Routes
+| Route                | Privacy         | Renders                  |
+| -------------------- | :-------------: | ------------------------ |
+| /                    | public          | HomePage                 |
+| /signup              | public          | SignupPage               |
+| /login               | public          | LoginPage                |
+| /about               | public          | ResumePage               |
+| /coding-projects     | public          | CodingProjectListPage    |
+| /design-projects     | public          | DesignProjectListPage    |
+| /coding-projects/:id | public          | CodingProjectDetailsPage |
+| /design-projects/:id | public          | DesignProjectDetailsPage |
+| /all-orders          | private (admin) | AllOrdersPage            |
+| /all-orders/:id      | private (admin) | EditOrderPage            |
+| /profile             | private (user)  | UserProfilePage          |
 
-### `npm run build`
+## Components
+- AddCodingProject
+- AddDesignProject
+- AddOrder
+- AnonRoute
+- CodingProjectCard
+- DesignProjectCard
+- EditCodingProject
+- EditDesignProject
+- Navbar
+- OrderCard
+- PrivateRoute
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Any doubts? Contact us!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<a href="https://www.linkedin.com/in/leticiasantospoveda/"><img align="right" width="20px" src="https://simpleicons.now.sh/linkedin/495f7e" alt="Leticia's LinkedIn" /></a>
+<a href="https://www.linkedin.com/in/andreaalarconvaldes/"><img align="right" width="20px" src="https://simpleicons.now.sh/linkedin/495f7e" alt="Andrea's LinkedIn" /></a>
+<a href="https://www.linkedin.com/in/angelnahuelciminialvarez/"><img align="right" width="20px" src="https://simpleicons.now.sh/linkedin/495f7e" alt="Nahuel's LinkedIn" /></a>
