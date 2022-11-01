@@ -53,7 +53,7 @@ $ npm start
 
 ---
 
-Any doubts? Contact us! <img align="right" width="20px" src="https://simpleicons.now.sh/linkedin/495f7e" alt="LinkedIn" />
+Any doubts? Contact us! <img width="20px" src="https://simpleicons.now.sh/linkedin/495f7e" alt="LinkedIn" />
 
 <a href="https://www.linkedin.com/in/leticiasantospoveda/">Leticia</a>
 <a href="https://www.linkedin.com/in/andreaalarconvaldes/">Andrea</a>
