@@ -53,8 +53,8 @@ $ npm start
 
 ---
 
-Any doubts? Contact us!
+Any doubts? Contact us! <img align="right" width="20px" src="https://simpleicons.now.sh/linkedin/495f7e" alt="LinkedIn" />
 
-<a href="https://www.linkedin.com/in/leticiasantospoveda/">Leticia<img align="right" width="20px" src="https://simpleicons.now.sh/linkedin/495f7e" alt="Leticia's LinkedIn" /></a>
-<a href="https://www.linkedin.com/in/andreaalarconvaldes/">Andrea<img align="right" width="20px" src="https://simpleicons.now.sh/linkedin/495f7e" alt="Andrea's LinkedIn" /></a>
-<a href="https://www.linkedin.com/in/angelnahuelciminialvarez/">Nahuel<img align="right" width="20px" src="https://simpleicons.now.sh/linkedin/495f7e" alt="Nahuel's LinkedIn" /></a>
+<a href="https://www.linkedin.com/in/leticiasantospoveda/">Leticia</a>
+<a href="https://www.linkedin.com/in/andreaalarconvaldes/">Andrea</a>
+<a href="https://www.linkedin.com/in/angelnahuelciminialvarez/">Nahuel</a>
