@@ -26,6 +26,7 @@ function InfoAdoptionPage() {
         </a>
       </p>
       <div className="collapse" id="collapseExample1">
+
         <div className="card card-body text-start" id="info">
           <ul>
             <li>Ser mayor de edad.</li>

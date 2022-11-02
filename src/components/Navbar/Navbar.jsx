@@ -10,14 +10,14 @@ function Navbar() {
 
   return (
     <nav id="navbar">
-      <img src="../../../Huella.png" alt="logo" id="logo"/>
+      <img className="p-3"src="../../../logo.png" alt="logo" id="logo"/>
       <Link to="/">
-        <button>Home</button>
+        <button className="btn">Home</button>
       </Link>
 
       {isLoggedIn && (
         <>
-          <button onClick={logOutUser}>Logout</button>
+          <button className="btn" onClick={logOutUser}>Logout</button>
 
           <Link to="/profile">
             <button>Profile</button>
@@ -32,16 +32,17 @@ function Navbar() {
         <>
           <Link to="/signup">
             {" "}
-            <button>Sign Up</button>{" "}
+            <button className="btn">Sign Up</button>{" "}
           </Link>
           <Link to="/login">
             {" "}
-            <button>Login</button>{" "}
+            <button className="btn">Login</button>{" "}
           </Link>
         </>
       )}
     </nav>
   );
+
 }
 
 export default Navbar;
