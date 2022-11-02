@@ -9,7 +9,8 @@ function Navbar() {
   const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
 
   return (
-    <nav>
+    <nav id="navbar">
+      <img src="../../../Huella.png" alt="logo" id="logo"/>
       <Link to="/">
         <button>Home</button>
       </Link>

@@ -34,7 +34,7 @@ $ npm start
 | /                      |     public \*      | HomePage         |
 | /signup                | public (anonimous) | SignupPage       |
 | /login                 | public (anonimous) | LoginPage        |
-| /adopcion              |     public \*      | InfoAdoptionPage |
+| /informacion-adopcion  |     public \*      | InfoAdoptionPage |
 | /adoptados             |     public \*      | AdoptedPets      |
 | /animales              |     public \*      | PetListPage      |
 | /animales/:petId       |     public \*      | PetDetailPage    |
