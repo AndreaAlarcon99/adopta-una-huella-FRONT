@@ -2,22 +2,45 @@ import "./InfoAdoptionPage.css"
 
 function InfoAdoptionPage() {
   return (
-    <div>
-      <header>
-        <img src="../../../perro.png" alt="logo" />
+    <div id="divGeneral">
+      <div id="titulo">
         <h1>Cómo funcionan las adopciones</h1>
+      </div>
+      <header>
+        <div id="headerImg">
+          <img src="../../../perro-gato.png" alt="logo" />
+  
+        </div>
       </header>
-      <div className="py-1 py-md-3" id="infoPage">
         
-        <article>
+      <div className="py-1 py-md-3" id="infoPage">
+        <div id="prueba">
+
+        <div id="articleId">
+
+          <article>
+            <img src="../../../houseAdopt.png" alt=" " />
           <h2>Entrega de animales</h2>
-          <p>Los animales se entregan identificados, desparasitados, con las vacunas obligatorias y esterilizados o con el compromiso de esterilización. Todos los trámites y tratamientos son gratuitos. ( La identificación con microchip es obligatoria en perros, gatos, conejos, hurones y équidos. La vacuna de la rabia es obligatoria en perros mayores de 3 meses).</p>
+          <p>Los animales se entregan identificados, desparasitados, con las vacunas obligatorias y esterilizados o con el compromiso de esterilización.</p>
         </article>
-        <article>
+          <article>
+            <img src="../../../huella3.svg" alt=" " />     
+            <h2>Microchip</h2> 
+            <p>La identificación con microchip es obligatoria en perros, gatos, conejos, hurones y équidos. La vacuna de la rabia es obligatoria en perros mayores de 3 meses.</p>
+          </article>
+          <article>
+            <img src="../../../documentation.png" alt=" " />
+            
           <h2>Documentación asociada</h2> 
           <p>Toda la documentación necesaria para realizar la adopción del animal, será proporcionada por el Centro de Protección Animal donde se adopta.</p>
-        </article>
-      {/* REQUISITOS  */}
+          </article>
+          </div>
+        </div>
+          
+          
+        <div id="desplegables">
+        {/* REQUISITOS  */}
+
       <p>
         <a className="btn text-start" data-bs-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample1" id="botonInfoPage">
        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down" viewBox="0 0 16 16">
@@ -66,7 +89,9 @@ function InfoAdoptionPage() {
         <div className="card card-body text-start" id="info">
          <p>DNI, pasaporte o equivalente.</p>
         </div>
-      </div>
+          </div>
+        </div>
+          
 </div>
         
     </div>
