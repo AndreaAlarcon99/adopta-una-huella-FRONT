@@ -63,7 +63,6 @@ $ npm start
 ---
 
 Any doubts? Contact us!
-Hola prueba
 <br>
 <img width="20px" src="https://simpleicons.now.sh/linkedin/495f7e" alt="LinkedIn" />
 </br>
