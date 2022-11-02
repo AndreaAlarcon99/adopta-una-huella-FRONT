@@ -9,6 +9,10 @@ import LoginPage from "./pages/LoginPage/LoginPage";
 import Navbar from "./components/Navbar/Navbar";
 import IsPrivate from "./components/IsPrivate/IsPrivate";
 import IsAnon from "./components/IsAnon/IsAnon";
+import InfoAdoptionPage from "./pages/InfoAdoptionPage/InfoAdoptionPage";
+
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap';
 
 function App() {
   return (
@@ -17,6 +21,8 @@ function App() {
 
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/informacion-adopcion" element={<InfoAdoptionPage />} />
+
 
         <Route
           path="/profile"
