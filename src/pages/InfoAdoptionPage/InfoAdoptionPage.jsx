@@ -3,9 +3,20 @@ import "./InfoAdoptionPage.css"
 function InfoAdoptionPage() {
   return (
     <div>
-      <h1>Hola desde InfoAdoptionPage</h1>
+      <header>
+        <img src="../../../perro.png" alt="logo" />
+        <h1>Cómo funcionan las adopciones</h1>
+      </header>
       <div className="py-1 py-md-3" id="infoPage">
         
+        <article>
+          <h2>Entrega de animales</h2>
+          <p>Los animales se entregan identificados, desparasitados, con las vacunas obligatorias y esterilizados o con el compromiso de esterilización. Todos los trámites y tratamientos son gratuitos. ( La identificación con microchip es obligatoria en perros, gatos, conejos, hurones y équidos. La vacuna de la rabia es obligatoria en perros mayores de 3 meses).</p>
+        </article>
+        <article>
+          <h2>Documentación asociada</h2> 
+          <p>Toda la documentación necesaria para realizar la adopción del animal, será proporcionada por el Centro de Protección Animal donde se adopta.</p>
+        </article>
       {/* REQUISITOS  */}
       <p>
         <a className="btn text-start" data-bs-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample1" id="botonInfoPage">
@@ -15,7 +26,7 @@ function InfoAdoptionPage() {
         </a>
       </p>
       <div className="collapse" id="collapseExample1">
-        <div className="card card-body" id="info">
+        <div className="card card-body text-start" id="info">
           <ul>
             <li>Ser mayor de edad.</li>
             <li>Aportar DNI o equivalente.</li>
@@ -37,7 +48,7 @@ function InfoAdoptionPage() {
         </a>
       </p>
       <div className="collapse" id="collapseExample2">
-        <div className="card card-body" id="info">
+        <div className="card card-body text-start" id="info">
           <p>Accediendo a los detalles del animal en el que esté interesado adoptar, tendrá disponible información de contacto del Centro de Protección Animal donde se aloja el animal. Deberá rellenar un formulario con sus datos personales e información adicional que se le pida. El Centro de Protección Animal se pondrá en contacto con usted para concertar una visita.</p>
         </div>
         </div>
@@ -51,7 +62,7 @@ function InfoAdoptionPage() {
         </a>
       </p>
       <div className="collapse" id="collapseExample3">
-        <div className="card card-body" id="info">
+        <div className="card card-body text-start" id="info">
          <p>DNI, pasaporte o equivalente.</p>
         </div>
       </div>

@@ -4,6 +4,18 @@ GRIS CLARO: #CDCDC0
 BEIGE: #DDBC95
 MARRON: #B38867  */
 
+header {
+background-image:linear-gradient(to bottom right, rgb(212, 195, 176), white);
+display: flex;
+align-items: center;
+}
+header img {
+    height: 60vh;
+}
+header h1 {
+    font-size: 100px;
+}
+
 #botonInfoPage{
     background-color: rgb(205, 205, 192);
 
