@@ -4,17 +4,33 @@ GRIS CLARO: #CDCDC0
 BEIGE: #DDBC95
 MARRON: #B38867  */
 
-header {
-background-image:linear-gradient(to bottom right, rgb(212, 195, 176), white);
-display: flex;
-align-items: center;
+#divGeneral {
+    background-color: rgba(234, 231, 231, 0.6);
 }
-header img {
+
+header {
+    position: absolute;
+        left: auto;
+        top: 0%;
+        right: 0%;
+        bottom: auto;
+        z-index: 0;
+        width: 40%;
+        height: 60vh;
+        border-bottom-left-radius: 24px;
+    background-color: #DDE5B6;
+    z-index: 0;
+}
+
+#headerImg{
+    padding-top: 10%;
+    
+}
+
+header img{
     height: 60vh;
 }
-header h1 {
-    font-size: 100px;
-}
+
 
 #botonInfoPage{
     background-color: rgb(205, 205, 192);
@@ -48,5 +64,50 @@ color: white;
 #collapseExample3 {
     width: 80vw;
     margin: auto;
+}
+
+#titulo {
+    float: left;
+        width: 50%;
+        height: 50vh;
+}
+
+#titulo h1 {
+    font-size: 100px;
+    margin-top: 10vh;
+    margin-left: 10vw;
+}
+
+#articleId{
+    background-color: rgba(169, 132, 103, 0.7);
+    margin-top: 70vh;
+    width: 85vw;
+    height: 50vh;
+     display: flex;
+        border-radius: 24px;
+        justify-content: space-evenly;
+        margin-left: 8%;
+          
+}
+
+#articleId img{
+    width: 5vw;
+}
+
+article {
+    width: 25vw;
+    height: 50vh;
+    background-color: white;
+    margin-top: 10%;
+        border-radius: 16px;
+        padding: 1rem;
+        
+}
+article p{
+        text-align: justify;
+        padding: 1rem;
+}
+#desplegables{
+    margin-top: 30vh;
 }
 

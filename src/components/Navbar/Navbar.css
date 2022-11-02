@@ -1,6 +1,11 @@
 #navbar {
-background-color: #a98467;
-height:8vh;
+/* background-color: rgba(169, 132, 103, 0.6); */
+height:10vh;
+width: 100vw;
+position: fixed;
+z-index: 1;
+
+
 }
 
 #logo{
