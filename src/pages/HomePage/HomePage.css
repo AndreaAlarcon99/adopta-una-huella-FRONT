@@ -1,0 +1,13 @@
+#primerSlide {
+    background-color:rgb(212, 195, 176) ;
+    display: flex;
+    align-items: center;
+}
+
+#primerSlide img {
+    height: 60vh;
+}
+
+#primerSlide h1 {
+    font-size: 100px;
+}
