@@ -1,0 +1,40 @@
+/* COLORES:
+GRIS OSCURO: #626D71
+GRIS CLARO: #CDCDC0
+BEIGE: #DDBC95
+MARRON: #B38867  */
+
+#botonInfoPage{
+    background-color: rgb(205, 205, 192);
+
+    /* background-color: #626D71; */
+width: 80vw;
+margin-top: 1em;
+color:black;
+font-size: 1.2rem;
+
+}
+
+#botonInfoPage:hover{
+    background-color: #626D71;
+font-size: 1.3rem;
+color: white;
+}
+
+#collapseExample1{
+        width: 80vw;
+        margin: auto;
+}
+
+
+
+#collapseExample2 {
+    width: 80vw;
+    margin: auto;
+}
+
+#collapseExample3 {
+    width: 80vw;
+    margin: auto;
+}
+
