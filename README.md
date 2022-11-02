@@ -28,32 +28,35 @@ $ npm start
 ```
 
 ## Routes
-| Route                | Privacy         | Renders                  |
-| -------------------- | :-------------: | ------------------------ |
-| /                    | public          | HomePage                 |
-| /signup              | public          | SignupPage               |
-| /login               | public          | LoginPage                |
-| /about               | public          | ResumePage               |
-| /coding-projects     | public          | CodingProjectListPage    |
-| /design-projects     | public          | DesignProjectListPage    |
-| /coding-projects/:id | public          | CodingProjectDetailsPage |
-| /design-projects/:id | public          | DesignProjectDetailsPage |
-| /all-orders          | private (admin) | AllOrdersPage            |
-| /all-orders/:id      | private (admin) | EditOrderPage            |
-| /profile             | private (user)  | UserProfilePage          |
+| Route                 | Privacy              | Renders                  |
+| --------------------  | :------------------: | ------------------------ |
+| /                     | public     *         | HomePage                 |
+| /signup               | public (anonimous)   | SignupPage               |
+| /login                | public (anonimous)   | LoginPage                |
+| /adopcion             | public     *         | InfoAdoptionPage         |
+| /adoptados            | public     *         | AdoptedPets              |
+| /animales             | public     *         | PetListPage              |
+| /animales/:petId      | public     *         | PetDetailPage            |
+| /:userId              | public     *         | ProfilePage              |
+| /:userId/editar       | private (user)   *   | EditProfilPage           |
+| /:userId/:petId/editar| private (user)   *   | EditPet                  |
+| /:userId/crear        | private (user)   *   | AddPet                   |
+
+*admin
 
 ## Components
-- AddCodingProject
-- AddDesignProject
-- AddOrder
-- AnonRoute
-- CodingProjectCard
-- DesignProjectCard
-- EditCodingProject
-- EditDesignProject
 - Navbar
-- OrderCard
-- PrivateRoute
+- HomePage
+- SignupPage
+- LoginPage
+- InfoAdoptionPage
+- AdoptedPets
+- PetListPage
+- PetDetailPage
+- ProfilePage
+- EditProfilePage
+- EditPet
+- AddPet
 
 ---
 
