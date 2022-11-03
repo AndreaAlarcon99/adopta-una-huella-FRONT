@@ -10,7 +10,7 @@ function Navbar() {
 
   return (
 
-<nav className="navbar fixed-top">
+<nav className="navbar fixed-top" id="navbar"> 
       <div className="container-fluid">
         <img className="navbar-brand" src="../../../logo.png" alt="logo" id="logo" />
         
@@ -78,7 +78,6 @@ function Navbar() {
     </div>
   </div>
 </nav>
-
 
 
 

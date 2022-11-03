@@ -59,7 +59,7 @@ function InfoAdoptionPage() {
           <h2>Documentación asociada</h2> 
           <p>Toda la documentación necesaria para realizar la adopción del animal, será proporcionada por el Centro de Protección Animal donde se adopta.</p>
           </article>
-          </div>
+        </div>
           
           
         <div className="py-1 py-md-3" id="desplegables">
