@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const apiUrl = "http://localhost:5005/api"
+const apiUrl = process.env.API_SERVER_URL || "http://localhost:5005"
 
 class AnimalService {
 
