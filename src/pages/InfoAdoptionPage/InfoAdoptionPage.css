@@ -4,32 +4,27 @@ GRIS CLARO: #CDCDC0
 BEIGE: #DDBC95
 MARRON: #B38867  */
 
+* {
+    font-family: Helvetica, sans-serif;
+}
+
 #divGeneral {
     background-color: rgba(234, 231, 231, 0.6);
 }
 
 header {
-    position: absolute;
-        left: auto;
-        top: 0%;
-        right: 0%;
-        bottom: auto;
-        z-index: 0;
-        width: 40%;
-        height: 60vh;
+        float: right;
         border-bottom-left-radius: 24px;
     background-color: #DDE5B6;
-    z-index: 0;
-}
-
-#headerImg{
-    padding-top: 10%;
     
 }
 
 header img{
-    height: 60vh;
+    width: 40vw;
+    padding-right: 3%;
+    padding-top: 25%;
 }
+
 
 
 #botonInfoPage{
@@ -53,8 +48,6 @@ color: white;
         margin: auto;
 }
 
-
-
 #collapseExample2 {
     width: 80vw;
     margin: auto;
@@ -68,20 +61,22 @@ color: white;
 #titulo {
     float: left;
         width: 50%;
-        height: 50vh;
+        
+        margin-top: 15%;
+        margin-left: 6%;
 }
 
 #titulo h1 {
-    font-size: 100px;
-    margin-top: 10vh;
-    margin-left: 10vw;
+    font-size: 6vw;
+    font-family: Helvetica, sans-serif;
+    font-weight: lighter;
 }
 
 #articleId{
     background-color: rgba(169, 132, 103, 0.7);
-    margin-top: 20vh;
-    width: 85vw;
-    height: 45vh;
+    margin-top: 10%;
+    width: 85%;
+    height: 100%;
      display: flex;
         border-radius: 24px;
         justify-content: space-evenly;
@@ -94,10 +89,10 @@ color: white;
 }
 
 article {
-    width: 25vw;
-    height: 40vh;
+    width: 30vw;
+    height: 100%;
     background-color: white;
-    margin-top: 10%;
+    
         border-radius: 16px;
         padding: 1rem;
         box-shadow: 0 0 20px rgb(72, 71, 71);
@@ -116,15 +111,19 @@ article p{
 }
 
 #procesoGeneral{
-    padding-top: 25vh;
     margin: auto;
     display: flex;
     flex-direction: column;
-    width: 80vw;
+    width: 100vw;
+    padding-left: 5%;
+    padding-right: 5%;
 }
+
 #procesoGeneral h3 {
     align-self: flex-start;
     margin-bottom: 2em;
+    font-weight: lighter;
+    
 }
 #proceso{
     display: flex;

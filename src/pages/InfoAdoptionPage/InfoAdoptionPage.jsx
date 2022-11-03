@@ -6,65 +6,64 @@ function InfoAdoptionPage() {
       <div id="titulo">
         <h1>Cómo funcionan las adopciones</h1>
       </div>
-      <header>
+      <header className="h-25 h-md-75">
         <div id="headerImg">
           <img src="../../../perro-gato.png" alt="logo" />
   
         </div>
       </header>
 
-      <div id="procesoGeneral">
+      <div id="procesoGeneral" className="container-fluid">
         <h3>El proceso</h3>
-        <div id="proceso">
-          <div >
+        <div id="proceso" className="row">
+          <div className="col-6 col-md-2" >
             <img src="../../../research.png" alt=" " />
             <p>Búsqueda</p>            
           </div>
-          <div>
+          <div className="col-6 col-md-2">
             <img src="../../../telf.png" alt=" " />
             <p>Contacto</p>            
           </div>
-          <div>
+          <div className="col-6 col-md-2">
             <img src="../../../entrevista.png" alt=" " />
             <p>Entrevista</p>            
           </div>
-          <div>
+          <div className="col-6 col-md-2"> 
             <img src="../../../adopt.png" alt=" " />
             <p>Visita</p>            
           </div>
-          <div>
+          <div className="col-6 col-md-2">
             <img src="../../../visita.png" alt=" " />
             <p>Adopción</p>            
           </div>
         </div>
       </div>
         
-      <div className="py-1 py-md-3" id="infoPage">
+      <div className="py-1 py-md-3 container-fluid" id="infoPage">
 
-        <div id="articleId">
+        <div id="articleId" className="row">
 
-          <article>
+          <article className="col-10 col-md-4 col-lg-3">
             <img src="../../../houseAdopt.png" alt=" " />
           <h2>Entrega de animales</h2>
           <p>Los animales se entregan identificados, desparasitados, con las vacunas obligatorias y esterilizados o con el compromiso de esterilización.</p>
         </article>
-          <article>
+          <article className="col-10 col-md-3">
             <img src="../../../huella3.svg" alt=" " />     
             <h2>Microchip</h2> 
             <p>La identificación con microchip es obligatoria en perros, gatos, conejos, hurones y équidos. La vacuna de la rabia es obligatoria en perros mayores de 3 meses.</p>
           </article>
-          <article>
+          <article className="col-10 col-md-3">
             <img src="../../../documentation.png" alt=" " />
-            
           <h2>Documentación asociada</h2> 
           <p>Toda la documentación necesaria para realizar la adopción del animal, será proporcionada por el Centro de Protección Animal donde se adopta.</p>
           </article>
           </div>
           
           
-        <div className="py-1 py-md-3" id="desplegables">
+        <div className="py-1 py-md-3 container-fluid" id="desplegables">
         {/* REQUISITOS  */}
-
+        <div className="row">
       <p>
         <a className="btn text-start" data-bs-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample1" id="botonInfoPage">
        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down" viewBox="0 0 16 16">
@@ -86,6 +85,9 @@ function InfoAdoptionPage() {
           </ul>
         </div>
       </div>
+    </div>
+
+    
 
       {/* CÓMO REALIZAR UN TRÁMITE  */}
       <p>
