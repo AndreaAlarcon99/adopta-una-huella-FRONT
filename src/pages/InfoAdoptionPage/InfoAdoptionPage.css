@@ -1,143 +1,162 @@
-/* COLORES:
-GRIS OSCURO: #626D71
-GRIS CLARO: #CDCDC0
-BEIGE: #DDBC95
-MARRON: #B38867  */
-
 * {
-    font-family: Helvetica, sans-serif;
+  font-family: Helvetica, sans-serif;
 }
 
 #divGeneral {
-    background-color: rgba(234, 231, 231, 0.6);
-}
-
-header {
-        float: right;
-        border-bottom-left-radius: 24px;
-    background-color: #DDE5B6;
-    
-}
-
-header img{
-    width: 40vw;
-    padding-right: 3%;
-    padding-top: 25%;
-}
-
-
-
-#botonInfoPage{
-    background-color: rgb(205, 205, 192);
-
-width: 80vw;
-margin-top: 1em;
-color:black;
-font-size: 1.2rem;
-
-}
-
-#botonInfoPage:hover{
-    background-color: #626D71;
-font-size: 1.3rem;
-color: white;
-}
-
-#collapseExample1{
-        width: 80vw;
-        margin: auto;
-}
-
-#collapseExample2 {
-    width: 80vw;
-    margin: auto;
-}
-
-#collapseExample3 {
-    width: 80vw;
-    margin: auto;
+  background-color: rgba(234, 231, 231, 0.6);
 }
 
 #titulo {
-    float: left;
-        width: 50%;
-        
-        margin-top: 15%;
-        margin-left: 6%;
+  margin-top: 10%;
+  margin-left: 6%;
+  width: 50%;
+  float: left;
 }
 
 #titulo h1 {
-    font-size: 6vw;
-    font-family: Helvetica, sans-serif;
-    font-weight: lighter;
+  font-family: Helvetica, sans-serif;
+  font-weight: lighter;
+  font-size: 6vw;
 }
 
-#articleId{
-    background-color: rgba(169, 132, 103, 0.7);
-    margin-top: 10%;
-    width: 85%;
-    height: 100%;
-     display: flex;
-        border-radius: 24px;
-        justify-content: space-evenly;
-        margin-left: 8%;
-          
+header {
+  background-color: #dde5b6;
+  border-bottom-left-radius: 24px;
+  margin-bottom: 2em;
+  float: right;
+}
+header img {
+  padding-right: 3%;
+  padding-top: 25%;
+  width: 40vw;
 }
 
-#articleId img{
-    width: 5vw;
-}
-
-article {
-    width: 30vw;
-    height: 100%;
-    background-color: white;
-        border-radius: 16px;
-        padding: 1rem;
-        box-shadow: 0 0 20px rgb(72, 71, 71);
-        
-}
-article p{
-        text-align: justify;
-        padding: 1rem;
-}
-#desplegables{
-    margin-top: 30vh;
-}
-
-#desplegables{
-    background-color: white;
-}
-
-#procesoGeneral{
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-    width: 100vw;
-    padding-left: 5%;
-    padding-right: 5%;
+#procesoGeneral {
+  margin: auto;
+  padding-left: 5%;
+  padding-right: 5%;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
 }
 
 #procesoGeneral h3 {
-    align-self: flex-start;
-    margin-bottom: 2em;
-    font-weight: lighter;
-    
+  margin-bottom: 2em;
+  align-self: flex-start;
+  font-weight: lighter;
+  width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 0.15em solid gray;
+  animation: blink 1s steps(1) infinite;
+  animation: typing 2s steps(38) 1s 1 normal both, blink 1s steps(1) infinite;
 }
-#proceso{
-    display: flex;
-    justify-content: space-between;
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 11%;
+  }
+}
+
+#proceso {
+  display: flex;
+  justify-content: space-between;
 }
 
 #proceso img {
-    width: 5vw;
-    margin-bottom: 2em;
+  margin-bottom: 2em;
+  width: 5vw;
 }
 
 #proceso p {
-    border-bottom: 3px solid #A98467;
-    padding-bottom: 2em;
-    font-size:larger;
-    font-weight: bold;
-    color: #626D71;
+  border-bottom: 3px solid #a98467;
+  color: #626d71;
+  padding-bottom: 2em;
+  font-size: larger;
+  font-weight: bold;
+}
+
+#articleId {
+  border-radius: 24px;
+  margin-top: 10%;
+  margin-left: 6%;
+  width: 85%;
+  display: flex;
+  justify-content: space-evenly;
+  position: absolute;
+  padding-top: 5%;
+}
+
+article img {
+  width: 5vw;
+}
+
+article {
+  position: static;
+  background-color: white;
+  box-shadow: 0 0 20px rgba(72, 71, 71, 0.3);
+  width: 30vw;
+  padding: 1rem;
+  border-radius: 16px;
+  margin: 1rem;
+}
+
+article p {
+  text-align: justify;
+  padding: 1rem;
+}
+#desplegables {
+  margin-top: 80vh;
+}
+
+#desplegables {
+  background-color: white;
+}
+#botonInfoPage {
+  background-color: rgb(205, 205, 192);
+  color: black;
+  width: 80vw;
+  margin-top: 1em;
+  font-size: 1.2rem;
+}
+
+#botonInfoPage:hover {
+  background-color: #626d71;
+  color: white;
+  font-size: 1.3rem;
+}
+
+#collapseExample1 {
+  width: 80vw;
+  margin: auto;
+}
+
+#collapseExample2 {
+  width: 80vw;
+  margin: auto;
+}
+
+#collapseExample3 {
+  width: 80vw;
+  margin: auto;
+}
+
+@media (min-width: 993px) {
+  #articleId {
+    height: 40%;
+    background-color: rgba(169, 132, 103, 0.7);
+  }
+  article {
+    box-shadow: 0 0 20px rgb(72, 71, 71);
+  }
 }
