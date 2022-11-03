@@ -35,7 +35,6 @@ header img{
 #botonInfoPage{
     background-color: rgb(205, 205, 192);
 
-    /* background-color: #626D71; */
 width: 80vw;
 margin-top: 1em;
 color:black;
@@ -80,9 +79,9 @@ color: white;
 
 #articleId{
     background-color: rgba(169, 132, 103, 0.7);
-    margin-top: 70vh;
+    margin-top: 20vh;
     width: 85vw;
-    height: 50vh;
+    height: 45vh;
      display: flex;
         border-radius: 24px;
         justify-content: space-evenly;
@@ -96,11 +95,12 @@ color: white;
 
 article {
     width: 25vw;
-    height: 50vh;
+    height: 40vh;
     background-color: white;
     margin-top: 10%;
         border-radius: 16px;
         padding: 1rem;
+        box-shadow: 0 0 20px rgb(72, 71, 71);
         
 }
 article p{
@@ -111,3 +111,35 @@ article p{
     margin-top: 30vh;
 }
 
+#desplegables{
+    background-color: white;
+}
+
+#procesoGeneral{
+    padding-top: 25vh;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    width: 80vw;
+}
+#procesoGeneral h3 {
+    align-self: flex-start;
+    margin-bottom: 2em;
+}
+#proceso{
+    display: flex;
+    justify-content: space-between;
+}
+
+#proceso img {
+    width: 5vw;
+    margin-bottom: 2em;
+}
+
+#proceso p {
+    border-bottom: 3px solid #A98467;
+    padding-bottom: 2em;
+    font-size:larger;
+    font-weight: bold;
+    color: #626D71;
+}

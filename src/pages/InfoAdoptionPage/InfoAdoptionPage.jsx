@@ -12,9 +12,34 @@ function InfoAdoptionPage() {
   
         </div>
       </header>
+
+      <div id="procesoGeneral">
+        <h3>El proceso</h3>
+        <div id="proceso">
+          <div >
+            <img src="../../../research.png" alt=" " />
+            <p>Búsqueda</p>            
+          </div>
+          <div>
+            <img src="../../../telf.png" alt=" " />
+            <p>Contacto</p>            
+          </div>
+          <div>
+            <img src="../../../entrevista.png" alt=" " />
+            <p>Entrevista</p>            
+          </div>
+          <div>
+            <img src="../../../adopt.png" alt=" " />
+            <p>Visita</p>            
+          </div>
+          <div>
+            <img src="../../../visita.png" alt=" " />
+            <p>Adopción</p>            
+          </div>
+        </div>
+      </div>
         
       <div className="py-1 py-md-3" id="infoPage">
-        <div id="prueba">
 
         <div id="articleId">
 
@@ -35,10 +60,9 @@ function InfoAdoptionPage() {
           <p>Toda la documentación necesaria para realizar la adopción del animal, será proporcionada por el Centro de Protección Animal donde se adopta.</p>
           </article>
           </div>
-        </div>
           
           
-        <div id="desplegables">
+        <div className="py-1 py-md-3" id="desplegables">
         {/* REQUISITOS  */}
 
       <p>

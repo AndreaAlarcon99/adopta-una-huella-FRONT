@@ -8,11 +8,10 @@ function HomePage() {
 
 <div id="carouselExampleControls" className="carousel slide" data-bs-ride="carousel">
   <div className="carousel-inner">
-          <div className="carousel-item active" id="primerSlide">
-            <img src="../../../perro.png" alt="perro" />
-        <h1>Cómo funcionan las adopciones</h1>
-            
-    </div>
+      <div className="carousel-item active" id="primerSlide">
+          <img src="../../../perro.png" alt="perro" />
+          <h1>Cómo funcionan las adopciones</h1>            
+      </div>
     <div className="carousel-item">
     </div>
     <div className="carousel-item">
