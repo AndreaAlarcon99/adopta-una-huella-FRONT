@@ -12,7 +12,7 @@ function Navbar() {
 
 <nav className="navbar fixed-top">
       <div className="container-fluid">
-        <img className="navbar-brand" src="../../../logo.png" alt="logo" id="logo" />
+        <img className="navbar-brand" src="../../../HuellaNueva.png" alt="logo" id="logo" />
         
         {isLoggedIn && (
         <>

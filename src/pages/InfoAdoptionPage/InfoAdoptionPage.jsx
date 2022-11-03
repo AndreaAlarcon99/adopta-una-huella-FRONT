@@ -9,7 +9,6 @@ function InfoAdoptionPage() {
       <header className="h-25 h-md-75">
         <div id="headerImg">
           <img src="../../../perro-gato.png" alt="logo" />
-  
         </div>
       </header>
 
@@ -41,7 +40,7 @@ function InfoAdoptionPage() {
         
       <div className="py-1 py-md-3 container-fluid" id="infoPage">
 
-        <div id="articleId" className="row">
+        <div id="articleId" className="row ">
 
           <article className="col-10 col-md-4 col-lg-3">
             <img src="../../../houseAdopt.png" alt=" " />
