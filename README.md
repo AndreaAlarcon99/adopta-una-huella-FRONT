@@ -48,17 +48,13 @@ $ npm start
 ## Components
 
 - Navbar
-- HomePage
-- SignupPage
-- LoginPage
-- InfoAdoptionPage
-- AdoptedPets
-- PetListPage
-- PetDetailPage
-- ProfilePage
-- EditProfilePage
-- EditPet
-- AddPet
+- AnimalComponent
+- AnimalForm
+- IsAnon
+- IsPrivate
+- IsLoading
+- UserForm
+- Footer
 
 ---
 
