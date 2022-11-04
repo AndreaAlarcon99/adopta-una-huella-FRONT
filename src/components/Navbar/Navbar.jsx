@@ -88,9 +88,6 @@ function Navbar() {
                 >
                   Nuestros animales
                 </li>
-                {/* <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Nuestros animales
-            </a> */}
                 <ul className="dropdown-menu">
                   <li>
                     <Link to="/animales" className="dropdown-item">

@@ -4,6 +4,7 @@ const apiUrl = process.env.API_SERVER_URL || "http://localhost:5005"
 
 class AnimalService {
 
+
     getToken(){
         return localStorage.getItem("authToken");
     }
@@ -26,6 +27,7 @@ class AnimalService {
     editAnimal(animal){
         return axios.put(apiUrl + "/animales/" + animal._id, animal, {headers:{authorization: `Bearer ${this.getToken()}`}})
     }
+
 }
 
 const animalService = new AnimalService();
