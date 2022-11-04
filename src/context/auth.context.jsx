@@ -35,6 +35,7 @@ function AuthProviderWrapper(props) {
           const user = response.data;
           // Update state variables
           setIsLoggedIn(true);
+          console.log("contex 1 ")
           setIsLoading(false);
           setUser(user);
         })
@@ -42,12 +43,14 @@ function AuthProviderWrapper(props) {
           // If the server sends an error response (invalid token) ❌
           // Update state variables
           setIsLoggedIn(false);
+          console.log("contex 2 ")
           setIsLoading(false);
           setUser(null);
         });
     } else {
       // If the token is not available
       setIsLoggedIn(false);
+      console.log("contex 3 ")
       setIsLoading(false);
       setUser(null);
     }

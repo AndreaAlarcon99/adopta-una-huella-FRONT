@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const apiUrl = "http://localhost:5005"
+const apiUrl = 'http://localhost:5005'
 
 class AuthService {
 
@@ -13,11 +13,13 @@ class AuthService {
   }
 
   signup(requestBody){
+    console.log("requestBody soy ", requestBody)
+    console.log("api soy yo ", apiUrl)
     return axios.post(apiUrl + "/signup", requestBody)
   }
 
   verify(){
-    return axios.post(apiUrl + "/verify", {headers:{authorization: `Bearer ${this.getToken()}`}})
+    return axios.get(apiUrl + "/verify", {headers:{authorization: `Bearer ${this.getToken()}`}})
   }
   
 }

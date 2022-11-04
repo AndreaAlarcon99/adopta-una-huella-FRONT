@@ -1,18 +1,18 @@
 import "./ProfilePage.css";
-import animalService from "../../services/animal.service";
-import { useState, useEffect } from 'react'
+// import animalService from "../../services/animal.service";
+// import { useState, useEffect } from 'react'
 
 function ProfilePage({user}) {
 
-  const { _id, username, email, imgUser, description, logoUser, } = user
+  // const { _id, username, email, imgUser, description, logoUser, } = user
 
-  const [enAdopcion, setEnAdopcion] = useState([]);
+  // const [enAdopcion, setEnAdopcion] = useState([]);
 
-  useEffect(() => {
-    animalService.getAnimals(animal.creator === _id)
-    .then(results => setEnAdopcion(results.data))
-    .catch(err => next(err))
-  }, [])
+  // useEffect(() => {
+  //   animalService.getAnimals(animal.creator === _id)
+  //   .then(results => setEnAdopcion(results.data))
+  //   .catch(err => next(err))
+  // }, [])
   
 
 
