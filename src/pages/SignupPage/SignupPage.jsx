@@ -1,9 +1,8 @@
 import "./SignupPage.css";
-import { useState, useContext } from "react";
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import authService from "../../services/auth.service";
-import { AuthContext } from "../../context/auth.context";
-
+// import axios from "axios";
 
 function SignupPage() {
   const [email, setEmail] = useState("");
@@ -17,7 +16,6 @@ function SignupPage() {
   const [errorMessage, setErrorMessage] = useState(undefined);
 
   const navigate = useNavigate();
-  const { storeToken, authenticateUser } = useContext(AuthContext);
 
   const handleEmail = (e) => setEmail(e.target.value);
   const handlePassword = (e) => setPassword(e.target.value);
@@ -61,10 +59,7 @@ function SignupPage() {
     authService
       .signup(requestBody)
       .then((response) => {
-        console.log("ENTRA JODER", response)
         // If the POST request is successful redirect to the login page
-        storeToken(response.data.authToken);
-        authenticateUser();
         navigate("/");
       })
       .catch((error) => {
