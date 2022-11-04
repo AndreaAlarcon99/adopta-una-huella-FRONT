@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const apiUrl = "http://localhost:5005";
+const apiUrl = process.env.API_SERVER_URL || "http://localhost:5005"
 
 class AnimalService {
 
@@ -22,10 +22,10 @@ class AnimalService {
         return axios.post(apiUrl + "/animales", animal, {headers:{authorization: `Bearer ${this.getToken()}`}})
     }
     deleteAnimal(animalId){
-        return axios.delete(apiUrl + "/animales/" + animalId)
+        return axios.delete(apiUrl + "/animales/" + animalId, {headers:{authorization: `Bearer ${this.getToken()}`}})
     }
     editAnimal(animal){
-        return axios.put(apiUrl + "/animales/" + animal._id, animal)
+        return axios.put(apiUrl + "/animales/" + animal._id, animal, {headers:{authorization: `Bearer ${this.getToken()}`}})
     }
 
 }
