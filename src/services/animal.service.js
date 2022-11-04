@@ -4,6 +4,10 @@ const apiUrl = "http://localhost:5005/api"
 
 class AnimalService {
 
+    getToken(){
+        return localStorage.getItem("authToken");
+    }
+
     getAnimals(){
         return axios.get(apiUrl + "/animales");
     }
@@ -14,7 +18,7 @@ class AnimalService {
         return axios.get(apiUrl + "/animales/" + animalId)
     }
     addAnimal(animal){
-        return axios.post(apiUrl + "/animales", animal)
+        return axios.post(apiUrl + "/animales", animal, {headers:{authorization: `Bearer ${this.getToken()}`}})
     }
     deleteAnimal(animalId){
         return axios.delete(apiUrl + "/animales/" + animalId)
