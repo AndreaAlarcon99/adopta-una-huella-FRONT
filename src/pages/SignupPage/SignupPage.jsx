@@ -2,6 +2,7 @@ import "./SignupPage.css";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import authService from "../../services/auth.service";
+// import axios from "axios";
 
 function SignupPage() {
   const [email, setEmail] = useState("");
@@ -33,25 +34,28 @@ function SignupPage() {
       email,
       password,
       username,
-      // imgUser,
+      imgUser,
       description,
       licence,
       location,
     };
 
     // Send a request to the server using axios
-    /* 
-    const authToken = localStorage.getItem("authToken");
-    axios.post(
-      `${process.env.REACT_APP_SERVER_URL}/auth/signup`, 
-      requestBody, 
-      { headers: { Authorization: `Bearer ${authToken}` },
-    })
-    .then((response) => {})
-    */
+
+    // const authToken = localStorage.getItem("authToken");
+    // axios.post(
+    //   `${process.env.REACT_APP_SERVER_URL}/signup`, 
+    //   requestBody, 
+    //   { headers: { Authorization: `Bearer ${authToken}` },
+    // })
+    // .then((response) => {
+    //   console.log("TITITI", response)
+    // })
+    // .catch(err => console.log(err))
+
 
     // Or using a service
-    console.log("requestbody...", requestBody)
+    // console.log("requestbody...", requestBody)
     authService
       .signup(requestBody)
       .then((response) => {
@@ -67,7 +71,7 @@ function SignupPage() {
   };
 
   return (
-    <div className="SignupPage">
+    <div className="SignupPage" id="divSignupPage">
       <h1>Darse de alta</h1>
 
       <form onSubmit={handleSignupSubmit}>
