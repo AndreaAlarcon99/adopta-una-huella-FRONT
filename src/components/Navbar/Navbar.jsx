@@ -18,8 +18,6 @@ function Navbar() {
           id="logo"
         />
 
-        
-
         {!isLoggedIn && (
           <>
             <Link to="/signup">
@@ -35,7 +33,7 @@ function Navbar() {
 
         {isLoggedIn && (
           <div className="align-items-right">
-            {user && <img src={user.imgUser} alt="Imagen Usuario"></img>}
+          {user && <span>{user.username}</span>}
             <button className="btn" onClick={logOutUser}>
               Cerrar sesión
             </button>
@@ -108,19 +106,6 @@ function Navbar() {
                 </ul>
               </li>
             </ul>
-
-            <form className="d-flex mt-3" role="search">
-              <input
-                className="form-control me-2"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-              />
-            
-              <button className="btn btn-outline-success" type="submit">
-                Search
-              </button>
-            </form>
           </div>
         </div>
       </div>
