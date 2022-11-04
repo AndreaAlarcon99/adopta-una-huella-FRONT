@@ -1,24 +1,11 @@
 import axios from "axios";
 
-const apiUrl = "http://localhost:5005/"
+const apiUrl = "http://localhost:5005"
 
 class AuthService {
-  constructor() {
-    // this.api = axios.create({
-    //   baseURL: process.env.REACT_APP_SERVER_URL || "http://localhost:5005",
-    // });
 
-    // Automatically set JWT token on the request headers for every request
-    apiUrl.interceptors.request.use((config) => {
-      // Retrieve the JWT token from the local storage
-      const storedToken = localStorage.getItem("authToken");
-
-      if (storedToken) {
-        config.headers = { Authorization: `Bearer ${storedToken}` };
-      }
-
-      return config;
-    });
+  getToken(){
+    return localStorage.getItem("authToken");
   }
 
   login(requestBody){
@@ -30,7 +17,7 @@ class AuthService {
   }
 
   verify(){
-    return axios.post(apiUrl + "/verify")
+    return axios.post(apiUrl + "/verify", {headers:{authorization: `Bearer ${this.getToken()}`}})
   }
   
 }
