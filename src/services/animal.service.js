@@ -1,8 +1,9 @@
 import axios from "axios";
 
-const apiUrl = "http://localhost:5005/api"
+const apiUrl = "http://localhost:5005";
 
 class AnimalService {
+
 
     getToken(){
         return localStorage.getItem("authToken");
@@ -26,6 +27,7 @@ class AnimalService {
     editAnimal(animal){
         return axios.put(apiUrl + "/animales/" + animal._id, animal)
     }
+
 }
 
 const animalService = new AnimalService();
