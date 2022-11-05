@@ -7,12 +7,10 @@ function PetDetailPage() {
 
   const [animal, setAnimal] = useState("");
   const {animalId} = useParams();
-  console.log("soy animal Id.. ", animalId)
 
   useEffect(() => {
     animalService.getAnimal(animalId)
     .then((result) => {
-        console.log(animalId, result)
       setAnimal(result.data);
     });
     // eslint-disable-next-line

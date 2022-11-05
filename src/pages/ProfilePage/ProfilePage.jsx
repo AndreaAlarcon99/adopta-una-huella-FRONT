@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react'
 import { useParams } from "react-router-dom";
 import animalService from "../../services/animal.service";
 
-function ProfilePage({ user }) {
+function ProfilePage() {
   // const { _id, username, email, imgUser, description, logoUser } = user
 
   const {userId} = useParams();
