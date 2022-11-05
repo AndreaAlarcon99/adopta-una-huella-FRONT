@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import animalService from "../../services/animal.service";
 import { useParams } from "react-router-dom";
 import "./PetDetailPage.css";
+import { Link } from "react-router-dom";
 
 function PetDetailPage() {
 
@@ -85,10 +86,8 @@ function PetDetailPage() {
                 <strong>Microchip: </strong>
                 {animal.microchip === true ? "Sí" : "No"}
               </p>
-              <p>
-                <strong>Protectora: </strong>
-                {animal.creator}
-              </p>
+              
+              <Link to={"/perfil/"+animal.creator} > <strong>Protectora </strong></Link>
             </div>
 
             <p className="text-start">

@@ -32,11 +32,11 @@ function App() {
         <Route path="/animales/:animalId" element={<PetDetailPage />} />
 
         <Route
-          path="/profile"
+          path="/perfil/:userId"
           element={
-            <IsPrivate>
+            // <IsPrivate>
               <ProfilePage />
-            </IsPrivate>
+            // </IsPrivate>
           }
         />
 
