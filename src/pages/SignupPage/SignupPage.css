@@ -2,3 +2,19 @@
     max-width: 400px;
     min-width: 200px;
 } */
+
+#btnSignUp2{
+    background-color: #ADC178;;
+    color: white;
+  }
+
+  #btnLogIn2:hover {
+    background-color: #F0EAD2;
+    color: #A98467;
+    text-decoration: none;
+  }
+
+  #btnLogIn2 {
+    color: #A98467;
+    text-decoration: none;
+  }

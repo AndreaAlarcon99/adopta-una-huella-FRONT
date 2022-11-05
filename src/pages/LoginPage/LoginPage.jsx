@@ -73,14 +73,14 @@ function LoginPage() {
           <label htmlFor="floatingPassword3">Contraseña</label>
         </div>
 
-        <button className="btn btn-primary" type="submit">
+        <button className="btn" id="btnLogIn" type="submit">
           Entrar
         </button>
       </form>
       {errorMessage && <p className="error-message">{errorMessage}</p>}
-
-      <p>¿No tienes cuenta?</p>
-      <Link to={"/signup"}> Regístrate</Link>
+      <br></br>
+      <p>¿No tienes cuenta?
+      <Link to={"/signup"} id="btnSignUp"> Regístrate</Link></p>
     </div>
   );
 }

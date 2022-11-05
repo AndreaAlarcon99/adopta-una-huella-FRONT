@@ -25,7 +25,7 @@ function Navbar() {
           <ul className="navbar-nav">
             <li className="nav-item">
               <Link to="/" className="nav-link active" aria-current="page">
-                Principal
+                Inicio
               </Link>
             </li>
             <li className="nav-item dropdown">
@@ -57,20 +57,20 @@ function Navbar() {
             </li>
             {isLoggedIn && (
               <Link to="/profile" className="nav-link">
-                Perfil
+                Mi perfil
               </Link>
             )}
             {!isLoggedIn && (
               <>
                 <Link to="/login">
                   {" "}
-                  <button className="btn btn-outline-secondary m-1">
+                  <button className="btn btn-outline-secondary m-1" id="btLogIn">
                     Iniciar sesión
                   </button>{" "}
                 </Link>
                 <Link to="/signup">
                   {" "}
-                  <button className="btn btn-secondary m-1">
+                  <button className="btn m-1 " id="btSignUp">
                     Registrarse
                   </button>{" "}
                 </Link>
@@ -78,8 +78,8 @@ function Navbar() {
             )}
 
             {isLoggedIn && (
-              <div className="btn btn-secondary m-1">
-                <button className="btn" onClick={logOutUser}>
+              <div>
+                <button className="btn" id="btLogOut" onClick={logOutUser}>
                   Cerrar sesión
                 </button>
               </div>

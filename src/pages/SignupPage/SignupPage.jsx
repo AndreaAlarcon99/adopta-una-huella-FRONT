@@ -154,16 +154,16 @@ function SignupPage() {
           ></textarea>
           <label htmlFor="floatingTextarea2">Descripción</label>
         </div>
-
-        <button className="btn btn-primary" type="submit">
+        <br></br>
+        <button className="btn" id="btnSignUp2" type="submit">
           Registrarme
         </button>
       </form>
 
       {errorMessage && <p className="error-message">{errorMessage}</p>}
-
-      <p>¿Ya tienes cuenta?</p>
-      <Link to={"/login"}> Entrar</Link>
+      <br></br>
+      <p>¿Ya tienes cuenta?
+      <Link to={"/login"} id="btnLogIn2"> Entrar</Link></p>
     </div>
   );
 }
