@@ -1,6 +1,6 @@
 import "./ProfilePage.css";
-import animalService from "../../services/animal.service";
-import { useState, useEffect } from 'react'
+// import animalService from "../../services/animal.service";
+// import { useState, useEffect } from 'react'
 
 function ProfilePage({user}) {
 
