@@ -25,7 +25,7 @@ function AnimalComponent({ animal }) {
           </svg>{" "}
           {animal.ubication}
         </p>
-        <Link to={"/animales" + animal._id}>Ver información</Link>
+        <Link to={"/animales/" + animal._id}>Ver información</Link>
       </div>
     </div>
   );

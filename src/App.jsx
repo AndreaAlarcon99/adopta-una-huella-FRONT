@@ -30,10 +30,10 @@ function App() {
         <Route path="/añadir-animal" element={<AddPet />} />
 
         <Route
-          path="/profile"
+          path="/perfil/:userId"
           element={
             // <IsPrivate>
-              <ProfilePage />
+                <ProfilePage />
             // </IsPrivate>
           }
         />
