@@ -29,7 +29,7 @@ function App() {
         <Route path="/adoptados" element={<AdoptedPets />} />
         <Route path="/animales" element={<PetListPage />} />
         <Route path="/añadir-animal" element={<AddPet />} />
-        <Route path="/animales/:petId" element={<PetDetailPage />} />
+        <Route path="/animales/:animalId" element={<PetDetailPage />} />
 
         <Route
           path="/profile"
