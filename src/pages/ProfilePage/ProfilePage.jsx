@@ -1,6 +1,6 @@
 import "./ProfilePage.css";
-import animalService from "../../services/animal.service";
-import { useState, useEffect } from 'react'
+// import animalService from "../../services/animal.service";
+// import { useState, useEffect } from 'react'
 
 function ProfilePage({user}) {
 
@@ -9,9 +9,11 @@ function ProfilePage({user}) {
   // const [enAdopcion, setEnAdopcion] = useState([]);
 
   // useEffect(() => {
+
   //   animalService.getAnimals(_id)
   //   .then(results => setEnAdopcion(results.data))
   //   .catch(err => console.log(err))
+
   // }, [])
   
 

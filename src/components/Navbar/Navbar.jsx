@@ -18,27 +18,26 @@ function Navbar() {
           id="logo"
         />
 
-        {isLoggedIn && (
-          <>
-            <button className="btn" onClick={logOutUser}>
-              Logout
-            </button>
-
-            <span>{user && user.name}</span>
-          </>
-        )}
-
         {!isLoggedIn && (
           <>
             <Link to="/signup">
               {" "}
-              <button className="btn">Sign Up</button>{" "}
+              <button className="btn">Registrarme</button>{" "}
             </Link>
             <Link to="/login">
               {" "}
-              <button className="btn">Login</button>{" "}
+              <button className="btn">Entrar</button>{" "}
             </Link>
           </>
+        )}
+
+        {isLoggedIn && (
+          <div className="align-items-right">
+          {user && <span>{user.username}</span>}
+            <button className="btn" onClick={logOutUser}>
+              Cerrar sesión
+            </button>
+          </div>
         )}
 
         <button
@@ -52,7 +51,7 @@ function Navbar() {
         </button>
         <div
           className="offcanvas offcanvas-end"
-          tabindex="-1"
+          tabIndex="-1"
           id="offcanvasNavbar"
           aria-labelledby="offcanvasNavbarLabel"
         >
@@ -74,20 +73,22 @@ function Navbar() {
                   Home
                 </Link>
               </li>
+
               <li className="nav-item">
                 <Link to="/informacion-adopcion" className="nav-link">
                   Información
                 </Link>
               </li>
               <li className="nav-item dropdown">
-                <li
+               
+                <p
                   className="nav-link dropdown-toggle"
                   role="button"
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
                   Nuestros animales
-                </li>
+                </p>
                 <ul className="dropdown-menu">
                   <li>
                     <Link to="/animales" className="dropdown-item">
@@ -105,18 +106,6 @@ function Navbar() {
                 </ul>
               </li>
             </ul>
-
-            <form className="d-flex mt-3" role="search">
-              <input
-                className="form-control me-2"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-              />
-              <button className="btn btn-outline-success" type="submit">
-                Search
-              </button>
-            </form>
           </div>
         </div>
       </div>
