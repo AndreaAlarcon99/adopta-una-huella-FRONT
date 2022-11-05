@@ -13,8 +13,6 @@ class AuthService {
   }
 
   signup(requestBody){
-    console.log("requestBody soy ", requestBody)
-    console.log("api soy yo ", apiUrl)
     return axios.post(apiUrl + "/signup", requestBody)
   }
 
