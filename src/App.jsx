@@ -34,9 +34,9 @@ function App() {
         <Route
           path="/profile"
           element={
-            // <IsPrivate>
+            <IsPrivate>
               <ProfilePage />
-            // </IsPrivate>
+            </IsPrivate>
           }
         />
 
