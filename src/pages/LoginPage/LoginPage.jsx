@@ -60,20 +60,22 @@ function LoginPage() {
           />
           <label htmlFor="floatingInput">Email </label>
         </div>
-       
+
         <div className="form-floating mb-3">
           <input
             type="password"
             className="form-control"
-            id="floatingPassword"
+            id="floatingPassword3"
             placeholder="Password"
             value={password}
             onChange={handlePassword}
           />
-          <label htmlFor="floatingPassword">Contraseña</label>
+          <label htmlFor="floatingPassword3">Contraseña</label>
         </div>
 
-        <button className="btn btn-primary" type="submit">Entrar</button>
+        <button className="btn btn-primary" type="submit">
+          Entrar
+        </button>
       </form>
       {errorMessage && <p className="error-message">{errorMessage}</p>}
 
