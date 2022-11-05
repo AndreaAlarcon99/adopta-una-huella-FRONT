@@ -55,6 +55,11 @@ function Navbar() {
                 Información
               </Link>
             </li>
+            {isLoggedIn && (
+              <Link to="/profile" className="nav-link">
+                Perfil
+              </Link>
+            )}
             {!isLoggedIn && (
               <>
                 <Link to="/login">
