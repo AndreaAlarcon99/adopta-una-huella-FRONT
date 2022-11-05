@@ -1,0 +1,16 @@
+/*
+#F0EAD2 beige claro
+#DDE5B6 verde claro
+#ADC178 verde fuerte
+#A98467 marrón claro
+#6C584C marrón fuerte
+*/
+
+.imagenAnimal{
+    border-radius: 5%;
+}
+
+.botonAdoptar{
+    background-color: #ADC178;
+    font-size: 1.2rem;
+}

@@ -5,7 +5,8 @@ import { useState, useEffect } from 'react'
 import { useParams } from "react-router-dom";
 import animalService from "../../services/animal.service";
 
-function ProfilePage() {
+function ProfilePage({ user }) {
+  // const { _id, username, email, imgUser, description, logoUser } = user
 
   const {userId} = useParams();
   console.log(userId)
@@ -42,8 +43,8 @@ function ProfilePage() {
         <p className="card-text"><small className="text-muted">Last updated 3 mins ago</small></p>
       </div>
     </div>
-  </div>
-</div>
+    </div>
+    </div>
   );
 }
 
