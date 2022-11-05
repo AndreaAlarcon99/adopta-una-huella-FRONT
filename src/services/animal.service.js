@@ -1,14 +1,13 @@
 import axios from "axios";
+// import User from "../../../adopta-una-huella-BACK/models/User.model";
 
 const apiUrl = process.env.API_SERVER_URL || "http://localhost:5005"
 
 class AnimalService {
 
-
     getToken(){
         return localStorage.getItem("authToken");
     }
-
     getAnimals(){
         return axios.get(apiUrl + "/animales");
     }
@@ -27,6 +26,9 @@ class AnimalService {
     editAnimal(animal){
         return axios.put(apiUrl + "/animales/" + animal._id, animal, {headers:{authorization: `Bearer ${this.getToken()}`}})
     }
+    // getAnimals(creator){
+    //     return axios.get(apiUrl + "/animales/" + creator);
+    // }
 
 }
 
