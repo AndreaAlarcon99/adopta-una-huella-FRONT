@@ -59,14 +59,13 @@ function SignupPage() {
     authService
       .signup(requestBody)
       .then((response) => {
-        // If the POST request is successful redirect to the login page
+        // If the POST request is successful redirect to the home page
         navigate("/");
       })
       .catch((error) => {
         // If the request resolves with an error, set the error message in the state
         const errorDescription = error.response.data.message;
         setErrorMessage(errorDescription);
-        console.log("error donde estas", error)
       });
   };
 
