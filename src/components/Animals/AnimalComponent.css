@@ -1,11 +1,15 @@
 #cajaAnimal {
   border-radius: 1em;
   box-shadow: 0 0 10px gray;
-  margin: 1em;
+  margin: auto;
+  margin-top: 3vh;
+  padding: 0;
+  
 }
+
 #cajaAnimal img {
   border-radius: 1em 1em 0 0;
-  padding: 0;
+  
 }
 
 .locationIcon{
@@ -22,4 +26,18 @@
 
 .linkInfo{
   text-decoration: none;
+  
+}     
+.linkInfo:hover{
+  text-decoration: none;
+  
+}    
+          
+#footerCard{
+  background-color: #DDE5B6;
 }
+
+#footerCard:hover{
+  background-color: #ADC178;
+}
+

@@ -1,7 +1,7 @@
 #filtrosLateral {
   float: left;
   height: 100vh;
-  width: 20vw;
+  width: 12vw;
   margin-right: 2em;
   background-color: rgba(234, 231, 231, 0.6);
 }
@@ -11,7 +11,17 @@
   margin: 1em;
 }
 
+
+.filtroEspecifico h4 {
+  font-weight: lighter;
+  text-align: start;
+}
+
+#filtrosLateral h3 {
+  color: #A98467;
+}
 #filtros {
   background-color: #a98467;
   color: white;
+
 }

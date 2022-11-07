@@ -3,160 +3,166 @@ import "./AnimalFilters.css";
 function AnimalFilters() {
   return (
     <div id="filtrosLateral">
+    <h3 className="pt-2">Filtrar</h3>
+    <hr></hr>
       <div className="filtroEspecifico">
-        <h3>Género</h3>
-        <div class="form-check text-start">
+        <h4>Género</h4>
+        <div className="form-check text-start">
           <input
-            class="form-check-input"
+            className="form-check-input"
             type="checkbox"
             id="flexCheckDefault"
             value=""
           />
-          <label class="form-check-label" for="flexCheckDefault">
+          <label className="form-check-label" htmlFor="flexCheckDefault">
             Macho
           </label>
         </div>
-        <div class="form-check text-start">
+        <div className="form-check text-start">
           <input
-            class="form-check-input"
+            className="form-check-input"
             type="checkbox"
             value=""
             id="flexCheckDefault"
           />
-          <label class="form-check-label" for="flexCheckDefault">
+          <label className="form-check-label" htmlFor="flexCheckDefault">
             Hembra
           </label>
         </div>
+        <br></br>
       </div>
       <div className="filtroEspecifico">
-        <h3>Tamaño</h3>
-        <div class="form-check text-start">
+        <h4>Tamaño</h4>
+        <div className="form-check text-start">
           <input
-            class="form-check-input"
+            className="form-check-input"
             type="checkbox"
             value=""
             id="flexCheckDefault"
           />
-          <label class="form-check-label" for="flexCheckDefault">
+          <label className="form-check-label" htmlFor="flexCheckDefault">
             Pequeño
           </label>
         </div>
-        <div class="form-check text-start">
+        <div className="form-check text-start">
           <input
-            class="form-check-input"
+            className="form-check-input"
             type="checkbox"
             value=""
             id="flexCheckDefault"
           />
-          <label class="form-check-label" for="flexCheckDefault">
+          <label className="form-check-label" htmlFor="flexCheckDefault">
             Mediano
           </label>
         </div>
-        <div class="form-check text-start">
+        <div className="form-check text-start">
           <input
-            class="form-check-input"
+            className="form-check-input"
             type="checkbox"
             value=""
             id="flexCheckDefault"
           />
-          <label class="form-check-label" for="flexCheckDefault">
+          <label className="form-check-label" htmlFor="flexCheckDefault">
             Grande
           </label>
         </div>
+        <br></br>
       </div>
       <div className="filtroEspecifico">
-        <h3>Etapa</h3>
-        <div class="form-check text-start">
+        <h4>Etapa</h4>
+        <div className="form-check text-start">
           <input
-            class="form-check-input"
+            className="form-check-input"
             type="checkbox"
             value=""
             id="flexCheckDefault"
           />
-          <label class="form-check-label" for="flexCheckDefault">
+          <label className="form-check-label" htmlFor="flexCheckDefault">
             Cachorro
           </label>
         </div>
-        <div class="form-check text-start">
+        <div className="form-check text-start">
           <input
-            class="form-check-input"
+            className="form-check-input"
             type="checkbox"
             value=""
             id="flexCheckDefault"
           />
-          <label class="form-check-label" for="flexCheckDefault">
+          <label className="form-check-label" htmlFor="flexCheckDefault">
             Joven
           </label>
         </div>
-        <div class="form-check text-start">
+        <div className="form-check text-start">
           <input
-            class="form-check-input"
+            className="form-check-input"
             type="checkbox"
             value=""
             id="flexCheckDefault"
           />
-          <label class="form-check-label" for="flexCheckDefault">
+          <label className="form-check-label" htmlFor="flexCheckDefault">
             Adulto
           </label>
         </div>
-        <div class="form-check text-start">
+        <div className="form-check text-start">
           <input
-            class="form-check-input"
+            className="form-check-input"
             type="checkbox"
             value=""
             id="flexCheckDefault"
           />
-          <label class="form-check-label" for="flexCheckDefault">
+          <label className="form-check-label" htmlFor="flexCheckDefault">
             Anciano
           </label>
         </div>
+        <br></br>
       </div>
       <div className="filtroEspecifico">
-        <h3>Actividad</h3>
-        <div class="form-check text-start">
+        <h4>Actividad</h4>
+        <div className="form-check text-start">
           <input
-            class="form-check-input"
+            className="form-check-input"
             type="checkbox"
             value=""
             id="flexCheckDefault"
           />
-          <label class="form-check-label" for="flexCheckDefault">
+          <label className="form-check-label" htmlFor="flexCheckDefault">
             Muy tranquilo
           </label>
         </div>
-        <div class="form-check text-start">
+        <div className="form-check text-start">
           <input
-            class="form-check-input"
+            className="form-check-input"
             type="checkbox"
             value=""
             id="flexCheckDefault"
           />
-          <label class="form-check-label" for="flexCheckDefault">
+          <label className="form-check-label" htmlFor="flexCheckDefault">
             Tranquilo
           </label>
         </div>
-        <div class="form-check text-start">
+        <div className="form-check text-start">
           <input
-            class="form-check-input"
+            className="form-check-input"
             type="checkbox"
             value=""
             id="flexCheckDefault"
           />
-          <label class="form-check-label" for="flexCheckDefault">
+          <label className="form-check-label" htmlFor="flexCheckDefault">
             Activo
           </label>
         </div>
-        <div class="form-check text-start">
+        <div className="form-check text-start">
           <input
-            class="form-check-input"
+            className="form-check-input"
             type="checkbox"
             value=""
             id="flexCheckDefault"
           />
-          <label class="form-check-label" for="flexCheckDefault">
+          <label className="form-check-label" htmlFor="flexCheckDefault">
             Muy activo
           </label>
         </div>
+        <br></br>
       </div>
       <button className="btn" type="button" id="filtros">
         Aplicar filtros
