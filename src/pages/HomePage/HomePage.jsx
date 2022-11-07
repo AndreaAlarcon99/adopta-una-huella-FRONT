@@ -1,8 +1,9 @@
 import "./HomePage.css";
+import { Link } from "react-router-dom";
 
 function HomePage() {
   return (
-    <div>
+    <div id="containerHome">
       <div
         id="carouselExampleControls"
         className="carousel slide"
@@ -11,7 +12,7 @@ function HomePage() {
         <div className="carousel-inner">
           <div className="carousel-item active" id="primerSlide">
             <img src="../../../perro.png" alt="perro" />
-            <h1>Cómo funcionan las adopciones</h1>
+            <Link to="/animales" className="text-decoration-none text-white "><h1 id="amigo">Tu nuevo amigo</h1></Link>
           </div>
           <div className="carousel-item"></div>
           <div className="carousel-item"></div>
@@ -41,7 +42,6 @@ function HomePage() {
           <span className="visually-hidden">Next</span>
         </button>
       </div>
-      <h1>Home page</h1>
     </div>
   );
 }

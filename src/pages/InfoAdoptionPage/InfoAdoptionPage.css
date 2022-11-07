@@ -88,12 +88,11 @@ header img {
 
 #articleId {
   border-radius: 24px;
-  margin-top: 10%;
   margin-left: 6%;
   width: 85%;
   display: flex;
   justify-content: space-evenly;
-  position: absolute;
+  position: relative;
   padding-top: 5%;
 }
 
@@ -114,9 +113,6 @@ article {
 article p {
   text-align: justify;
   padding: 1rem;
-}
-#desplegables {
-  margin-top: 80vh;
 }
 
 #desplegables {
@@ -153,10 +149,14 @@ article p {
 
 @media (min-width: 993px) {
   #articleId {
-    height: 40%;
+    height: 400px;
     background-color: rgba(169, 132, 103, 0.7);
   }
   article {
     box-shadow: 0 0 20px rgb(72, 71, 71);
   }
+}
+
+#lista {
+  margin-top: 6rem;
 }

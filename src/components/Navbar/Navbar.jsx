@@ -3,14 +3,13 @@ import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../context/auth.context";
 
-function Navbar() {
-  // Subscribe to the AuthContext to gain access to
-  // the values from AuthContext.Provider's `value` prop
+function Navbar({userId}) {
+
   const { isLoggedIn, logOutUser } = useContext(AuthContext);
 
   return (
-    <nav className="navbar navbar-expand-lg bg-light">
-      <div className="container-fluid">
+    <nav className="navbar navbar-expand bg-light" id="totalNavbar">
+      <div className="container-fluid" id="containerNavbar">
         <img
           className="navbar-brand"
           src="../../../HuellaNueva.png"
@@ -19,13 +18,18 @@ function Navbar() {
         />
 
         <div
-          className="collapse navbar-collapse justify-content-end"
+          className="collapse navbar-collapse justify-content-end p-2"
           id="navbarNavDropdown"
         >
-          <ul className="navbar-nav">
-            <li className="nav-item">
+          <ul className="navbar-nav" >
+              <li className="nav-item">
               <Link to="/" className="nav-link active" aria-current="page">
                 Inicio
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link to="/informacion-adopcion" className="nav-link">
+                Información
               </Link>
             </li>
             <li className="nav-item dropdown">
@@ -35,7 +39,7 @@ function Navbar() {
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
-                Nuestros animales
+                Animales
               </p>
               <ul className="dropdown-menu">
                 <li>
@@ -50,40 +54,36 @@ function Navbar() {
                 </li>
               </ul>
             </li>
-            <li className="nav-item">
-              <Link to="/informacion-adopcion" className="nav-link">
-                Información
-              </Link>
-            </li>
-            {isLoggedIn && (
-              <Link to="/profile" className="nav-link">
-                Mi perfil
-              </Link>
-            )}
-            {!isLoggedIn && (
-              <>
-                <Link to="/login">
-                  {" "}
-                  <button className="btn btn-outline-secondary m-1" id="btLogIn">
-                    Iniciar sesión
-                  </button>{" "}
+            
+            <div className="container-fluid" id="botones">
+              {isLoggedIn && (
+                <Link to={'/perfil/' + userId} className="nav-link">
+                  Mi perfil
                 </Link>
-                <Link to="/signup">
-                  {" "}
-                  <button className="btn m-1 " id="btSignUp">
-                    Registrarse
-                  </button>{" "}
-                </Link>
-              </>
-            )}
+              )}
+              {!isLoggedIn && (
+                <>
+                  <Link to="/login">
+                    <button className="btn btn-outline-secondary m-1" id="btLogIn">
+                      Iniciar sesión
+                    </button>
+                  </Link>
+                  <Link to="/signup">
+                    <button className="btn m-1" id="btSignUp">
+                      Registrarse
+                    </button>
+                  </Link>
+                </>
+              )}
 
-            {isLoggedIn && (
-              <div>
-                <button className="btn" id="btLogOut" onClick={logOutUser}>
-                  Cerrar sesión
-                </button>
-              </div>
-            )}
+              {isLoggedIn && (
+                <div>
+                  <button className="btn" id="btLogOut" onClick={logOutUser}>
+                    Cerrar sesión
+                  </button>
+                </div>
+              )}
+            </div>
           </ul>
         </div>
       </div>

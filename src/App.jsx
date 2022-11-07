@@ -16,12 +16,27 @@ import "bootstrap";
 import AdoptedPets from "./pages/AdoptedPets/AdoptedPets";
 import PetListPage from "./pages/PetListPage/PetListPage";
 import AddPet from "./pages/Pets/AddPet";
-import PetDetailPage from "./pages/PetDetailPage/PetDetailPage";
+
+import { useState, useEffect } from "react";
+import authService from "./services/auth.service";
+
 
 function App() {
+
+  const [userId, setUserId] = useState()
+
+  useEffect(() => {
+    authService
+      .verify()
+      .then(resp =>{
+        setUserId(resp.data._id)
+      })
+  }, [])
+  
+
   return (
     <div className="App">
-      <Navbar />
+      <Navbar userId={userId} />
 
       <Routes>
         <Route path="/" element={<HomePage />} />
@@ -29,13 +44,12 @@ function App() {
         <Route path="/adoptados" element={<AdoptedPets />} />
         <Route path="/animales" element={<PetListPage />} />
         <Route path="/añadir-animal" element={<AddPet />} />
-        <Route path="/animales/:animalId" element={<PetDetailPage />} />
 
         <Route
           path="/perfil/:userId"
           element={
             // <IsPrivate>
-                <ProfilePage />
+              <ProfilePage />
             // </IsPrivate>
           }
         />
