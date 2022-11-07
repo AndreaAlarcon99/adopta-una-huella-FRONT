@@ -11,6 +11,7 @@
   margin: 1em;
 }
 
+
 .filtroEspecifico h4 {
   font-weight: lighter;
   text-align: start;
@@ -18,4 +19,9 @@
 
 #filtrosLateral h3 {
   color: #A98467;
+}
+#filtros {
+  background-color: #a98467;
+  color: white;
+
 }
