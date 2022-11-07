@@ -96,7 +96,6 @@ function Navbar({ userId }) {
                   </button>
                 </div>
               )}
-            </div>
           </ul>
         </div>
       </div>

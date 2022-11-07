@@ -25,7 +25,8 @@ function App() {
   const [userId, setUserId] = useState();
 
   useEffect(() => {
-    authService.verify().then((resp) => {
+    authService.verify()
+    .then((resp) => {
       setUserId(resp.data._id);
     });
   }, []);
