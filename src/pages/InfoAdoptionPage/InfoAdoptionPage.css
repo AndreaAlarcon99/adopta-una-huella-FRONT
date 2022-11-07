@@ -44,6 +44,28 @@ header img {
   margin-bottom: 2em;
   align-self: flex-start;
   font-weight: lighter;
+  width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 0.15em solid gray;
+  animation: blink 1s steps(1) infinite;
+  animation: typing 2s steps(38) 1s 1 normal both, blink 1s steps(1) infinite;
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 11%;
+  }
 }
 
 #proceso {

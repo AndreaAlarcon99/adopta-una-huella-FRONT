@@ -60,21 +60,23 @@ function Navbar({userId}) {
               </Link>
             </li>
             {isLoggedIn && (
-              <Link to={'/perfil/' + userId} className="nav-link">
+              <Link to={"/perfil/" + userId} className="nav-link">
                 Mi perfil
-
               </Link>
             )}
             {isLoggedIn && (
               <Link to="/crear-animal" className="nav-link">
                 Añadir animal
-
               </Link>
             )}
             {!isLoggedIn && (
               <>
                 <Link to="/login">
-                  <button className="btn btn-outline-secondary m-1" id="btLogIn">
+                  {" "}
+                  <button
+                    className="btn btn-outline-secondary m-1"
+                    id="btLogIn"
+                  >
                     Iniciar sesión
                   </button>
                 </Link>
