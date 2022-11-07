@@ -9,8 +9,8 @@ function AnimalFilters() {
           <input
             class="form-check-input"
             type="checkbox"
-            value="Macho"
             id="flexCheckDefault"
+            value=""
           />
           <label class="form-check-label" for="flexCheckDefault">
             Macho
@@ -158,6 +158,9 @@ function AnimalFilters() {
           </label>
         </div>
       </div>
+      <button className="btn" type="button" id="filtros">
+        Aplicar filtros
+      </button>
     </div>
   );
 }
