@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import animalService from "../../services/animal.service";
+import "./AddPet.css";
 
 function AddPet() {
   const [errorMessage, setErrorMessage] = useState(undefined);
@@ -12,12 +13,11 @@ function AddPet() {
   const [animalType, setAnimalType] = useState("");
   const [weight, setWeight] = useState("");
   const [age, setAge] = useState("");
-  const [castrated, setCastrated] = useState("");
-  const [vaccines, setVaccines] = useState("");
+  const [castrated, setCastrated] = useState(false);
+  const [vaccines, setVaccines] = useState(false);
   const [size, setSize] = useState("");
   const [lifestyle, setLifestyle] = useState("");
-  const [illness, setIllness] = useState("");
-  const [microchip, setMicrochip] = useState("");
+  const [microchip, setMicrochip] = useState(false);
   const [location, setLocation] = useState("");
 
   const navigate = useNavigate();
@@ -37,7 +37,6 @@ function AddPet() {
       vaccines,
       size,
       lifestyle,
-      illness,
       microchip,
       location,
     };
@@ -63,6 +62,8 @@ function AddPet() {
         <select
           className="form-select mb-3"
           aria-label="Default select example"
+          value={animalType}
+          onChange={(e) => setAnimalType(e.target.value)}
         >
           <option selected>Tipo de animal</option>
           <option value="Perro">Perro</option>
@@ -73,6 +74,8 @@ function AddPet() {
         <select
           className="form-select mb-3"
           aria-label="Default select example"
+          value={gender}
+          onChange={(e) => setGender(e.target.value)}
         >
           <option selected>Género del animal</option>
           <option value="Hembra">Hembra</option>
@@ -142,6 +145,8 @@ function AddPet() {
         <select
           className="form-select mb-3"
           aria-label="Default select example"
+          value={age}
+          onChange={(e) => setAge(e.target.value)}
         >
           <option selected>Etapa de la vida</option>
           <option value="Cachorro">Cachorro</option>
@@ -164,20 +169,19 @@ function AddPet() {
         <select
           className="form-select mb-3"
           aria-label="Default select example"
+          value={size}
+          onChange={(e) => setSize(e.target.value)}
         >
           <option selected>Tamaño de animal</option>
-          <option
-            value={animalType === "Pequeño"}
-            onChange={(e) => setAnimalType(e.target.value)}
-          >
-            Pequeño
-          </option>
+          <option value="Pequeño">Pequeño</option>
           <option value="Mediano">Mediano</option>
           <option value="Grande">Grande</option>
         </select>
         <select
           className="form-select mb-3"
           aria-label="Default select example"
+          value={lifestyle}
+          onChange={(e) => setLifestyle(e.target.value)}
         >
           <option selected>Estilo la vida</option>
           <option value="Muy tranquilo">Muy tranquilo</option>
@@ -185,6 +189,43 @@ function AddPet() {
           <option value="Activo">Activo</option>
           <option value="Muy activo">Muy activo</option>
         </select>
+
+        <div class="form-check" id="checkbox">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            value={castrated}
+            onChange={(e) => setCastrated((e.target.value = true))}
+            id="flexCheckDefault"
+          />
+          <label class="form-check-label" for="flexCheckDefault">
+            Castrado
+          </label>
+        </div>
+        <div class="form-check" id="checkbox">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            value={vaccines}
+            onChange={(e) => setVaccines((e.target.value = true))}
+            id="flexCheckDefault"
+          />
+          <label class="form-check-label" for="flexCheckDefault">
+            Vacunado
+          </label>
+        </div>
+        <div class="form-check" id="checkbox">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            value={microchip}
+            onChange={(e) => setMicrochip((e.target.value = true))}
+            id="flexCheckDefault"
+          />
+          <label class="form-check-label" for="flexCheckDefault">
+            Microchip
+          </label>
+        </div>
         <div className="form-floating mb-3">
           <textarea
             className="form-control"
