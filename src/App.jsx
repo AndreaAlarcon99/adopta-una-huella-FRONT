@@ -18,6 +18,8 @@ import PetListPage from "./pages/PetListPage/PetListPage";
 import AddPet from "./pages/Pets/AddPet";
 import PetDetailPage from "./pages/PetDetailPage/PetDetailPage";
 import EditPetPage from "./pages/EditPetPage/EditPetPage";
+import { useState, useEffect } from "react";
+import authService from "./services/auth.service";
 
 function App() {
 
@@ -55,11 +57,6 @@ function App() {
           element={
             // <IsPrivate>
               <ProfilePage />
-            // </IsPrivate>
-            // <IsPrivate>
-
-              <ProfilePage />
-
             // </IsPrivate>
           }
         />
