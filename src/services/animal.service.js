@@ -23,11 +23,17 @@ class AnimalService {
     deleteAnimal(animalId){
         return axios.delete(apiUrl + "/animales/" + animalId, {headers:{authorization: `Bearer ${this.getToken()}`}})
     }
-    editAnimal(animal){
-        return axios.put(apiUrl + "/animales/" + animal._id, animal, {headers:{authorization: `Bearer ${this.getToken()}`}})
+    editAnimal(animal, animalId){
+        console.log("soy animal desde axios ", animal)
+        console.log("soy animalId desde axios ", animalId)
+        return axios.put(apiUrl + "/animales/" + animalId, animal, {headers:{authorization: `Bearer ${this.getToken()}`}})
     }
     // getAnimals(creator){
     //     return axios.get(apiUrl + "/animales/" + creator);
+    // }
+
+    // editApartment_v2(apartment, apartmentId){
+    //     return axios.put(apiUrl + "/" + apartmentId, apartment);
     // }
 
 }
