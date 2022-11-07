@@ -9,22 +9,31 @@ function ProfilePage() {
   const { userId } = useParams();
   const [enAdopcion, setEnAdopcion] = useState([]);
   const [user, setUser] = useState({});
+  const [username, setUsername] = useState("");
+  const [location, setLocation] = useState("");
+
+  const [imgUser, setImgUser] = useState("");
+  const [description, setDescription] = useState("");
+
   useEffect(() => {
     userService
       .getUser(userId)
       .then((results) => {
-        console.log("SOY RESULTS.DATA", results.data);
-        return setUser(results.data);
+        const userProfile = results.data;
+        setUsername(userProfile.username);
+        setLocation(userProfile.location);
+        setImgUser(userProfile.imgUser);
+        setDescription(userProfile.description);
       })
-      .then(console.log("SOY EL NUEVO STATE DE USER3 ", user))
+
       // animalService.getAnimalesFiltrados({creator: userId})
       // .then(results => {
       //   // console.log('GETANIMAL: ' + results.data)
       //   return setEnAdopcion(results.data)
       // })
-      .catch((err) => console.log(err));
+      .catch((err) => console.log("Soy error de ProfilePage: ", err));
     // eslint-disable-next-line
-  }, []);
+  }, [userId]);
 
   return (
     // username, email, imgUser, description, location
@@ -43,13 +52,8 @@ function ProfilePage() {
 
         <div className="col-12 col-md-6 mt-md-5 m-5 m-md-0 text-center">
           <div id="containerDescription">
-            <h3>Soy la protectora h3</h3>
-            <p>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Hic
-              exercitationem itaque ullam ut aut sapiente cumque tempore illum
-              voluptates qui! Harum qui neque deserunt quas voluptate dolorum.
-              Nostrum, laboriosam nihil.
-            </p>
+            <h3>{username}</h3>
+            <p>{description}</p>
             <button
               type="button"
               className="btn text-white w-25 mx-auto mb-3"
