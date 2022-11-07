@@ -19,10 +19,14 @@ function PetListPage() {
       <AnimalFilters />
       <h2 className="mb-3"> Animales en adopción </h2>
       <AnimalTypeFilter />
-      <div className="col-8 col-md-6 col-lg-5">
+      <div className="container">
+      <div className="row">
+      
         {animals.map((animal) => (
           <AnimalComponent animal={animal} key={animal._id} />
         ))}
+    
+      </div>
       </div>
     </div>
   );

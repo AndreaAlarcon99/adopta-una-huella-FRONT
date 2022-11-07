@@ -33,12 +33,11 @@ function HomePage() {
         <h4 className="text-start m-4">NUESTROS ANCIANOS</h4>
         <div className="container-fluid">
           <div className="row">
-            <div className="col-6 col-md-4 col-lg-3">
               {animals.map((animal) => (
                 <AnimalComponent animal={animal} key={animal._id} />
               ))}
             </div>
-          </div>
+        
         </div>
       </div>
     </div>

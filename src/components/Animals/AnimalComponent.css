@@ -4,6 +4,22 @@
   margin: 1em;
 }
 #cajaAnimal img {
-  border-radius: 1em;
+  border-radius: 1em 1em 0 0;
   padding: 0;
+}
+
+.locationIcon{
+  width: 1.5vw;
+}
+
+.birthdayIcon{
+  width: 1.5vw;
+}
+
+.cardDetails{
+  font-size: 1.1rem;
+}
+
+.linkInfo{
+  text-decoration: none;
 }
