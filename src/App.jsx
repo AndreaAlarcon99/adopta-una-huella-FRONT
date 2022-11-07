@@ -20,8 +20,6 @@ import { useState, useEffect } from "react";
 import authService from "./services/auth.service";
 import PetDetailPage from "./pages/PetDetailPage/PetDetailPage";
 import EditPetPage from "./pages/EditPetPage/EditPetPage";
-import { useState, useEffect } from "react";
-import authService from "./services/auth.service";
 
 function App() {
 
