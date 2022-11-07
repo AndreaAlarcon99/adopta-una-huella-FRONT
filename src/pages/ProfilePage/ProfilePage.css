@@ -1,0 +1,17 @@
+.imagenUser {
+    border-radius: 5%;
+}
+
+#botonUser{
+    background-color: #ADC178;
+    font-size: 1.2rem;
+}
+
+#containerDescription{
+    border: 2px 2px #A98467;
+}
+
+#btSend {
+    background-color: #A98467;
+    color: white;
+}

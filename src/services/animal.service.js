@@ -29,9 +29,9 @@ class AnimalService {
         console.log("soy animalId desde axios ", animalId)
         return axios.put(apiUrl + "/animales/" + animalId, animal, {headers:{authorization: `Bearer ${this.getToken()}`}})
     }
-    // getAnimals(creator){
-    //     return axios.get(apiUrl + "/animales/" + creator);
-    // }
+    getAnimalesFiltrados(userId){
+        return axios.get(apiUrl + "/animalesFiltrados/" + userId);
+    }
 
     // editApartment_v2(apartment, apartmentId){
     //     return axios.put(apiUrl + "/" + apartmentId, apartment);
