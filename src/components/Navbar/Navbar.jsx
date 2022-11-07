@@ -3,12 +3,13 @@ import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../context/auth.context";
 
-function Navbar({userId}) {
-
+function Navbar({ userId }) {
+  // Subscribe to the AuthContext to gain access to
+  // the values from AuthContext.Provider's `value` prop
   const { isLoggedIn, logOutUser } = useContext(AuthContext);
 
   return (
-    <nav className="navbar navbar-expand " id="totalNavbar">
+    <nav className="navbar navbar-expand" id="totalNavbar">
       <div className="container-fluid" id="containerNavbar">
         <img
           className="navbar-brand"
@@ -16,7 +17,6 @@ function Navbar({userId}) {
           alt="logo"
           id="logo"
         />
-
         <div
           className="collapse navbar-collapse justify-content-end p-2"
           id="navbarNavDropdown"
@@ -83,24 +83,10 @@ function Navbar({userId}) {
                 <Link to="/signup">
                   <button className="btn m-1 " id="btSignUp">
                     Registrarse
-                  </button>
+                  </button>{" "}
                 </Link>
-                </>
-              )}
-              {!isLoggedIn && (
-                <>
-                  <Link to="/login">
-                    <button className="btn btn-outline-secondary m-1" id="btLogIn">
-                      Iniciar sesión
-                    </button>
-                  </Link>
-                  <Link to="/signup">
-                    <button className="btn m-1" id="btSignUp">
-                      Registrarse
-                    </button>
-                  </Link>
-                </>
-              )}
+              </>
+            )}
 
               {isLoggedIn && (
                 <div>
@@ -109,8 +95,7 @@ function Navbar({userId}) {
                   </button>
                 </div>
               )}
-            </ul>
-          </div>
+          </ul>
         </div>
     </nav>
   );

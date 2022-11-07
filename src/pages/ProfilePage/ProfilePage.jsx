@@ -1,34 +1,32 @@
 import "./ProfilePage.css";
 import animalService from "../../services/animal.service";
 import userService from "../../services/user.service";
-import { useState, useEffect } from 'react'
+import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 // import authService from "../../services/auth.service";
 
-
 function ProfilePage() {
-
-  const {userId} = useParams();
+  const { userId } = useParams();
   const [enAdopcion, setEnAdopcion] = useState([]);
   const [user, setUser] = useState({});
   useEffect(() => {
-    userService.getUser(userId)
-    .then(results => {
-      console.log('SOY RESULTS.DATA', results.data)
-      return setUser(results.data)
-    })
-    .then(console.log('SOY EL NUEVO STATE DE USER3 ', user))
-    // animalService.getAnimalesFiltrados({creator: userId})
-    // .then(results => {
-    //   // console.log('GETANIMAL: ' + results.data)
-    //   return setEnAdopcion(results.data)
-    // })
-    .catch(err => console.log(err))
+    userService
+      .getUser(userId)
+      .then((results) => {
+        console.log("SOY RESULTS.DATA", results.data);
+        return setUser(results.data);
+      })
+      .then(console.log("SOY EL NUEVO STATE DE USER3 ", user))
+      // animalService.getAnimalesFiltrados({creator: userId})
+      // .then(results => {
+      //   // console.log('GETANIMAL: ' + results.data)
+      //   return setEnAdopcion(results.data)
+      // })
+      .catch((err) => console.log(err));
     // eslint-disable-next-line
-  }, [])
+  }, []);
 
   return (
-
     // username, email, imgUser, description, location
 
     <div className="container-fluid mt-5 p-0 w-100">
@@ -38,8 +36,8 @@ function ProfilePage() {
             className="img-fluid w-75 imagenUser shadow-lg"
             // src={user.imgUser}
             // alt={user.username}
-            src='https://picsum.photos/id/237/200/300'
-            alt='imagenUser'
+            src="https://picsum.photos/id/237/200/300"
+            alt="imagenUser"
           />
         </div>
 

@@ -14,16 +14,30 @@ function HomePage() {
   }, []);
 
   return (
-    <div id="containerHome">
-      <div
-        id="carouselExampleControls"
-        className="carousel slide"
-        data-bs-ride="carousel"
-      >
-        <div className="carousel-inner">
-          <div className="carousel-item active" id="primerSlide">
-            <img src="../../../perro.png" alt="perro" />
-            <Link to="/animales" className="text-decoration-none text-white "><h1 id="amigo">Tu nuevo amigo</h1></Link>
+    <div>
+      <div id="tituloPortada">
+        <p>Te ayudamos a encontrar a tu nuevo mejor amigo</p>
+        <Link to="/animales" className="dropdown-item">
+          <button className="btn">Animales en adopción</button>
+        </Link>
+      </div>
+      <div id="portada">
+        <div id="imagen1">
+          <img src="../../../perroabrazo.jpeg" alt="perro loco" />
+        </div>
+        <div id="imagen2">
+          <img src="../../../perroloco.jpeg" alt="perro loco" />
+        </div>
+      </div>
+      <div>
+        <h4 className="text-start m-4">NUESTROS ANCIANOS</h4>
+        <div className="container-fluid">
+          <div className="row">
+            <div className="col-6 col-md-4 col-lg-3">
+              {animals.map((animal) => (
+                <AnimalComponent animal={animal} key={animal._id} />
+              ))}
+            </div>
           </div>
         </div>
       </div>
