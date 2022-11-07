@@ -3,8 +3,9 @@ import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../context/auth.context";
 
-function Navbar({userId}) {
-
+function Navbar({ userId }) {
+  // Subscribe to the AuthContext to gain access to
+  // the values from AuthContext.Provider's `value` prop
   const { isLoggedIn, logOutUser } = useContext(AuthContext);
 
   return (
@@ -53,27 +54,40 @@ function Navbar({userId}) {
                 </li>
               </ul>
             </li>
-            
-            <div className="container-fluid" id="botones">
-              {isLoggedIn && (
-                <Link to={'/perfil/' + userId} className="nav-link">
-                  Mi perfil
+            <li className="nav-item">
+              <Link to="/informacion-adopcion" className="nav-link">
+                Información
+              </Link>
+            </li>
+            {isLoggedIn && (
+              <Link to={"/perfil/" + userId} className="nav-link">
+                Mi perfil
+              </Link>
+            )}
+            {isLoggedIn && (
+              <Link to="/crear-animal" className="nav-link">
+                Añadir animal
+              </Link>
+            )}
+            {!isLoggedIn && (
+              <>
+                <Link to="/login">
+                  {" "}
+                  <button
+                    className="btn btn-outline-secondary m-1"
+                    id="btLogIn"
+                  >
+                    Iniciar sesión
+                  </button>{" "}
                 </Link>
-              )}
-              {!isLoggedIn && (
-                <>
-                  <Link to="/login">
-                    <button className="btn btn-outline-secondary m-1" id="btLogIn">
-                      Iniciar sesión
-                    </button>
-                  </Link>
-                  <Link to="/signup">
-                    <button className="btn m-1" id="btSignUp">
-                      Registrarse
-                    </button>
-                  </Link>
-                </>
-              )}
+                <Link to="/signup">
+                  {" "}
+                  <button className="btn m-1 " id="btSignUp">
+                    Registrarse
+                  </button>{" "}
+                </Link>
+              </>
+            )}
 
               {isLoggedIn && (
                 <div>
