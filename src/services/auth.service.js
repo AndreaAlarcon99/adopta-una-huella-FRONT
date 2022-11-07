@@ -1,32 +1,32 @@
 import axios from "axios";
 
-const apiUrl = 'http://localhost:5005'
+const apiUrl = "http://localhost:5005";
 
 class AuthService {
-
-  getToken(){
+  getToken() {
     return localStorage.getItem("authToken");
   }
 
-  login(requestBody){
+  login(requestBody) {
     return axios.post(apiUrl + "/login", requestBody);
   }
 
-  signup(requestBody){
+
+  signup(requestBody) {
     return axios.post(apiUrl + "/signup", requestBody)
   }
 
-  verify(){
-    return axios.get(apiUrl + "/verify", {headers:{authorization: `Bearer ${this.getToken()}`}})
+  verify() {
+    return axios.get(apiUrl + "/verify", {
+      headers: { authorization: `Bearer ${this.getToken()}` },
+    });
   }
-  
 }
 
 // Create one instance (object) of the service
 const authService = new AuthService();
 
 export default authService;
-
 
 /* LO QUE VENÍA POR DEFECTO LO DEJO COMENTADO AQUÍ
 

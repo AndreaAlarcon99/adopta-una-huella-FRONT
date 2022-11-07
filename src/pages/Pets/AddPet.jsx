@@ -3,115 +3,198 @@ import { useState } from "react";
 import animalService from "../../services/animal.service";
 
 function AddPet() {
-  const [form, setForm] = useState({
-    animalName: "",
-    imgAnimal: "",
-    description: "",
-    gender: "",
-    birthday: "",
-    animalType: "",
-    animalBreed: "",
-    weight: "",
-    age: "",
-    castrated: "",
-    vaccines: "",
-    size: "",
-    lifestyle: "",
-    illness: "",
-    microchip: "",
-    location: "",
-  });
+  const [errorMessage, setErrorMessage] = useState(undefined);
+  const [animalName, setAnimalName] = useState("");
+  const [imgAnimal, setImgAnimal] = useState("");
+  const [description, setDescription] = useState("");
+  const [gender, setGender] = useState("");
+  const [birthday, setBirthday] = useState("");
+  const [animalType, setAnimalType] = useState("");
+  const [weight, setWeight] = useState("");
+  const [age, setAge] = useState("");
+  const [castrated, setCastrated] = useState("");
+  const [vaccines, setVaccines] = useState("");
+  const [size, setSize] = useState("");
+  const [lifestyle, setLifestyle] = useState("");
+  const [illness, setIllness] = useState("");
+  const [microchip, setMicrochip] = useState("");
+  const [location, setLocation] = useState("");
 
   const navigate = useNavigate();
 
   const submitHandler = (e) => {
     e.preventDefault();
-    const newPet = {
-      animalName: form.animalName,
-      imgAnimal: form.imgAnimal,
-      description: form.description,
-      gender: form.gender,
-      birthday: form.birthday,
-      animalType: form.animalType,
-      animalBreed: form.animalBreed,
-      weight: form.weight,
-      age: form.age,
-      castrated: form.castrated,
-      vaccines: form.vaccines,
-      size: form.size,
-      lifestyle: form.lifestyle,
-      illness: form.illness,
-      microchip: form.microchip,
-      location: form.location,
+    const animal = {
+      animalName,
+      imgAnimal,
+      description,
+      gender,
+      birthday,
+      animalType,
+      weight,
+      age,
+      castrated,
+      vaccines,
+      size,
+      lifestyle,
+      illness,
+      microchip,
+      location,
     };
+
     animalService
-      .addAnimal(newPet)
+      .addAnimal(animal)
       .then((results) => {
-        navigate("/animales" + results.data._id);
+        navigate("/animales");
+
+        console.log("QUE ES RESULTS? ", results);
       })
-      .catch((err) => {
-        // navigate("/error");
+      .catch((error) => {
+        const errorDescription = error.results;
+        setErrorMessage(errorDescription);
+        console.log("ERROR DESDE LA PAGE ADDPET: ", error);
       });
-  };
-
-  const handleName = (e) => {
-    const copiaForm = { ...form };
-    copiaForm.animalName = e.target.value;
-    setForm(copiaForm);
-  };
-
-  const handleImage = (e) => {
-    const copiaForm = { ...form };
-    copiaForm.imgAnimal = e.target.value;
-    setForm(copiaForm);
-  };
-
-  const handleDescription = (e) => {
-    const copiaForm = { ...form };
-    copiaForm.description = e.target.value;
-    setForm(copiaForm);
   };
 
   return (
     <div>
       <h1>Añade un animal</h1>
       <form className="container" onSubmit={submitHandler}>
-        <div className="mb-3">
-          <label htmlFor="animalName" className="form-label">
-            Nombre del animal
-          </label>
+        <select
+          className="form-select mb-3"
+          aria-label="Default select example"
+        >
+          <option selected>Tipo de animal</option>
+          <option value="Perro">Perro</option>
+          <option value="Gato">Gato</option>
+          <option value="Exótico">Exótico</option>
+        </select>
+
+        <select
+          className="form-select mb-3"
+          aria-label="Default select example"
+        >
+          <option selected>Género del animal</option>
+          <option value="Hembra">Hembra</option>
+          <option value="Macho">Macho</option>
+        </select>
+        <div className="form-floating mb-3">
           <input
             type="text"
             className="form-control"
-            id="animalName"
-            aria-describedby="emailHelp"
-            value={form.animalName}
-            onChange={handleName}
+            id="floatingInput"
+            placeholder=" "
+            value={animalName}
+            onChange={(e) => setAnimalName(e.target.value)}
+          />
+          <label htmlFor="floatingInput">Nombre del animal</label>
+        </div>
+        <div className="form-floating mb-3">
+          <input
+            type="text"
+            className="form-control"
+            id="floatingInput"
+            placeholder=" "
+            value={imgAnimal}
+            onChange={(e) => setImgAnimal(e.target.value)}
+          />
+          <label htmlFor="floatingInput">Imagen del animal</label>
+        </div>
+        <div className="form-floating mb-3">
+          <input
+            type="text"
+            className="form-control"
+            id="floatingInput"
+            placeholder=" "
+            value={location}
+            onChange={(e) => setLocation(e.target.value)}
+          />
+          <label htmlFor="floatingInput">Ubicación del animal</label>
+        </div>
+        <div className="input-group mb-3">
+          <input
+            type="number"
+            className="form-control"
+            placeholder="Día"
+            aria-label="Username"
+            value={birthday.dia}
+            onChange={(e) => setBirthday(e.target.value)}
+          />
+          <span className="input-group-text">/</span>
+          <input
+            type="number"
+            className="form-control"
+            placeholder="Mes"
+            aria-label="Mes"
+            value={birthday.mes}
+            onChange={(e) => setBirthday(e.target.value)}
+          />
+          <span className="input-group-text">/</span>
+          <input
+            type="number"
+            className="form-control"
+            placeholder="Año"
+            aria-label="Año"
+            value={birthday.año}
+            onChange={(e) => setBirthday(e.target.value)}
           />
         </div>
-        <div className="mb-3">
-          <label htmlFor="imageApartment" className="form-label">
-            Imagen del animal
-          </label>
+        <select
+          className="form-select mb-3"
+          aria-label="Default select example"
+        >
+          <option selected>Etapa de la vida</option>
+          <option value="Cachorro">Cachorro</option>
+          <option value="Joven">Joven</option>
+          <option value="Adulto">Adulto</option>
+          <option value="Anciano">Anciano</option>
+        </select>
+        <div className="form-floating input-group mb-3">
           <input
             type="text"
             className="form-control"
-            id="imageApartment"
-            value={form.imgAnimal}
-            onChange={handleImage}
+            id="floatingInput"
+            placeholder=" "
+            value={weight}
+            onChange={(e) => setWeight(e.target.value)}
           />
+          <label htmlFor="floatingInput">Peso del animal</label>
+          <span className="input-group-text">kg</span>
         </div>
-        <div className="mb-3">
-          <label htmlFor="priceApartment" className="form-label">
-            Descripción
-          </label>
-          <input
-            type="text"
+        <select
+          className="form-select mb-3"
+          aria-label="Default select example"
+        >
+          <option selected>Tamaño de animal</option>
+          <option
+            value={animalType === "Pequeño"}
+            onChange={(e) => setAnimalType(e.target.value)}
+          >
+            Pequeño
+          </option>
+          <option value="Mediano">Mediano</option>
+          <option value="Grande">Grande</option>
+        </select>
+        <select
+          className="form-select mb-3"
+          aria-label="Default select example"
+        >
+          <option selected>Estilo la vida</option>
+          <option value="Muy tranquilo">Muy tranquilo</option>
+          <option value="Tranquilo">Tranquilo</option>
+          <option value="Activo">Activo</option>
+          <option value="Muy activo">Muy activo</option>
+        </select>
+        <div className="form-floating mb-3">
+          <textarea
             className="form-control"
-            id="priceApartment"
-            value={form.description}
-            onChange={handleDescription}
-          />
+            placeholder="Leave a comment here"
+            id="floatingTextarea2"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+            style={{ height: "100px" }}
+          ></textarea>
+          <label htmlFor="floatingTextarea2">Descripción</label>
         </div>
         <button type="submit" className="btn btn-primary">
           Subir animal

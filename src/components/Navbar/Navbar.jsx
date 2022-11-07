@@ -9,7 +9,7 @@ function Navbar() {
   const { isLoggedIn, logOutUser } = useContext(AuthContext);
 
   return (
-    <nav className="navbar navbar-expand-lg bg-light">
+    <nav className="navbar navbar-expand-lg ">
       <div className="container-fluid">
         <img
           className="navbar-brand"
@@ -58,6 +58,13 @@ function Navbar() {
             {isLoggedIn && (
               <Link to="/profile" className="nav-link">
                 Mi perfil
+
+              </Link>
+            )}
+            {isLoggedIn && (
+              <Link to="/crear-animal" className="nav-link">
+                Añadir animal
+
               </Link>
             )}
             {!isLoggedIn && (
