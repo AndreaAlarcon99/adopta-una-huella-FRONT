@@ -13,6 +13,7 @@ function AnimalComponent({ animal }) {
         <div className="card-body">
           <h5 className="card-title">{animal.animalName}</h5>
 
+
           <p className="card-text">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -30,6 +31,7 @@ function AnimalComponent({ animal }) {
           <p>{animal.birthday}</p>
           <Link to={"/animales/" + animal._id}>Ver información</Link>
         </div>
+
       </div>
     </div>
   );

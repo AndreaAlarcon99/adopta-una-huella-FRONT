@@ -16,6 +16,8 @@ import "bootstrap";
 import AdoptedPets from "./pages/AdoptedPets/AdoptedPets";
 import PetListPage from "./pages/PetListPage/PetListPage";
 import AddPet from "./pages/Pets/AddPet";
+import PetDetailPage from "./pages/PetDetailPage/PetDetailPage";
+import EditPetPage from "./pages/EditPetPage/EditPetPage";
 
 function App() {
   return (
@@ -29,13 +31,20 @@ function App() {
 
         <Route path="/animales" element={<PetListPage />} />
 
+
         <Route path="/crear-animal" element={<AddPet />} />
 
+        <Route path="/animales/:animalId" element={<PetDetailPage />} />
+        <Route path="/animales/:animalId/editar" element={<EditPetPage />} />
+
+
         <Route
-          path="/profile"
+          path="/perfil/:userId"
           element={
             // <IsPrivate>
-            <ProfilePage />
+
+              <ProfilePage />
+
             // </IsPrivate>
           }
         />

@@ -11,8 +11,9 @@ class AuthService {
     return axios.post(apiUrl + "/login", requestBody);
   }
 
+
   signup(requestBody) {
-    return axios.post(apiUrl + "/signup", requestBody);
+    return axios.post(apiUrl + "/signup", requestBody)
   }
 
   verify() {

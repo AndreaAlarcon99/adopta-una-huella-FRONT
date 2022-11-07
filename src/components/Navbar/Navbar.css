@@ -1,3 +1,17 @@
 #logo {
   width: 15vw;
 }
+
+#btSignUp{
+  background-color: #A98467;
+  color: white;
+}
+
+#btLogOut{
+  background-color: #A98467;
+  color: white;
+}
+#btLogIn:hover {
+  background-color: #F0EAD2;
+  color: #A98467;
+}
