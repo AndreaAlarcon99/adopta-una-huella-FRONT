@@ -41,21 +41,6 @@ function SignupPage() {
       location,
     };
 
-    // Send a request to the server using axios
-
-    // const authToken = localStorage.getItem("authToken");
-    // axios.post(
-    //   `${process.env.REACT_APP_SERVER_URL}/signup`,
-    //   requestBody,
-    //   { headers: { Authorization: `Bearer ${authToken}` },
-    // })
-    // .then((response) => {
-    //   console.log("TITITI", response)
-    // })
-    // .catch(err => console.log(err))
-
-    // Or using a service
-    // console.log("requestbody...", requestBody)
     authService
       .signup(requestBody)
       .then((response) => {
@@ -74,89 +59,101 @@ function SignupPage() {
 
   return (
     <div className="SignupPage" id="divSignupPage">
-      <h1>Darse de alta</h1>
+      <h1 className="text-start m-5">Darse de alta</h1>
 
       <form onSubmit={handleSignupSubmit}>
-        <div className="form-floating mb-3">
-          <input
-            type="text"
-            className="form-control"
-            id="floatingInput"
-            placeholder=" "
-            value={username}
-            onChange={handleUsername}
-          />
-          <label htmlFor="floatingInput">Nombre del centro </label>
+        <div className="seccion">
+          <h5 className="text-start m-4"> Datos personales</h5>
+          <div className="form-floating mb-3">
+            <input
+              type="text"
+              className="form-control"
+              id="floatingInput"
+              placeholder=" "
+              value={username}
+              onChange={handleUsername}
+            />
+            <label htmlFor="floatingInput">Nombre del centro </label>
+          </div>
+          <div className="form-floating mb-3">
+            <input
+              type="email"
+              className="form-control"
+              id="floatingInput"
+              placeholder="name@example.com"
+              value={email}
+              onChange={handleEmail}
+            />
+            <label htmlFor="floatingInput">Email </label>
+          </div>
         </div>
-        <div className="form-floating mb-3">
-          <input
-            type="email"
-            className="form-control"
-            id="floatingInput"
-            placeholder="name@example.com"
-            value={email}
-            onChange={handleEmail}
-          />
-          <label htmlFor="floatingInput">Email </label>
+        <div className="seccion">
+          <h5 className="text-start m-4"> Datos del centro</h5>
+
+          <div className="form-floating mb-3">
+            <input
+              type="text"
+              className="form-control"
+              id="floatingInput"
+              placeholder=" "
+              value={licence}
+              onChange={handleLicence}
+            />
+            <label htmlFor="floatingInput">Número de licencia </label>
+          </div>
+          <div className="form-floating mb-3">
+            <input
+              type="text"
+              className="form-control"
+              id="floatingInput"
+              placeholder=" "
+              value={location}
+              onChange={handleLocation}
+            />
+            <label htmlFor="floatingInput">Localización del centro </label>
+          </div>
+
+          <div className="form-floating">
+            <textarea
+              className="form-control"
+              placeholder=" "
+              id="floatingTextarea2"
+              style={{ height: "100px" }}
+              value={description}
+              onChange={handleDescription}
+            ></textarea>
+            <label htmlFor="floatingTextarea2">Descripción</label>
+          </div>
         </div>
-        <div className="form-floating mb-3">
-          <input
-            type="text"
-            className="form-control"
-            id="floatingInput"
-            placeholder=" "
-            value={licence}
-            onChange={handleLicence}
-          />
-          <label htmlFor="floatingInput">Número de licencia </label>
-        </div>
-        <div className="form-floating mb-3">
-          <input
-            type="text"
-            className="form-control"
-            id="floatingInput"
-            placeholder=" "
-            value={location}
-            onChange={handleLocation}
-          />
-          <label htmlFor="floatingInput">Localización del centro </label>
-        </div>
-        <div className="form-floating mb-3">
-          <input
-            type="password"
-            className="form-control"
-            id="floatingPassword1"
-            placeholder="Password"
-            value={password}
-            onChange={handlePassword}
-          />
-          <label htmlFor="floatingPassword1">Contraseña</label>
-        </div>
-        <div className="form-floating mb-3">
-          <input
-            type="password"
-            className="form-control"
-            id="floatingPassword2"
-            placeholder="Password"
-            value={password2}
-            onChange={handlePassword2}
-          />
-          <label htmlFor="floatingPassword2">Repetir contraseña</label>
-        </div>
-        <div className="form-floating">
-          <textarea
-            className="form-control"
-            placeholder=" "
-            id="floatingTextarea2"
-            style={{ height: "100px" }}
-            value={description}
-            onChange={handleDescription}
-          ></textarea>
-          <label htmlFor="floatingTextarea2">Descripción</label>
+        <div className="seccion">
+          <h5 className="text-start m-4"> Contraseña</h5>
+
+          <div className="form-floating mb-3">
+            <input
+              type="password"
+              className="form-control"
+              id="floatingPassword1"
+              placeholder="Password"
+              value={password}
+              onChange={handlePassword}
+            />
+            <label htmlFor="floatingPassword1">Contraseña</label>
+          </div>
+          <div className="form-floating mb-3">
+            <input
+              type="password"
+              className="form-control"
+              id="floatingPassword2"
+              placeholder="Password"
+              value={password2}
+              onChange={handlePassword2}
+            />
+            <label htmlFor="floatingPassword2">Repetir contraseña</label>
+          </div>
         </div>
 
         <button className="btn btn-primary" type="submit">
-          Registrarme
+          Registrarse
         </button>
       </form>
 

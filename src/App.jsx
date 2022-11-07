@@ -26,15 +26,17 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/informacion-adopcion" element={<InfoAdoptionPage />} />
         <Route path="/adoptados" element={<AdoptedPets />} />
+
         <Route path="/animales" element={<PetListPage />} />
-        <Route path="/añadir-animal" element={<AddPet />} />
+
+        <Route path="/crear-animal" element={<AddPet />} />
 
         <Route
           path="/profile"
           element={
-            <IsPrivate>
-              <ProfilePage />
-            </IsPrivate>
+            // <IsPrivate>
+            <ProfilePage />
+            // </IsPrivate>
           }
         />
 
