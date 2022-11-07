@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import animalService from "../../services/animal.service";
 import { useParams } from "react-router-dom";
 import "./PetDetailPage.css";
+import { Link } from "react-router-dom";
 
 function PetDetailPage() {
 
@@ -15,7 +16,6 @@ function PetDetailPage() {
     });
     // eslint-disable-next-line
   }, []);
-  console.log("patata ", animal.animalName)
 
   return (
     <div className="container-fluid mt-5 p-0 w-100">
@@ -27,9 +27,14 @@ function PetDetailPage() {
             alt={animal.animalName}
           />
         </div>
+        
 
         <div className="col-12 col-md-6 mt-md-5 text-start m-5 m-md-0 text-center text-md-start">
           <div className="row">
+          <Link to={"/animales/"+animal._id+"/editar"}> <img className="penEdit" src="../../penEdit.png" alt="editar"></img></Link>
+
+
+ 
             <div className="col-10 col-md-6">
               <p>
                 <strong>Nombre: </strong>
@@ -62,6 +67,7 @@ function PetDetailPage() {
                 {animal.lifestyle}
               </p>
             </div>
+            
 
             <div className="col-10 col-md-6">
               <p>
@@ -70,24 +76,38 @@ function PetDetailPage() {
               </p>
               <p>
                 <strong>Castrado: </strong>
-                {animal.castrated === true ? "Sí" : "No"}
+                {animal.castrated === true ? <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check" viewBox="0 0 16 16">
+  <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/>
+</svg> : <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
+  <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+</svg>}
               </p>
               <p>
                 <strong>Vacunado: </strong>
-                {animal.vaccines === true ? "Sí" : "No"}
+                {animal.vaccines === true ? <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check" viewBox="0 0 16 16">
+  <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/>
+</svg> : <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
+  <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+</svg>}
               </p>
               <p>
                 <strong>Enfermedades: </strong>
-                {animal.illness === true ? "Sí" : "No"}
+                {animal.illness === true ? <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check" viewBox="0 0 16 16">
+  <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/>
+</svg> : <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
+  <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+</svg>}
               </p>
               <p>
                 <strong>Microchip: </strong>
-                {animal.microchip === true ? "Sí" : "No"}
+                {animal.microchip === true ? <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check" viewBox="0 0 16 16">
+  <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/>
+</svg> : <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
+  <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+</svg>}
               </p>
-              <p>
-                <strong>Protectora: </strong>
-                {animal.creator}
-              </p>
+              
+              <Link to={"/perfil/"+animal.creator} > <strong>Protectora </strong></Link>
             </div>
 
             <p className="text-start">

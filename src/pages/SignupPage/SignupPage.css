@@ -1,3 +1,9 @@
+
+.seccion {
+  border-top: 2px solid rgba(165, 164, 164, 0.5);
+  margin: 2em;
+}
+
 /* #divSignupPage{
     max-width: 400px;
     min-width: 200px;

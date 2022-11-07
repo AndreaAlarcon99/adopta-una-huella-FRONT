@@ -1,7 +1,18 @@
+import AnimalComponent from "../../components/Animals/AnimalComponent";
 import "./HomePage.css";
+import { useEffect, useState } from "react";
+import animalService from "../../services/animal.service";
 import { Link } from "react-router-dom";
 
 function HomePage() {
+  const [animals, setAnimals] = useState([]);
+
+  useEffect(() => {
+    animalService.getAnimals().then((results) => {
+      setAnimals(results.data);
+    });
+  }, []);
+
   return (
     <div id="containerHome">
       <div
@@ -14,33 +25,7 @@ function HomePage() {
             <img src="../../../perro.png" alt="perro" />
             <Link to="/animales" className="text-decoration-none text-white "><h1 id="amigo">Tu nuevo amigo</h1></Link>
           </div>
-          <div className="carousel-item"></div>
-          <div className="carousel-item"></div>
         </div>
-        <button
-          className="carousel-control-prev"
-          type="button"
-          data-bs-target="#carouselExampleControls"
-          data-bs-slide="prev"
-        >
-          <span
-            className="carousel-control-prev-icon"
-            aria-hidden="true"
-          ></span>
-          <span className="visually-hidden">Previous</span>
-        </button>
-        <button
-          className="carousel-control-next"
-          type="button"
-          data-bs-target="#carouselExampleControls"
-          data-bs-slide="next"
-        >
-          <span
-            className="carousel-control-next-icon"
-            aria-hidden="true"
-          ></span>
-          <span className="visually-hidden">Next</span>
-        </button>
       </div>
     </div>
   );
