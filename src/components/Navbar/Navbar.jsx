@@ -56,7 +56,7 @@ function Navbar({ userId }) {
               </Link>
             </li>
             {isLoggedIn && (
-              <Link to={"/perfil" + userId} className="nav-link">
+              <Link to={"/perfil/" + userId} className="nav-link">
                 Mi perfil
               </Link>
             )}
