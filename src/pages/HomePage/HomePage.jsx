@@ -8,7 +8,7 @@ function HomePage() {
   const [animals, setAnimals] = useState([]);
 
   useEffect(() => {
-    animalService.getAnimals().then((results) => {
+    animalService.getOldAnimals().then((results) => {
       setAnimals(results.data);
     });
   }, []);
@@ -33,11 +33,10 @@ function HomePage() {
         <h4 className="text-start m-4">NUESTROS ANCIANOS</h4>
         <div className="container-fluid">
           <div className="row">
-              {animals.map((animal) => (
-                <AnimalComponent animal={animal} key={animal._id} />
-              ))}
-            </div>
-        
+            {animals.map((animal) => (
+              <AnimalComponent animal={animal} key={animal._id} />
+            ))}
+          </div>
         </div>
       </div>
     </div>
