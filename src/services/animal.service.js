@@ -5,7 +5,6 @@ const apiUrl = process.env.API_SERVER_URL || "http://localhost:5005";
 
 class AnimalService {
 
-
     getToken(){
         return localStorage.getItem("authToken");
     }
@@ -21,6 +20,10 @@ class AnimalService {
     addAnimal(animal){
         return axios.post(apiUrl + "/animales", animal, {headers:{authorization: `Bearer ${this.getToken()}`}})
     }
+    // uploadImage(file){
+    //     return axios.post(apiUrl + "/upload", file)
+    // }
+
     deleteAnimal(animalId){
         return axios.delete(apiUrl + "/animales/" + animalId, {headers:{authorization: `Bearer ${this.getToken()}`}})
     }

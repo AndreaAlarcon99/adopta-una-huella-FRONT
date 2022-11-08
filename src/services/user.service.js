@@ -7,7 +7,6 @@ class UserService {
     getToken(){
         return localStorage.getItem("authToken");
     }
-
     getUser(userId){
         return axios.get(apiUrl + "/perfil/" + userId);
     }
