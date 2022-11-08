@@ -8,6 +8,10 @@ import "./PetListPage.css";
 function PetListPage() {
   const [animals, setAnimals] = useState([]);
 
+  const updateAnimals = (animals) => {
+    setAnimals(animals);
+  };
+
   useEffect(() => {
     animalService.getAnimals().then((results) => {
       setAnimals(results.data);
@@ -16,17 +20,15 @@ function PetListPage() {
 
   return (
     <div>
-      <AnimalFilters />
+      <AnimalFilters updateAnimals={updateAnimals} />
       <h2 className="mb-3"> Animales en adopción </h2>
-      <AnimalTypeFilter />
+      <AnimalTypeFilter updateAnimals={updateAnimals} />
       <div className="container">
-      <div className="row">
-      
-        {animals.map((animal) => (
-          <AnimalComponent animal={animal} key={animal._id} />
-        ))}
-    
-      </div>
+        <div className="row">
+          {animals.map((animal) => (
+            <AnimalComponent animal={animal} key={animal._id} />
+          ))}
+        </div>
       </div>
     </div>
   );
