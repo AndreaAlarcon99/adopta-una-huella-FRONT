@@ -3,7 +3,7 @@ import "./AnimalComponent.css";
 
 function AnimalComponent({ animal }) {
   return (
-    <div className="col-8 col-md-3" id="cajaAnimal">
+    <div className="col-8 col-md-3 m-3 m-lg-5" id="cajaAnimal">
       <img
         src={animal.imgAnimal}
         className="card-img-top "

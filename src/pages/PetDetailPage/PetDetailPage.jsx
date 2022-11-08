@@ -38,10 +38,6 @@ function PetDetailPage() {
             </Link>
 
             <h2 className="text-start m-3">{animal.animalName}</h2>
-            {/* <p>
-                <strong>Nombre: </strong>
-                {animal.animalName}
-              </p> */}
             <div className="col-10 col-md-6 ">
               <p>
                 <strong>Sexo: </strong>

@@ -6,7 +6,6 @@ class UserService {
   getToken() {
     return localStorage.getItem("authToken");
   }
-
   getUser(userId) {
     return axios.get(apiUrl + "/perfil/" + userId);
   }
@@ -24,6 +23,7 @@ class UserService {
   getAnimals(animalId) {
     return axios.get(apiUrl + "/perfil/" + animalId);
   }
+
 }
 
 const userService = new UserService();

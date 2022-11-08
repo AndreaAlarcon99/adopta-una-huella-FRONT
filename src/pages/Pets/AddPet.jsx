@@ -24,41 +24,38 @@ function AddPet() {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    const animal = {
-      animalName,
-      imgAnimal,
-      description,
-      gender,
-      birthday,
-      animalType,
-      weight,
-      age,
-      castrated,
-      vaccines,
-      size,
-      lifestyle,
-      microchip,
-      location,
-    };
+
+    const uploadData = new FormData();
+    uploadData.append("imgAnimal", imgAnimal);
+    uploadData.append("animalName", animalName);
+    uploadData.append("description", description);
+    uploadData.append("gender", gender);
+    uploadData.append("birthday", birthday);
+    uploadData.append("animalType", animalType);
+    uploadData.append("weight", weight);
+    uploadData.append("age", age);
+    uploadData.append("castrated", castrated);
+    uploadData.append("vaccines", vaccines);
+    uploadData.append("size", size);
+    uploadData.append("lifestyle", lifestyle);
+    uploadData.append("microchip", microchip);
+    uploadData.append("location", location);
 
     animalService
-      .addAnimal(animal)
+      .addAnimal(uploadData)
       .then((results) => {
         navigate("/animales");
-
-        console.log("QUE ES RESULTS? ", results);
       })
       .catch((error) => {
         const errorDescription = error.results;
         setErrorMessage(errorDescription);
-        console.log("ERROR DESDE LA PAGE ADDPET: ", error);
       });
   };
 
   return (
     <div>
       <h1>Añade un animal</h1>
-      <form className="container" onSubmit={submitHandler}>
+      <form className="container" onSubmit={submitHandler} enctype="multipart/form-data">
         <select
           className="form-select mb-3"
           aria-label="Default select example"
@@ -94,12 +91,10 @@ function AddPet() {
         </div>
         <div className="form-floating mb-3">
           <input
-            type="text"
+            type="file"
             className="form-control"
             id="floatingInput"
-            placeholder=" "
-            value={imgAnimal}
-            onChange={(e) => setImgAnimal(e.target.value)}
+            onChange={(e) => setImgAnimal(e.target.files[0])}
           />
           <label htmlFor="floatingInput">Imagen del animal</label>
         </div>
@@ -116,29 +111,11 @@ function AddPet() {
         </div>
         <div className="input-group mb-3">
           <input
-            type="number"
+            type="Date"
             className="form-control"
             placeholder="Día"
             aria-label="Username"
-            value={birthday.dia}
-            onChange={(e) => setBirthday(e.target.value)}
-          />
-          <span className="input-group-text">/</span>
-          <input
-            type="number"
-            className="form-control"
-            placeholder="Mes"
-            aria-label="Mes"
-            value={birthday.mes}
-            onChange={(e) => setBirthday(e.target.value)}
-          />
-          <span className="input-group-text">/</span>
-          <input
-            type="number"
-            className="form-control"
-            placeholder="Año"
-            aria-label="Año"
-            value={birthday.año}
+            value={birthday}
             onChange={(e) => setBirthday(e.target.value)}
           />
         </div>

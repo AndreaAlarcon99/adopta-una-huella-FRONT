@@ -4,6 +4,7 @@ import axios from "axios";
 const apiUrl = process.env.API_SERVER_URL || "http://localhost:5005";
 
 class AnimalService {
+
   getToken() {
     return localStorage.getItem("authToken");
   }
@@ -37,13 +38,6 @@ class AnimalService {
       headers: { authorization: `Bearer ${this.getToken()}` },
     });
   }
-  // getAnimals(creator){
-  //     return axios.get(apiUrl + "/animales/" + creator);
-  // }
-
-  // editApartment_v2(apartment, apartmentId){
-  //     return axios.put(apiUrl + "/" + apartmentId, apartment);
-  // }
 }
 
 const animalService = new AnimalService();
