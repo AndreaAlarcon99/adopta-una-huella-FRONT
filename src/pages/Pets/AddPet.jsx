@@ -167,39 +167,39 @@ function AddPet() {
           <option value="Muy activo">Muy activo</option>
         </select>
 
-        <div class="form-check" id="checkbox">
+        <div className="form-check" id="checkbox">
           <input
-            class="form-check-input"
+            className="form-check-input"
             type="checkbox"
             value={castrated}
             onChange={(e) => setCastrated((e.target.value = true))}
             id="flexCheckDefault"
           />
-          <label class="form-check-label" for="flexCheckDefault">
+          <label className="form-check-label" for="flexCheckDefault">
             Castrado
           </label>
         </div>
-        <div class="form-check" id="checkbox">
+        <div className="form-check" id="checkbox">
           <input
-            class="form-check-input"
+            className="form-check-input"
             type="checkbox"
             value={vaccines}
             onChange={(e) => setVaccines((e.target.value = true))}
             id="flexCheckDefault"
           />
-          <label class="form-check-label" for="flexCheckDefault">
+          <label className="form-check-label" for="flexCheckDefault">
             Vacunado
           </label>
         </div>
-        <div class="form-check" id="checkbox">
+        <div className="form-check" id="checkbox">
           <input
-            class="form-check-input"
+            className="form-check-input"
             type="checkbox"
             value={microchip}
             onChange={(e) => setMicrochip((e.target.value = true))}
             id="flexCheckDefault"
           />
-          <label class="form-check-label" for="flexCheckDefault">
+          <label className="form-check-label" for="flexCheckDefault">
             Microchip
           </label>
         </div>

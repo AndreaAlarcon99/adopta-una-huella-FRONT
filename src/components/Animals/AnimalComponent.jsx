@@ -31,11 +31,9 @@ function AnimalComponent({ animal }) {
           {animal.birthday} <br></br>
         </p>
         <Link to={"/animales/" + animal._id} className="linkInfo">
-        <div class="card-footer text-muted" id="footerCard">
-          
-            <span className="text-white text-bold">Más info</span>
-          
-        </div>
+          <div className="card-footer text-muted" id="footerCard">
+            <span className="text-white text-bold">Más información</span>
+          </div>
         </Link>
       </div>
     </div>
