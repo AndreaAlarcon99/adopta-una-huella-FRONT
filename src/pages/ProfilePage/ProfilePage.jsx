@@ -8,12 +8,10 @@ import { useParams } from "react-router-dom";
 import userService from "../../services/user.service";
 
 function ProfilePage() {
-  
   const { userId } = useParams();
   const [enAdopcion, setEnAdopcion] = useState([]);
   const { user } = useContext(AuthContext);
   const [protectora, setProtectora] = useState({});
-  const [thisUser, setThisUser] = useState({});
   const { email } = thisUser;
 
 
@@ -52,12 +50,46 @@ function ProfilePage() {
     }
     userService.sendEmail(mailData)
     .then(console.log('adopción solicitada'))
+
+  const [username, setUsername] = useState("");
+  const [location, setLocation] = useState("");
+
+  const [imgUser, setImgUser] = useState("");
+  const [description, setDescription] = useState("");
+
+  // const [animales, setAnimales] = useState({});
+  // const { animalId } = useParams();
+
+  // useEffect(() => {
+  //   userService
+  //     .getAnimals(animalId)
+  //     .then((results) => {
+  //       setAnimales(results.data);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // }, []);
+
+  useEffect(() => {
+    userService.getUser(userId)
+    .then(results => {
+      console.log('SOY RESULTS.DATA', results.data)
+      return setUser(results.data)
+    })
+    .then(console.log('SOY EL NUEVO STATE DE USER3 ', user))
+    // animalService.getAnimalesFiltrados({creator: userId})
+    // .then(results => {
+    //   // console.log('GETANIMAL: ' + results.data)
+    //   return setEnAdopcion(results.data)
+    // })
     .catch(err => console.log(err))
   }
 
   return (
-    // username, email, imgUser, description, location
 
+
+<>
     <div className="container-fluid mt-5 p-0 w-100" id="cover">
       <div className="row">
         <div className="col-10 col-md-6 p-0 m-auto">
@@ -84,93 +116,96 @@ function ProfilePage() {
                 Contacto
               </button>
             </div>
-          </div>
 
-          <div
-            className="modal fade"
-            id="exampleModal"
-            tabIndex="-1"
-            aria-labelledby="exampleModalLabel"
-            aria-hidden="true"
-          >
-            <div className="modal-dialog">
-              <div className="modal-content">
-                <div className="modal-header">
-                  <h1 className="modal-title fs-5" id="exampleModalLabel">
-                    Contacta con la protectora
-                  </h1>
-                  <button
-                    type="button"
-                    className="btn-close"
-                    data-bs-dismiss="modal"
-                    aria-label="Close"
-                  ></button>
-                </div>
-                <div className="modal-body">
-                  <form>
-                    <div className="mb-3">
-                      <label
-                        htmlFor="recipient-name"
-                        className="col-form-label"
-                      >
-                        Nombre:
-                      </label>
-                      <input
-                        type="text"
-                        className="form-control"
-                        id="recipient-name"
-                        name="nombreAnon"
+            <div
+              className="modal fade"
+              id="exampleModal"
+              tabIndex="-1"
+              aria-labelledby="exampleModalLabel"
+              aria-hidden="true"
+            >
+              <div className="modal-dialog">
+                <div className="modal-content">
+                  <div className="modal-header">
+                    <h1 className="modal-title fs-5" id="exampleModalLabel">
+                      Contacta con la protectora
+                    </h1>
+                    <button
+                      type="button"
+                      className="btn-close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    ></button>
+                  </div>
+                  <div className="modal-body">
+                    <form>
+                      <div className="mb-3">
+                        <label
+                          htmlFor="recipient-name"
+                          className="col-form-label"
+                        >
+                          Nombre:
+                        </label>
+                        <input
+                          type="text"
+                          className="form-control"
+                          id="recipient-name"
+                          name="nombreAnon"
                         onChange={handlerNombre}
                       />
-                    </div>
-                    <div className="mb-3">
-                      <label
-                        htmlFor="recipient-name"
-                        className="col-form-label"
-                      >
-                        Teléfono:
-                      </label>
-                      <input
-                        type="text"
-                        className="form-control"
-                        id="recipient-name"
-                        name='telefonoAnon'
+                      </div>
+                      <div className="mb-3">
+                        <label
+                          htmlFor="recipient-name"
+                          className="col-form-label"
+                        >
+                          Teléfono:
+                        </label>
+                        <input
+                          type="text"
+                          className="form-control"
+                          id="recipient-name"
+                          name='telefonoAnon'
                         onChange={handlerTelefono}
                       />
-                    </div>
-                    <div className="mb-3">
-                      <label
-                        htmlFor="recipient-name"
-                        className="col-form-label"
-                      >
-                        email:
-                      </label>
-                      <input
-                        type="text"
-                        className="form-control"
-                        id="recipient-name"
-                        name="emailAnon"
+                      </div>
+                      <div className="mb-3">
+                        <label
+                          htmlFor="recipient-name"
+                          className="col-form-label"
+                        >
+                          email:
+                        </label>
+                        <input
+                          type="text"
+                          className="form-control"
+                          id="recipient-name"
+                          name="emailAnon"
                         onChange={handlerEmail}
                       />
-                    </div>
-                    <div className="mb-3">
-                      <label htmlFor="message-text" className="col-form-label">
-                        Mensaje:
-                      </label>
-                      <textarea
-                        className="form-control"
-                        id="message-text"
-                        placeholder="Pregunta a la protectora..."
-                        name="mensajeAnon"
+                      </div>
+                      <div className="mb-3">
+                        <label
+                          htmlFor="message-text"
+                          className="col-form-label"
+                        >
+                          Mensaje:
+                        </label>
+                        <textarea
+                          className="form-control"
+                          id="message-text"
+                          placeholder="Pregunta a la protectora..."
+                          name="mensajeAnon"
                         onChange={handlerText}
                       ></textarea>
-                    </div>
-                  </form>
-                </div>
-                <div className="modal-footer">
-                  <button type="button" className="btn" id="btSend" onClick={handlerSendEmail}>
-                    Enviar mensaje
-                  </button>
+                      </div>
+                    </form>
+                  </div>
+                  <div className="modal-footer">
+                    <button type="button" className="btn" id="btSend" onClick={handlerSendEmail}>
+                      Enviar mensaje
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -191,9 +226,17 @@ function ProfilePage() {
               } )}
           </div>
         </div>
-      </div>
+        </div>
     </div>
+    </>
     
+
+      {/* {animales.creator &&
+        animales.creator.map((animal) => {
+          console.log("Que me deveulves de animal? ", animal);
+          return <AnimalComponent animal={animal} key={animal._id} />;
+        })} */}
+  
   );
 }
 

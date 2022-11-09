@@ -4,7 +4,6 @@ import { Link, useNavigate } from "react-router-dom";
 import authService from "../../services/auth.service";
 import { AuthContext } from "../../context/auth.context";
 
-// import axios from "axios";
 
 function SignupPage() {
   const [email, setEmail] = useState("");
@@ -15,6 +14,7 @@ function SignupPage() {
   const [licence, setLicence] = useState("");
   const [location, setLocation] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
+  const [imgUser, setImgUser] = useState("");
 
   const navigate = useNavigate();
 
@@ -25,6 +25,7 @@ function SignupPage() {
   const handleDescription = (e) => setDescription(e.target.value);
   const handleLicence = (e) => setLicence(e.target.value);
   const handleLocation = (e) => setLocation(e.target.value);
+  const handleImgUser = (e) => setImgUser(e.target.value)
 
   const { storeToken, authenticateUser } = useContext(AuthContext);
 
@@ -35,6 +36,7 @@ function SignupPage() {
       email,
       password,
       username,
+      imgUser,
       description,
       licence,
       location,
@@ -68,7 +70,6 @@ function SignupPage() {
               type="text"
               className="form-control"
               id="floatingInput"
-              placeholder=" "
               value={username}
               onChange={handleUsername}
             />
@@ -85,6 +86,17 @@ function SignupPage() {
             />
             <label htmlFor="floatingInput">Email </label>
           </div>
+          <div className="form-floating mb-3">
+            <input
+              type="file"
+              className="form-control"
+              id="floatingInput"
+              placeholder="cargar imagen"
+              value={imgUser}
+              onChange={handleImgUser}
+            />
+            <label htmlFor="floatingInput">Subir imagen</label>
+          </div>
         </div>
         <div className="seccion">
           <h5 className="text-start m-4"> Datos del centro</h5>
@@ -94,7 +106,6 @@ function SignupPage() {
               type="text"
               className="form-control"
               id="floatingInput"
-              placeholder=" "
               value={licence}
               onChange={handleLicence}
             />
@@ -105,7 +116,6 @@ function SignupPage() {
               type="text"
               className="form-control"
               id="floatingInput"
-              placeholder=" "
               value={location}
               onChange={handleLocation}
             />
@@ -115,7 +125,6 @@ function SignupPage() {
           <div className="form-floating">
             <textarea
               className="form-control"
-              placeholder=" "
               id="floatingTextarea2"
               style={{ height: "100px" }}
               value={description}

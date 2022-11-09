@@ -6,20 +6,24 @@
 #6C584C marrón fuerte
 */
 
-.imagenAnimal{
-    border-radius: 5%;
+.imagenAnimal {
+  border-radius: 5%;
 }
 
-.botonAdoptar{
-    background-color: #ADC178;
-    font-size: 1.2rem;
+.botonAdoptar {
+  background-color: #adc178;
+  font-size: 1.2rem;
 }
 
 #btSend {
-    background-color: #A98467;
-    color: white;
+  background-color: #a98467;
+  color: white;
 }
 
 .penEdit {
-    width: 3vw;
+  width: 3vw;
 }
+
+/* #description {
+  text-align: justify;
+} */
