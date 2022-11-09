@@ -1,12 +1,13 @@
-import { useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import animalService from "../../services/animal.service";
 import userService from "../../services/user.service";
 import "./AddPet.css";
+// import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
 import { AuthContext } from "../../context/auth.context";
 
 function AddPet() {
-  const [errorMessage, setErrorMessage] = useState(undefined);
   const [animalName, setAnimalName] = useState("");
   const [imgAnimal, setImgAnimal] = useState("");
   const [description, setDescription] = useState("");
@@ -65,12 +66,25 @@ function AddPet() {
     // let prom1 = animalService.addAnimal(uploadData);
     // let prom2 = userService.getUser(user._id);
 
-    // Promise.all([prom1, prom2])
-    //   .then((response) => {
-    //     userService.editUser(user.ourAnimals, response[0].data._id);
-    //     // console.log("Response de add pet: ", response[0].data._id);
-    //   })
-    //   .catch((err) => console.log(err));
+
+    Promise.all([prom1, prom2])
+      .then((response) => {
+        console.log("response 0:", response[0].data);
+        console.log("response 1:", response[1].data);
+
+        const animalsArr = [...response[1].data.ourAnimals];
+        console.log("array de animales antes: ", animalsArr);
+        animalsArr.push(response[0].data._id);
+        console.log("array de animales después: ", animalsArr);
+
+        //hacemos copia del array ourAnimals para actualizarlo cada vez que creamos un animal nuevo. Le metemos el nuevo id de animal al user en concreto.
+        userService
+          .editUser(response[1].data._id, { ourAnimals: animalsArr })
+          .then(() => {
+            navigate("/animales");
+          });
+      })
+      .catch((err) => console.log(err));
 
     // animalService
     //   .addAnimal(uploadData)

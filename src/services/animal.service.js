@@ -4,7 +4,6 @@ import axios from "axios";
 const apiUrl = process.env.API_SERVER_URL || "http://localhost:5005";
 
 class AnimalService {
-
   getToken() {
     return localStorage.getItem("authToken");
   }
@@ -31,8 +30,6 @@ class AnimalService {
     });
   }
   editAnimal(animal, animalId) {
-    console.log("soy animal desde axios ", animal);
-    console.log("soy animalId desde axios ", animalId);
     return axios.put(apiUrl + "/animales/" + animalId, animal, {
       headers: { authorization: `Bearer ${this.getToken()}` },
     });
