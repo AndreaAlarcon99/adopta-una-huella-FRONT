@@ -14,13 +14,13 @@ class UserService {
       headers: { authorization: `Bearer ${this.getToken()}` },
     });
   }
-  editUser(user) {
-    return axios.put(apiUrl + "/perfil/" + user._id, user, {
+  editUser(userId, user) {
+    return axios.put(apiUrl + "/perfil/" + userId, user, {
       headers: { authorization: `Bearer ${this.getToken()}` },
     });
   }
-  sendEmail(mailData){
-      return axios.post(apiUrl + "/perfil/" + mailData)
+  sendEmail(mailData) {
+    return axios.post(apiUrl + "/perfil/" + mailData);
   }
   getAnimals(animalId) {
     return axios.get(apiUrl + "/perfil/" + animalId);
