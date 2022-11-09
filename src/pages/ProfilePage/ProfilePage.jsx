@@ -50,26 +50,7 @@ function ProfilePage() {
     }
     userService.sendEmail(mailData)
     .then(console.log('adopción solicitada'))
-
-  const [username, setUsername] = useState("");
-  const [location, setLocation] = useState("");
-
-  const [imgUser, setImgUser] = useState("");
-  const [description, setDescription] = useState("");
-
-  // const [animales, setAnimales] = useState({});
-  // const { animalId } = useParams();
-
-  // useEffect(() => {
-  //   userService
-  //     .getAnimals(animalId)
-  //     .then((results) => {
-  //       setAnimales(results.data);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // }, []);
+    .catch(err =>console.log(err))
 
   useEffect(() => {
     userService.getUser(userId)
@@ -84,12 +65,13 @@ function ProfilePage() {
     //   return setEnAdopcion(results.data)
     // })
     .catch(err => console.log(err))
-  }
+  })
+}
 
   return (
 
 
-<>
+  <>
     <div className="container-fluid mt-5 p-0 w-100" id="cover">
       <div className="row">
         <div className="col-10 col-md-6 p-0 m-auto">
@@ -226,16 +208,12 @@ function ProfilePage() {
               } )}
           </div>
         </div>
-        </div>
+      </div>
     </div>
-    </>
+  </>
     
 
-      {/* {animales.creator &&
-        animales.creator.map((animal) => {
-          console.log("Que me deveulves de animal? ", animal);
-          return <AnimalComponent animal={animal} key={animal._id} />;
-        })} */}
+   
   
   );
 }
