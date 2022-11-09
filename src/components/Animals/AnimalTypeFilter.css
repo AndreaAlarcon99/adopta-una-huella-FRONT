@@ -1,4 +1,4 @@
-#filtroCategoria {
+/* #filtroCategoria {
   display: flex;
   justify-content: center;
   margin-top: 2em;
@@ -7,7 +7,6 @@
   display: flex;
   margin-left: 2em;
   background-color: #dde5b6;
-
   width: 10vw;
 }
 
@@ -17,7 +16,6 @@
 
 .filtroAnimal img {
   margin-right: 1em;
-
   width: 3vw;
 }
 
@@ -25,3 +23,9 @@
   align-self: center;
   font-size: large;
 }
+
+#imgGato img {
+  height: 5vh;
+  margin-top: 1vh;
+  margin-left: 1vh;
+} */
