@@ -1,74 +1,92 @@
 import "./ProfilePage.css";
 import animalService from "../../services/animal.service";
-import userService from "../../services/user.service";
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
 import AnimalComponent from "../../components/Animals/AnimalComponent";
-// import authService from "../../services/auth.service";
+import { AuthContext } from "../../context/auth.context";
+import { useContext } from "react";
+import { useParams } from "react-router-dom";
+import userService from "../../services/user.service";
 
 function ProfilePage() {
   const { userId } = useParams();
   const [enAdopcion, setEnAdopcion] = useState([]);
-  const [user, setUser] = useState({});
-  const [username, setUsername] = useState("");
-  const [location, setLocation] = useState("");
+  const { user } = useContext(AuthContext);
+  const [protectora, setProtectora] = useState({});
+  const { email } = thisUser;
 
-  const [imgUser, setImgUser] = useState("");
-  const [description, setDescription] = useState("");
 
-  // const [animales, setAnimales] = useState({});
-  // const { animalId } = useParams();
-
-  // useEffect(() => {
-  //   userService
-  //     .getAnimals(animalId)
-  //     .then((results) => {
-  //       setAnimales(results.data);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // }, []);
 
   useEffect(() => {
-    userService
-      .getUser(userId)
-      .then((results) => {
-        const userProfile = results.data;
-        setUsername(userProfile.username);
-        setLocation(userProfile.location);
-        setImgUser(userProfile.imgUser);
-        setDescription(userProfile.description);
-      })
-
-      // animalService.getAnimalesFiltrados({creator: userId})
-      // .then(results => {
-      //   // console.log('GETANIMAL: ' + results.data)
-      //   return setEnAdopcion(results.data)
-      // })
-      .catch((err) => console.log("Soy error de ProfilePage: ", err));
+    userService.getUser(userId)
+    .then(resp => {
+      console.log("RESPONSE DATA ", resp.data)
+      setProtectora(resp.data)})
+    // .then(animalService.getAnimalesFiltrados(protectora._id)
+    //       .then(results => {
+    //         console.log('animales filtrados', results.data)
+    //         setEnAdopcion(results.data)
+    //       }))
+      .catch((err) => console.log("ERROR CATCH ", err));
     // eslint-disable-next-line
-  }, [userId]);
+  }, []);
+
+  const [nombreAnon, setNombreAnon] = useState()
+  const [telefonoAnon, setTelefonoAnon] = useState()
+  const [emailAnon, setEmailAnon] = useState()
+  const [mensajeAnon, setMensajeAnon] = useState()
+
+  const handlerNombre = ({target}) => setNombreAnon(target.value)
+  const handlerTelefono = ({target}) => setTelefonoAnon(target.value)
+  const handlerEmail = ({target}) => setEmailAnon(target.value)
+  const handlerText = ({target}) => setMensajeAnon(target.value)
+
+  const handlerSendEmail = () => {
+    const mailData = {
+      email,
+      nombreAnon,
+      telefonoAnon,
+      emailAnon,
+      mensajeAnon
+    }
+    userService.sendEmail(mailData)
+    .then(console.log('adopción solicitada'))
+    .catch(err =>console.log(err))
+
+  useEffect(() => {
+    userService.getUser(userId)
+    .then(results => {
+      console.log('SOY RESULTS.DATA', results.data)
+      return setUser(results.data)
+    })
+    .then(console.log('SOY EL NUEVO STATE DE USER3 ', user))
+    // animalService.getAnimalesFiltrados({creator: userId})
+    // .then(results => {
+    //   // console.log('GETANIMAL: ' + results.data)
+    //   return setEnAdopcion(results.data)
+    // })
+    .catch(err => console.log(err))
+  })
+}
 
   return (
-    // username, email, imgUser, description, location
-    <>
-      <div className="container-fluid mt-5 p-0 w-100">
-        <div className="row">
-          <div className="col-10 col-md-6 p-0 m-auto">
-            <img
-              className="img-fluid w-75 imagenUser shadow-lg"
-              // src={user.imgUser}
-              // alt={user.username}
-              src="https://picsum.photos/id/237/200/300"
-              alt="imagenUser"
-            />
-          </div>
 
-          <div className="col-12 col-md-6 mt-md-5 m-5 m-md-0 text-center">
-            <div id="containerDescription">
-              <h3>{username}</h3>
-              <p>{description}</p>
+
+  <>
+    <div className="container-fluid mt-5 p-0 w-100" id="cover">
+      <div className="row">
+        <div className="col-10 col-md-6 p-0 m-auto">
+          <img
+            className="img-fluid imagenUser shadow-lg"
+            src={protectora.imgUser}
+            alt={protectora.username}
+          />
+        </div>
+
+        <div className="col-12 col-md-6 mt-md-5 m-5 m-md-0 text-center">
+          <div id="containerDescription">
+            <div>
+              <h3> {protectora.username} </h3>
+              <p> {protectora.description} </p>
               <button
                 type="button"
                 className="btn text-white w-25 mx-auto mb-3"
@@ -79,9 +97,6 @@ function ProfilePage() {
               >
                 Contacto
               </button>
-              <div className="container">
-                <h3>Soy un array de imagenes</h3>
-              </div>
             </div>
 
             <div
@@ -117,7 +132,9 @@ function ProfilePage() {
                           type="text"
                           className="form-control"
                           id="recipient-name"
-                        />
+                          name="nombreAnon"
+                        onChange={handlerNombre}
+                      />
                       </div>
                       <div className="mb-3">
                         <label
@@ -130,7 +147,9 @@ function ProfilePage() {
                           type="text"
                           className="form-control"
                           id="recipient-name"
-                        />
+                          name='telefonoAnon'
+                        onChange={handlerTelefono}
+                      />
                       </div>
                       <div className="mb-3">
                         <label
@@ -143,7 +162,9 @@ function ProfilePage() {
                           type="text"
                           className="form-control"
                           id="recipient-name"
-                        />
+                          name="emailAnon"
+                        onChange={handlerEmail}
+                      />
                       </div>
                       <div className="mb-3">
                         <label
@@ -156,12 +177,14 @@ function ProfilePage() {
                           className="form-control"
                           id="message-text"
                           placeholder="Pregunta a la protectora..."
-                        ></textarea>
+                          name="mensajeAnon"
+                        onChange={handlerText}
+                      ></textarea>
                       </div>
                     </form>
                   </div>
                   <div className="modal-footer">
-                    <button type="button" className="btn" id="btSend">
+                    <button type="button" className="btn" id="btSend" onClick={handlerSendEmail}>
                       Enviar mensaje
                     </button>
                   </div>
@@ -170,14 +193,28 @@ function ProfilePage() {
             </div>
           </div>
         </div>
-      </div>
 
-      {/* {animales.creator &&
-        animales.creator.map((animal) => {
-          console.log("Que me deveulves de animal? ", animal);
-          return <AnimalComponent animal={animal} key={animal._id} />;
-        })} */}
-    </>
+        <div className="col-10 p-0 m-auto">
+          <div className="row">
+              {enAdopcion.map(animal => {
+                return (
+                  <div className="col-4 p-0 m-auto">
+                    {/* <Link to={ "/animales/" + animal._id + "/editar" }>
+                      <img className="penEdit" src="../../penEdit.png" alt="editar" />
+                    </Link> */}
+                    <AnimalComponent animal={animal} key={animal._id}/>
+                  </div>
+                  )
+              } )}
+          </div>
+        </div>
+      </div>
+    </div>
+  </>
+    
+
+   
+  
   );
 }
 

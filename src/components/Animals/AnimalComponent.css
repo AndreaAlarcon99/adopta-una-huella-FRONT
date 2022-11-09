@@ -1,42 +1,40 @@
 #cajaAnimal {
   border-radius: 1em;
   box-shadow: 0 0 10px gray;
-  margin: auto;
-  margin-top: 3vh;
   padding: 0;
-  
 }
 
 #cajaAnimal img {
   border-radius: 1em 1em 0 0;
 }
+#fotoAnimal {
+  height: 40vh;
+  object-fit: cover;
+}
 
-.locationIcon{
+.locationIcon {
   width: 1.5vw;
 }
 
-.birthdayIcon{
+.birthdayIcon {
   width: 1.5vw;
 }
 
-.cardDetails{
+.cardDetails {
   font-size: 1.1rem;
 }
 
-.linkInfo{
+.linkInfo {
   text-decoration: none;
-  
-}     
-.linkInfo:hover{
+}
+.linkInfo:hover {
   text-decoration: none;
-  
-}    
-          
-#footerCard{
-  background-color: #DDE5B6;
 }
 
-#footerCard:hover{
-  background-color: #ADC178;
+#footerCard {
+  background-color: #dde5b6;
 }
 
+#footerCard:hover {
+  background-color: #adc178;
+}

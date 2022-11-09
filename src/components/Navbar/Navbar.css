@@ -1,5 +1,11 @@
 #logo {
-  width: 15vw;
+  width: 50vw;
+}
+
+@media (min-width: 768px) {
+  #logo {
+    width: 20vw;
+  }
 }
 
 #btSignUp{
@@ -14,4 +20,27 @@
 #btLogIn:hover {
   background-color: #F0EAD2;
   color: #A98467;
+}
+
+@media (max-width: 769px) {
+  #totalNavbar {
+      display: flex;
+      flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 992px) {
+  #containerNavbar {
+      justify-content: center;
+  }
+}
+
+@media (min-width: 600px) {
+  #botones {
+    display: block;
+  }  
+}
+
+#botones {
+  margin: auto;
 }

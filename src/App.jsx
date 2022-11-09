@@ -1,44 +1,35 @@
 import "./App.css";
+import "bootstrap/dist/css/bootstrap.css";
+import "bootstrap";
 import { Routes, Route } from "react-router-dom";
 
 import HomePage from "./pages/HomePage/HomePage";
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import SignupPage from "./pages/SignupPage/SignupPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
-
-import Navbar from "./components/Navbar/Navbar";
-import IsPrivate from "./components/IsPrivate/IsPrivate";
-import IsAnon from "./components/IsAnon/IsAnon";
 import InfoAdoptionPage from "./pages/InfoAdoptionPage/InfoAdoptionPage";
-
-import "bootstrap/dist/css/bootstrap.css";
-import "bootstrap";
 import AdoptedPets from "./pages/AdoptedPets/AdoptedPets";
 import PetListPage from "./pages/PetListPage/PetListPage";
 import AddPet from "./pages/Pets/AddPet";
-import { useState, useEffect } from "react";
-import authService from "./services/auth.service";
 import PetDetailPage from "./pages/PetDetailPage/PetDetailPage";
 import EditPetPage from "./pages/EditPetPage/EditPetPage";
 // import { useContext } from "react";
 // import { AuthContext } from "./context/auth.context";
 
-function App() {
-  const [userId, setUserId] = useState();
+import Navbar from "./components/Navbar/Navbar";
+import IsAnon from "./components/IsAnon/IsAnon";
 
-  useEffect(() => {
-    authService.verify().then((resp) => {
-      setUserId(resp.data._id);
-    });
-  }, []);
 
   // const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
   // console.log("soy user ", user)
 
+
+function App() {
+
   return (
     <div className="App">
-      <Navbar userId={userId} />
-
+      <Navbar />
+{/* patata */}
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/informacion-adopcion" element={<InfoAdoptionPage />} />
@@ -47,15 +38,7 @@ function App() {
         <Route path="/crear-animal" element={<AddPet />} />
         <Route path="/animales/:animalId" element={<PetDetailPage />} />
         <Route path="/animales/:animalId/editar" element={<EditPetPage />} />
-
-        <Route
-          path="/perfil/:userId"
-          element={
-            // <IsPrivate>
-            <ProfilePage />
-            // </IsPrivate>
-          }
-        />
+        <Route path="/perfil/:userId" element={<ProfilePage />} />
 
         <Route
           path="/signup"

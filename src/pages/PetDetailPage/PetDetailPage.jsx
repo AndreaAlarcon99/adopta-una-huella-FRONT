@@ -3,6 +3,7 @@ import animalService from "../../services/animal.service";
 import { useParams } from "react-router-dom";
 import "./PetDetailPage.css";
 import { Link } from "react-router-dom";
+import Maps from "../../components/Maps/maps";
 
 function PetDetailPage() {
   const [animal, setAnimal] = useState("");
@@ -17,6 +18,7 @@ function PetDetailPage() {
 
   return (
     <div className="container-fluid mt-5 p-0 w-100">
+      <Maps />
       <div className="row">
         <div className="col-10 col-md-6 p-0 m-auto">
           <img
@@ -38,10 +40,47 @@ function PetDetailPage() {
             </Link>
 
             <h2 className="text-start m-3">{animal.animalName}</h2>
+            <p className="text-start w-75" id="description">
+              {animal.description}
+            </p>
+
             <div className="col-10 col-md-6 ">
               <p>
-                <strong>Sexo: </strong>
-                {animal.gender}
+                {animal.gender === "Hembra" ? (
+                  <>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      className="bi bi-gender-female"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M8 1a4 4 0 1 0 0 8 4 4 0 0 0 0-8zM3 5a5 5 0 1 1 5.5 4.975V12h2a.5.5 0 0 1 0 1h-2v2.5a.5.5 0 0 1-1 0V13h-2a.5.5 0 0 1 0-1h2V9.975A5 5 0 0 1 3 5z"
+                      />{" "}
+                    </svg>
+                    <p>Hembra</p>
+                  </>
+                ) : (
+                  <>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      className="bi bi-gender-male"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M9.5 2a.5.5 0 0 1 0-1h5a.5.5 0 0 1 .5.5v5a.5.5 0 0 1-1 0V2.707L9.871 6.836a5 5 0 1 1-.707-.707L13.293 2H9.5zM6 6a4 4 0 1 0 0 8 4 4 0 0 0 0-8z"
+                      />
+                    </svg>
+                    <p>Macho</p>
+                  </>
+                )}
               </p>
               <p className="card-text">
                 <strong>Fecha de nacimiento: </strong>
@@ -150,9 +189,16 @@ function PetDetailPage() {
                   </svg>
                 )}
               </p>
+              <p>
+                <img
+                  className="locationIcon"
+                  src="../../locationIcon.png"
+                  alt="ubicacion"
+                ></img>
+                {animal.location}
+              </p>
             </div>
 
-            <p className="text-start border">{animal.description}</p>
             <Link to={"/perfil/" + animal.creator}>
               <strong>Protectora </strong>
             </Link>
