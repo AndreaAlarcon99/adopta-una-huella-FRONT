@@ -14,7 +14,7 @@ class UserService {
       headers: { authorization: `Bearer ${this.getToken()}` },
     });
   }
-  editUser(userId, user) {
+  editUser(user, userId) {
     return axios.put(apiUrl + "/perfil/" + userId, user, {
       headers: { authorization: `Bearer ${this.getToken()}` },
     });
