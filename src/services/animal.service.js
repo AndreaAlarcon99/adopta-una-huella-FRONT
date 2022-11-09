@@ -32,8 +32,6 @@ class AnimalService {
     });
   }
   editAnimal(animal, animalId) {
-    console.log("soy animal desde axios ", animal);
-    console.log("soy animalId desde axios ", animalId);
     return axios.put(apiUrl + "/animales/" + animalId, animal, {
       headers: { authorization: `Bearer ${this.getToken()}` },
     });

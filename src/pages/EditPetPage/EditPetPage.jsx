@@ -107,18 +107,6 @@ function EditPetPage() {
               onChange={(e) => setAnimalName(e.target.value)}
             />
           </div>
-          {/* <div className="mb-3">
-          <label htmlFor="imageApartment" className="form-label">
-            Imagen del animal
-          </label>
-          <input
-            type="text"
-            className="form-control"
-            id="imageApartment"
-            value={imgAnimal}
-            onChange={(e) => setImgAnimal(e.target.value)}
-          />
-        </div> */}
           <div className="mb-3">
             <label htmlFor="priceApartment" className="form-label">
               Descripción:
@@ -129,13 +117,6 @@ function EditPetPage() {
               value={description}
               onChange={(e) => setDescription(e.target.value)}
             ></textarea>
-            {/* <input
-              type="text"
-              className="form-control"
-              id="priceApartment"
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
-            /> */}
           </div>
           <div className="mb-3">
             <label htmlFor="priceApartment" className="form-label">
@@ -160,16 +141,6 @@ function EditPetPage() {
               <option value="Hembra">Hembra</option>
               <option value="Macho">Macho</option>
             </select>
-            {/* <label htmlFor="priceApartment" className="form-label">
-              Género
-            </label>
-            <input
-              type="text"
-              className="form-control"
-              id="priceApartment"
-              value={gender}
-              onChange={(e) => setGender(e.target.value)}
-            /> */}
           </div>
           <div className="mb-3">
             <label htmlFor="priceApartment" className="form-label">
@@ -196,16 +167,6 @@ function EditPetPage() {
               <option value="Gato">Gato</option>
               <option value="Exótico">Exótico</option>
             </select>
-            {/* <label htmlFor="priceApartment" className="form-label">
-              Tipo de animal
-            </label>
-            <input
-              type="text"
-              className="form-control"
-              id="priceApartment"
-              value={animalType}
-              onChange={(e) => setAnimalType(e.target.value)}
-            /> */}
           </div>
           <div className="mb-3">
             <label htmlFor="priceApartment" className="form-label">
@@ -232,16 +193,6 @@ function EditPetPage() {
               <option value="Adulto">Adulto</option>
               <option value="Anciano">Anciano</option>
             </select>
-            {/* <label htmlFor="priceApartment" className="form-label">
-              Etapa
-            </label>
-            <input
-              type="text"
-              className="form-control"
-              id="priceApartment"
-              value={age}
-              onChange={(e) => setAge(e.target.value)}
-            /> */}
           </div>
 
           <div className="mb-3">
@@ -256,16 +207,6 @@ function EditPetPage() {
               <option value="Mediano">Mediano</option>
               <option value="Grande">Grande</option>
             </select>
-            {/* <label htmlFor="priceApartment" className="form-label">
-              Tamaño
-            </label>
-            <input
-              type="text"
-              className="form-control"
-              id="priceApartment"
-              value={size}
-              onChange={(e) => setSize(e.target.value)}
-            /> */}
           </div>
           <div className="mb-3">
             <p>Estilo de vida:</p>
@@ -280,16 +221,6 @@ function EditPetPage() {
               <option value="Activo">Activo</option>
               <option value="Muy activo">Muy activo</option>
             </select>
-            {/* <label htmlFor="priceApartment" className="form-label">
-              Estilo de vida
-            </label>
-            <input
-              type="text"
-              className="form-control"
-              id="priceApartment"
-              value={lifestyle}
-              onChange={(e) => setLifestyle(e.target.value)}
-            /> */}
           </div>
           <div className="mb-3">
             <p>¿Está castrado?</p>
@@ -302,16 +233,6 @@ function EditPetPage() {
               <option value={true}>Sí</option>
               <option value={false}>No</option>
             </select>
-            {/* <label htmlFor="priceApartment" className="form-label">
-              Castrado
-            </label>
-            <input
-              type="text"
-              className="form-control"
-              id="priceApartment"
-              value={castrated}
-              onChange={(e) => setCastrated(e.target.value)}
-            /> */}
           </div>
           <div className="mb-3">
             <p>¿Está vacunado?</p>
@@ -324,39 +245,7 @@ function EditPetPage() {
               <option value={true}>Sí</option>
               <option value={false}>No</option>
             </select>
-            {/* <label htmlFor="priceApartment" className="form-label">
-              Vacunado
-            </label>
-            <input
-              type="text"
-              className="form-control"
-              id="priceApartment"
-              value={vaccines}
-              onChange={(e) => setVaccines(e.target.value)}
-            /> */}
           </div>
-          {/* <div className="mb-3">
-            <p>¿Tiene alguna enfermedad?</p>
-            <select
-              className="form-select mb-3"
-              aria-label="Default select example"
-              value={illness}
-              onChange={(e) => setIllness(e.target.value)}
-            >
-              <option value={true}>Sí</option>
-              <option value={false}>No</option>
-            </select>
-            <label htmlFor="priceApartment" className="form-label">
-              Enfermedades
-            </label>
-            <input
-              type="text"
-              className="form-control"
-              id="priceApartment"
-              value={illness}
-              onChange={(e) => setIllness(e.target.value)}
-            />
-          </div> */}
           <div className="mb-3">
             <p>¿Tiene microchip?</p>
             <select
@@ -368,16 +257,6 @@ function EditPetPage() {
               <option value={true}>Sí</option>
               <option value={false}>No</option>
             </select>
-            {/* <label htmlFor="priceApartment" className="form-label">
-              Microchip
-            </label>
-            <input
-              type="text"
-              className="form-control"
-              id="priceApartment"
-              value={microchip}
-              onChange={(e) => setMicrochip(e.target.value)}
-            /> */}
           </div>
 
           <button type="submit" className="btn btn-primary">

@@ -13,6 +13,7 @@ import PetListPage from "./pages/PetListPage/PetListPage";
 import AddPet from "./pages/Pets/AddPet";
 import PetDetailPage from "./pages/PetDetailPage/PetDetailPage";
 import EditPetPage from "./pages/EditPetPage/EditPetPage";
+import EditProfilePage from "./pages/EditProfilePage/EditProfilePage";
 import Navbar from "./components/Navbar/Navbar";
 import IsAnon from "./components/IsAnon/IsAnon";
 
@@ -31,6 +32,7 @@ function App() {
         <Route path="/animales/:animalId" element={<PetDetailPage />} />
         <Route path="/animales/:animalId/editar" element={<EditPetPage />} />
         <Route path="/perfil/:userId" element={<ProfilePage />} />
+        <Route path="/perfil/:userId/editar" element={<EditProfilePage />} />
 
         <Route
           path="/signup"
