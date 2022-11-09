@@ -1,13 +1,13 @@
 #filtrosLateral {
   float: left;
   height: 100vh;
-  width: 18vw;
-  margin-right: 2em;
-  background-color: rgba(234, 231, 231, 0.6);
+  width: 14vw;
+  position: fixed;
+  /* background-color: rgba(234, 231, 231, 0.6); */
 }
 
 .filtroEspecifico {
-  border-bottom: 2px solid #f0ead2;
+  /* border-bottom: 2px solid #f0ead2; */
   margin: 1em;
 }
 
@@ -15,11 +15,17 @@
   font-weight: lighter;
   text-align: start;
 }
+.filtroEspecifico label {
+  margin-left: 2em;
+}
 
 #filtrosLateral h3 {
   color: #a98467;
 }
-#filtros {
+#aplicarFiltros {
   background-color: #a98467;
   color: white;
+}
+#aplicarFiltros:hover {
+  background-color: #6c584c;
 }
