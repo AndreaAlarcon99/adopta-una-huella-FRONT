@@ -12,6 +12,7 @@ function PetDetailPage() {
   useEffect(() => {
     animalService.getAnimal(animalId).then((result) => {
       setAnimal(result.data);
+      // console.log("result data aninal: ", result.data);
     });
     // eslint-disable-next-line
   }, []);
