@@ -23,7 +23,7 @@ function PetListPage() {
       <AnimalFilters updateAnimals={updateAnimals} />
       <h2 className="mb-3"> Animales en adopción </h2>
       <AnimalTypeFilter updateAnimals={updateAnimals} />
-      <div className="container">
+      <div className="container" id="alinear">
         <div className="row">
           {animals.map((animal) => (
             <AnimalComponent animal={animal} key={animal._id} />

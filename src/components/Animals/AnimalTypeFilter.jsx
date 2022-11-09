@@ -32,24 +32,9 @@ function AnimalTypeFilter({ updateAnimals }) {
   return (
     <div id="filtroCategoria">
       <form onSubmit={submitHandler}>
-        {/* <div className="form-check text-start">
-          <input
-            className="form-check-input"
-            type="checkbox"
-            name="gender"
-            value={true}
-            id="macho"
-            onChange={(e) => setPerros(e.target.checked)}
-          />
-          <label className="form-check-label" htmlFor="macho">
-            Perros
-          </label>
-        </div> */}
-
         <button
           className="btn"
           type="submit"
-          id="filtros"
           value={true}
           onClick={(e) => setPerros(e.target.value)}
         >
@@ -58,7 +43,6 @@ function AnimalTypeFilter({ updateAnimals }) {
         <button
           className="btn"
           type="submit"
-          id="filtros"
           value={true}
           onClick={(e) => setGatos(e.target.value)}
         >
@@ -67,7 +51,6 @@ function AnimalTypeFilter({ updateAnimals }) {
         <button
           className="btn"
           type="submit"
-          id="filtros"
           value={true}
           onClick={(e) => setExoticos(e.target.value)}
         >

@@ -45,7 +45,6 @@ function AnimalFilters({ updateAnimals }) {
       .getAnimals(valoresFiltro)
       .then((result) => {
         return updateAnimals(result.data);
-        // console.log("que es resultado?: ", result.data);
       })
       .catch((err) => {
         console.log("Erros: ", err);
@@ -55,13 +54,11 @@ function AnimalFilters({ updateAnimals }) {
   return (
     <div id="filtrosLateral">
       <form onSubmit={submitHandler}>
-        <h3 className="pt-2">Filtrar</h3>
-        <hr></hr>
         <div className="filtroEspecifico">
           <h4>Género</h4>
           <div className="form-check text-start">
             <input
-              className="form-check-input"
+              className="form-check-input "
               type="checkbox"
               name="gender"
               value={true}
@@ -97,8 +94,6 @@ function AnimalFilters({ updateAnimals }) {
               value={true}
               id="pequeno"
               onChange={(e) => setPequeno(e.target.checked)}
-
-              // onChange={handleInput}
             />
             <label className="form-check-label" htmlFor="pequeno">
               Pequeño
@@ -112,8 +107,6 @@ function AnimalFilters({ updateAnimals }) {
               value={true}
               id="mediano"
               onChange={(e) => setMediano(e.target.checked)}
-
-              // onChange={handleInput}
             />
             <label className="form-check-label" htmlFor="mediano">
               Mediano
@@ -127,8 +120,6 @@ function AnimalFilters({ updateAnimals }) {
               value={true}
               id="grande"
               onChange={(e) => setGrande(e.target.checked)}
-
-              // onChange={handleInput}
             />
             <label className="form-check-label" htmlFor="grande">
               Grande
@@ -146,8 +137,6 @@ function AnimalFilters({ updateAnimals }) {
               value={true}
               id="cachorro"
               onChange={(e) => setCachorro(e.target.checked)}
-
-              // onChange={handleInput}
             />
             <label className="form-check-label" htmlFor="cachorro">
               Cachorro
@@ -161,8 +150,6 @@ function AnimalFilters({ updateAnimals }) {
               value={true}
               id="joven"
               onChange={(e) => setJoven(e.target.checked)}
-
-              // onChange={handleInput}
             />
             <label className="form-check-label" htmlFor="joven">
               Joven
@@ -176,8 +163,6 @@ function AnimalFilters({ updateAnimals }) {
               value={true}
               id="adulto"
               onChange={(e) => setAdulto(e.target.checked)}
-
-              // onChange={handleInput}
             />
             <label className="form-check-label" htmlFor="adulto">
               Adulto
@@ -191,8 +176,6 @@ function AnimalFilters({ updateAnimals }) {
               value={true}
               id="anciano"
               onChange={(e) => setAnciano(e.target.checked)}
-
-              // onChange={handleInput}
             />
             <label className="form-check-label" htmlFor="anciano">
               Anciano
@@ -210,8 +193,6 @@ function AnimalFilters({ updateAnimals }) {
               value={true}
               id="tranquilo"
               onChange={(e) => setMuyTranquilo(e.target.checked)}
-
-              // onChange={handleInput}
             />
             <label className="form-check-label" htmlFor="tranquilo">
               Muy tranquilo
@@ -225,8 +206,6 @@ function AnimalFilters({ updateAnimals }) {
               value={true}
               id="tranquilo"
               onChange={(e) => setTranquilo(e.target.checked)}
-
-              // onChange={handleInput}
             />
             <label className="form-check-label" htmlFor="tranquilo">
               Tranquilo
@@ -240,9 +219,8 @@ function AnimalFilters({ updateAnimals }) {
               id="activo"
               value={true}
               onChange={(e) => setActivo(e.target.checked)}
-
-              // onChange={handleInput}
             />
+
             <label className="form-check-label" htmlFor="activo">
               Activo
             </label>
@@ -262,7 +240,7 @@ function AnimalFilters({ updateAnimals }) {
           </div>
           <br></br>
         </div>
-        <button className="btn" type="submit" id="filtros">
+        <button className="btn" type="submit" id="aplicarFiltros">
           Aplicar filtros
         </button>
       </form>
