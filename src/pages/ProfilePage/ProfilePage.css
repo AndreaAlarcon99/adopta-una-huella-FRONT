@@ -1,4 +1,19 @@
+#botonUser {
+  background-color: #adc178;
+  font-size: 1.2rem;
+}
+
+#containerDescription {
+  border: 2px 2px #a98467;
+}
+
+#btSend {
+  background-color: #a98467;
+  color: white;
+}
 .imagenUser {
+  width: 32rem;
+  height: 32rem;
   border-radius: 5%;
 }
 
@@ -14,21 +29,4 @@
 #btSend {
   background-color: #a98467;
   color: white;
-}
-.imagenUser {
-    border-radius: 5%;
-}
-
-#botonUser{
-    background-color: #ADC178;
-    font-size: 1.2rem;
-}
-
-#containerDescription{
-    border: 2px 2px #A98467;
-}
-
-#btSend {
-    background-color: #A98467;
-    color: white;
 }
