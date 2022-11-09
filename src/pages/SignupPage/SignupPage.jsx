@@ -4,7 +4,6 @@ import { Link, useNavigate } from "react-router-dom";
 import authService from "../../services/auth.service";
 import { AuthContext } from "../../context/auth.context";
 
-
 function SignupPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -25,6 +24,7 @@ function SignupPage() {
 
     const uploadData = new FormData();
     uploadData.append("email", email);
+    uploadData.append("username", username);
     uploadData.append("password", password);
     uploadData.append("imgUser", imgUser);
     uploadData.append("description", description);
@@ -50,7 +50,7 @@ function SignupPage() {
     <div className="SignupPage" id="divSignupPage">
       <h1 className="text-start m-5">Darse de alta</h1>
 
-      <form onSubmit={handleSignupSubmit} enctype="multipart/form-data">
+      <form onSubmit={handleSignupSubmit} encType="multipart/form-data">
         <div className="seccion">
           <h5 className="text-start m-4"> Datos personales</h5>
           <div className="form-floating mb-3">
@@ -79,7 +79,6 @@ function SignupPage() {
               type="file"
               className="form-control"
               id="floatingInput"
-              value={imgUser}
               onChange={(e) => setImgUser(e.target.files[0])}
             />
             <label htmlFor="floatingInput">Subir imagen</label>
@@ -150,14 +149,18 @@ function SignupPage() {
         <br></br>
         <button className="btn" id="btnSignUp2" type="submit">
           Registrarme
-
         </button>
       </form>
 
       {errorMessage && <p className="error-message">{errorMessage}</p>}
       <br></br>
-      <p>¿Ya tienes cuenta?
-      <Link to={"/login"} id="btnLogIn2"> Entrar</Link></p>
+      <p>
+        ¿Ya tienes cuenta?
+        <Link to={"/login"} id="btnLogIn2">
+          {" "}
+          Entrar
+        </Link>
+      </p>
     </div>
   );
 }
