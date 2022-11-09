@@ -32,7 +32,6 @@ function PetDetailPage() {
         <div className="col-12 col-md-6 mt-md-5 text-start m-5 m-md-0 text-center text-md-start">
           <div className="row">
             <Link to={"/animales/" + animal._id + "/editar"}>
-              {" "}
               <img
                 className="penEdit"
                 src="../../penEdit.png"
