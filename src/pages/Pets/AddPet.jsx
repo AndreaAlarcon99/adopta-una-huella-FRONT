@@ -62,15 +62,15 @@ function AddPet() {
     //   );
     // };
 
-    let prom1 = animalService.addAnimal(uploadData);
-    let prom2 = userService.getUser(user._id);
+    // let prom1 = animalService.addAnimal(uploadData);
+    // let prom2 = userService.getUser(user._id);
 
-    Promise.all([prom1, prom2])
-      .then((response) => {
-        userService.editUser(user.ourAnimals, response[0].data._id);
-        console.log("Response de add pet: ", response[0].data._id);
-      })
-      .catch((err) => console.log(err));
+    // Promise.all([prom1, prom2])
+    //   .then((response) => {
+    //     userService.editUser(user.ourAnimals, response[0].data._id);
+    //     // console.log("Response de add pet: ", response[0].data._id);
+    //   })
+    //   .catch((err) => console.log(err));
 
     // animalService
     //   .addAnimal(uploadData)

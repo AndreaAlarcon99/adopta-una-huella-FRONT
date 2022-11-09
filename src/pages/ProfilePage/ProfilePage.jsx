@@ -11,12 +11,6 @@ function ProfilePage() {
   const [user, setUser] = useState("");
   const { userId } = useParams();
 
-
-  //   const [enAdopcion, setEnAdopcion] = useState([]);
-  //   const { user } = useContext(AuthContext);
-  //   const [protectora, setProtectora] = useState({});
-  //   // const { email } = thisUser;
-
   useEffect(() => {
     userService
       .getUser(userId)
@@ -27,21 +21,6 @@ function ProfilePage() {
       .catch((err) => console.log("error de profile: ", err));
   }, []);
 
-  //   useEffect(() => {
-  //     userService
-  //       .getUser(userId)
-  //       .then((resp) => {
-  //         console.log("RESPONSE DATA ", resp.data);
-  //         setProtectora(resp.data);
-  //       })
-  //       // .then(animalService.getAnimalesFiltrados(protectora._id)
-  //       //       .then(results => {
-  //       //         console.log('animales filtrados', results.data)
-  //       //         setEnAdopcion(results.data)
-  //       //       }))
-  //       .catch((err) => console.log("ERROR CATCH ", err));
-  //     // eslint-disable-next-line
-  //   }, []);
 
   //   const [nombreAnon, setNombreAnon] = useState();
   //   const [telefonoAnon, setTelefonoAnon] = useState();
@@ -53,19 +32,6 @@ function ProfilePage() {
   //   const handlerTelefono = ({ target }) => setTelefonoAnon(target.value);
   //   const handlerEmail = ({ target }) => setEmailAnon(target.value);
   //   const handlerText = ({ target }) => setMensajeAnon(target.value);
-
-  //   // const handlerSendEmail = () => {
-  //   //   const mailData = {
-  //   //     email,
-  //   //     nombreAnon,
-  //   //     telefonoAnon,
-  //   //     emailAnon,
-  //   //     mensajeAnon,
-  //   //   };
-  //   //   userService
-  //   //     .sendEmail(mailData)
-  //   //     .then(console.log("adopción solicitada"))
-  //   //     .catch((err) => console.log(err));
 
 //   const handlerSendEmail = () => {
 //     const mailData = {
@@ -79,23 +45,6 @@ function ProfilePage() {
 //     .then(console.log('adopción solicitada'))
 //     .catch(err =>console.log(err))
 
-//   useEffect(() => {
-//     userService.getUser(userId)
-//     .then(results => {
-//       console.log('SOY RESULTS.DATA', results.data)
-//       return setUser(results.data)
-//     })
-//     .then(console.log('SOY EL NUEVO STATE DE USER3 ', user))
-//     // animalService.getAnimalesFiltrados({creator: userId})
-//     // .then(results => {
-//     //   // console.log('GETANIMAL: ' + results.data)
-//     //   return setEnAdopcion(results.data)
-//     // })
-//     .catch(err => console.log(err))
-//   })
-// }
-
- 
   return (
     <>
       <div className="card mb-3" style={{ width: "100vw" }}>

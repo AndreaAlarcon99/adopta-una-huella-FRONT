@@ -14,7 +14,6 @@ class AnimalService {
   getAnimals(animals) {
     return axios.get(apiUrl + "/animales", { params: animals });
   }
-
   getAdoptedAnimals() {
     return axios.get(apiUrl + "/animalesAdoptados");
   }
