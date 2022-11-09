@@ -23,7 +23,6 @@ class UserService {
   getAnimals(animalId) {
     return axios.get(apiUrl + "/perfil/" + animalId);
   }
-
 }
 
 const userService = new UserService();

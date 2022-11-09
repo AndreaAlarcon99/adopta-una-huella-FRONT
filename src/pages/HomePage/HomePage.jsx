@@ -14,6 +14,7 @@ function HomePage() {
   }, []);
 
   return (
+
     <div>
       <div id="tituloPortada">
         <p>Te ayudamos a encontrar a tu nuevo mejor amigo</p>
