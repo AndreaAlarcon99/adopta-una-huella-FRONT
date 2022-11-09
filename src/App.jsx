@@ -13,11 +13,19 @@ import PetListPage from "./pages/PetListPage/PetListPage";
 import AddPet from "./pages/Pets/AddPet";
 import PetDetailPage from "./pages/PetDetailPage/PetDetailPage";
 import EditPetPage from "./pages/EditPetPage/EditPetPage";
+// import { useContext } from "react";
+// import { AuthContext } from "./context/auth.context";
 
 import Navbar from "./components/Navbar/Navbar";
 import IsAnon from "./components/IsAnon/IsAnon";
 
+
+  // const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
+  // console.log("soy user ", user)
+
+
 function App() {
+
   return (
     <div className="App">
       <Navbar />
