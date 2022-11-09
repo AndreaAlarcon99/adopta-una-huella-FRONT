@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import AnimalComponent from "../../components/Animals/AnimalComponent";
 import { useParams } from "react-router-dom";
 import userService from "../../services/user.service";
+import { Link } from "react-router-dom";
 
 function ProfilePage() {
   const [user, setUser] = useState("");
@@ -53,6 +54,15 @@ function ProfilePage() {
               className="img-fluid rounded-start"
               alt="..."
             />
+
+          <Link to={"/perfil/" + user._id + "/editar"}>
+              <img
+                className="penEdit"
+                src="../../penEdit.png"
+                alt="editar"
+              ></img>
+            </Link>
+
           </div>
           <div className="col-md-8">
             <div className="card-body">
