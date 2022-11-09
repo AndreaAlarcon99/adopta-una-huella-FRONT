@@ -18,32 +18,21 @@ function SignupPage() {
 
   const navigate = useNavigate();
 
-  const handleEmail = (e) => setEmail(e.target.value);
-  const handlePassword = (e) => setPassword(e.target.value);
-  const handlePassword2 = (e) => setPassword2(e.target.value);
-  const handleUsername = (e) => setUsername(e.target.value);
-  const handleDescription = (e) => setDescription(e.target.value);
-  const handleLicence = (e) => setLicence(e.target.value);
-  const handleLocation = (e) => setLocation(e.target.value);
-  const handleImgUser = (e) => setImgUser(e.target.value)
-
   const { storeToken, authenticateUser } = useContext(AuthContext);
 
   const handleSignupSubmit = (e) => {
     e.preventDefault();
-    // Create an object representing the request body
-    const requestBody = {
-      email,
-      password,
-      username,
-      imgUser,
-      description,
-      licence,
-      location,
-    };
+
+    const uploadData = new FormData();
+    uploadData.append("email", email);
+    uploadData.append("password", password);
+    uploadData.append("imgUser", imgUser);
+    uploadData.append("description", description);
+    uploadData.append("licence", licence);
+    uploadData.append("location", location);
 
     authService
-      .signup(requestBody)
+      .signup(uploadData)
       .then((response) => {
         // If the POST request is successful redirect to the login page
         storeToken(response.data.authToken);
@@ -54,7 +43,6 @@ function SignupPage() {
         // If the request resolves with an error, set the error message in the state
         const errorDescription = error.response.data.message;
         setErrorMessage(errorDescription);
-        console.log("error donde estas", error);
       });
   };
 
@@ -62,7 +50,7 @@ function SignupPage() {
     <div className="SignupPage" id="divSignupPage">
       <h1 className="text-start m-5">Darse de alta</h1>
 
-      <form onSubmit={handleSignupSubmit}>
+      <form onSubmit={handleSignupSubmit} enctype="multipart/form-data">
         <div className="seccion">
           <h5 className="text-start m-4"> Datos personales</h5>
           <div className="form-floating mb-3">
@@ -71,7 +59,7 @@ function SignupPage() {
               className="form-control"
               id="floatingInput"
               value={username}
-              onChange={handleUsername}
+              onChange={(e) => setUsername(e.target.value)}
             />
             <label htmlFor="floatingInput">Nombre del centro </label>
           </div>
@@ -82,7 +70,7 @@ function SignupPage() {
               id="floatingInput"
               placeholder="name@example.com"
               value={email}
-              onChange={handleEmail}
+              onChange={(e) => setEmail(e.target.value)}
             />
             <label htmlFor="floatingInput">Email </label>
           </div>
@@ -91,9 +79,8 @@ function SignupPage() {
               type="file"
               className="form-control"
               id="floatingInput"
-              placeholder="cargar imagen"
               value={imgUser}
-              onChange={handleImgUser}
+              onChange={(e) => setImgUser(e.target.files[0])}
             />
             <label htmlFor="floatingInput">Subir imagen</label>
           </div>
@@ -107,7 +94,7 @@ function SignupPage() {
               className="form-control"
               id="floatingInput"
               value={licence}
-              onChange={handleLicence}
+              onChange={(e) => setLicence(e.target.value)}
             />
             <label htmlFor="floatingInput">Número de licencia </label>
           </div>
@@ -117,7 +104,7 @@ function SignupPage() {
               className="form-control"
               id="floatingInput"
               value={location}
-              onChange={handleLocation}
+              onChange={(e) => setLocation(e.target.value)}
             />
             <label htmlFor="floatingInput">Localización del centro </label>
           </div>
@@ -128,7 +115,7 @@ function SignupPage() {
               id="floatingTextarea2"
               style={{ height: "100px" }}
               value={description}
-              onChange={handleDescription}
+              onChange={(e) => setDescription(e.target.value)}
             ></textarea>
             <label htmlFor="floatingTextarea2">Descripción</label>
           </div>
@@ -143,7 +130,7 @@ function SignupPage() {
               id="floatingPassword1"
               placeholder="Password"
               value={password}
-              onChange={handlePassword}
+              onChange={(e) => setPassword(e.target.value)}
             />
             <label htmlFor="floatingPassword1">Contraseña</label>
           </div>
@@ -154,7 +141,7 @@ function SignupPage() {
               id="floatingPassword2"
               placeholder="Password"
               value={password2}
-              onChange={handlePassword2}
+              onChange={(e) => setPassword2(e.target.value)}
             />
             <label htmlFor="floatingPassword2">Repetir contraseña</label>
           </div>

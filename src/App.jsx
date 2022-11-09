@@ -20,6 +20,8 @@ import { useState, useEffect } from "react";
 import authService from "./services/auth.service";
 import PetDetailPage from "./pages/PetDetailPage/PetDetailPage";
 import EditPetPage from "./pages/EditPetPage/EditPetPage";
+// import { useContext } from "react";
+// import { AuthContext } from "./context/auth.context";
 
 function App() {
   const [userId, setUserId] = useState();
@@ -29,6 +31,9 @@ function App() {
       setUserId(resp.data._id);
     });
   }, []);
+
+  // const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
+  // console.log("soy user ", user)
 
   return (
     <div className="App">
