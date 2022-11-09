@@ -22,9 +22,7 @@ class UserService {
   sendEmail(mailData) {
     return axios.post(apiUrl + "/perfil/" + mailData);
   }
-  getAnimals(animalId) {
-    return axios.get(apiUrl + "/perfil/" + animalId);
-  }
+
 }
 
 const userService = new UserService();

@@ -63,8 +63,9 @@ function AddPet() {
     //   );
     // };
 
-    let prom1 = animalService.addAnimal(uploadData);
-    let prom2 = userService.getUser(user._id);
+    // let prom1 = animalService.addAnimal(uploadData);
+    // let prom2 = userService.getUser(user._id);
+
 
     Promise.all([prom1, prom2])
       .then((response) => {
