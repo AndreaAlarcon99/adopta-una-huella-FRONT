@@ -1,7 +1,9 @@
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import animalService from "../../services/animal.service";
+import userService from "../../services/user.service";
 import "./AddPet.css";
+import { AuthContext } from "../../context/auth.context";
 
 function AddPet() {
   const [errorMessage, setErrorMessage] = useState(undefined);
@@ -19,6 +21,8 @@ function AddPet() {
   const [lifestyle, setLifestyle] = useState("");
   const [microchip, setMicrochip] = useState(false);
   const [location, setLocation] = useState("");
+
+  const { user } = useContext(AuthContext);
 
   const navigate = useNavigate();
 
@@ -40,29 +44,60 @@ function AddPet() {
     uploadData.append("lifestyle", lifestyle);
     uploadData.append("microchip", microchip);
     uploadData.append("location", location);
+    uploadData.append("creator", user._id);
 
-    animalService
-      .addAnimal(uploadData)
-      .then((results) => {
-        navigate("/animales");
+    // const promiseAnimal = () => {
+    //   return new Promise(
+    //     animalService
+    //       .addAnimal(uploadData)
+    //       .then((result) => console.log("resultado de promiseAnimal: ", result))
+    //   );
+    // };
+
+    // const promiseUser = () => {
+    //   return new Promise(
+    //     userService
+    //       .getUser(user._id)
+    //       .then((result) => console.log("resultado de promiseUser: ", result))
+    //   );
+    // };
+
+    let prom1 = animalService.addAnimal(uploadData);
+    let prom2 = userService.getUser(user._id);
+
+    Promise.all([prom1, prom2])
+      .then((response) => {
+        userService.editUser(user.ourAnimals, response[0].data._id);
+        console.log("Response de add pet: ", response[0].data._id);
       })
-      .catch((error) => {
-        const errorDescription = error.results;
-        setErrorMessage(errorDescription);
-      });
+      .catch((err) => console.log(err));
+
+    // animalService
+    //   .addAnimal(uploadData)
+    //   .then((results) => {
+    //     console.log("animal creado ", results);
+    //     userService
+    //       .getUser(user._id) //el user lo recogemos del contexto
+    //       .then((response) => {
+    //         console.log("usuario ", response);
+    //         response.data.ourAnimals.push(results.data._id);
+    //       });
+    //     // navigate("/animales");
+    //   })
+    //   .catch((error) => {
+    //     const errorDescription = error.results;
+    //     setErrorMessage(errorDescription);
+    //   });
   };
 
   return (
     <div id="formCrear">
       <div>
-        <img src="../../../perro.png" alt="perro" />
-      </div>
-      <div>
         <h1>Añade un animal</h1>
         <form
           className="container"
           onSubmit={submitHandler}
-          enctype="multipart/form-data"
+          encType="multipart/form-data"
         >
           <select
             className="form-select mb-3"
@@ -183,7 +218,7 @@ function AddPet() {
               onChange={(e) => setCastrated((e.target.value = true))}
               id="flexCheckDefault"
             />
-            <label className="form-check-label" for="flexCheckDefault">
+            <label className="form-check-label" htmlFor="flexCheckDefault">
               ¿Está castrado?
             </label>
           </div>
@@ -195,7 +230,7 @@ function AddPet() {
               onChange={(e) => setVaccines((e.target.value = true))}
               id="flexCheckDefault"
             />
-            <label className="form-check-label" for="flexCheckDefault">
+            <label className="form-check-label" htmlFor="flexCheckDefault">
               ¿Está vacunado?
             </label>
           </div>
@@ -207,7 +242,7 @@ function AddPet() {
               onChange={(e) => setMicrochip((e.target.value = true))}
               id="flexCheckDefault"
             />
-            <label className="form-check-label" for="flexCheckDefault">
+            <label className="form-check-label" htmlFor="flexCheckDefault">
               ¿Tiene microchip?
             </label>
           </div>
