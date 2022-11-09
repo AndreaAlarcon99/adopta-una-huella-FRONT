@@ -11,6 +11,7 @@ function ProfilePage() {
   const [user, setUser] = useState("");
   const { userId } = useParams();
 
+
   //   const [enAdopcion, setEnAdopcion] = useState([]);
   //   const { user } = useContext(AuthContext);
   //   const [protectora, setProtectora] = useState({});
@@ -47,6 +48,7 @@ function ProfilePage() {
   //   const [emailAnon, setEmailAnon] = useState();
   //   const [mensajeAnon, setMensajeAnon] = useState();
 
+
   //   const handlerNombre = ({ target }) => setNombreAnon(target.value);
   //   const handlerTelefono = ({ target }) => setTelefonoAnon(target.value);
   //   const handlerEmail = ({ target }) => setEmailAnon(target.value);
@@ -65,23 +67,35 @@ function ProfilePage() {
   //   //     .then(console.log("adopción solicitada"))
   //   //     .catch((err) => console.log(err));
 
-  //   //   useEffect(() => {
-  //   //     userService
-  //   //       .getUser(userId)
-  //   //       .then((results) => {
-  //   //         console.log("SOY RESULTS.DATA", results.data);
-  //   //         return setUser(results.data);
-  //   //       })
-  //   //       .then(console.log("SOY EL NUEVO STATE DE USER3 ", user))
-  //   //       // animalService.getAnimalesFiltrados({creator: userId})
-  //   //       // .then(results => {
-  //   //       //   // console.log('GETANIMAL: ' + results.data)
-  //   //       //   return setEnAdopcion(results.data)
-  //   //       // })
-  //   //       .catch((err) => console.log(err));
-  //   //   });
-  //   // };
+//   const handlerSendEmail = () => {
+//     const mailData = {
+//       email,
+//       nombreAnon,
+//       telefonoAnon,
+//       emailAnon,
+//       mensajeAnon
+//     }
+//     userService.sendEmail(mailData)
+//     .then(console.log('adopción solicitada'))
+//     .catch(err =>console.log(err))
 
+//   useEffect(() => {
+//     userService.getUser(userId)
+//     .then(results => {
+//       console.log('SOY RESULTS.DATA', results.data)
+//       return setUser(results.data)
+//     })
+//     .then(console.log('SOY EL NUEVO STATE DE USER3 ', user))
+//     // animalService.getAnimalesFiltrados({creator: userId})
+//     // .then(results => {
+//     //   // console.log('GETANIMAL: ' + results.data)
+//     //   return setEnAdopcion(results.data)
+//     // })
+//     .catch(err => console.log(err))
+//   })
+// }
+
+ 
   return (
     <>
       <div className="card mb-3" style={{ width: "100vw" }}>
@@ -92,6 +106,8 @@ function ProfilePage() {
               className="img-fluid rounded-start"
               alt="..."
             />
+
+
           </div>
           <div className="col-md-8">
             <div className="card-body">
