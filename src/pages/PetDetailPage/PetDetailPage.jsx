@@ -5,13 +5,11 @@ import "./PetDetailPage.css";
 import { Link } from "react-router-dom";
 
 function PetDetailPage() {
-
   const [animal, setAnimal] = useState("");
-  const {animalId} = useParams();
+  const { animalId } = useParams();
 
   useEffect(() => {
-    animalService.getAnimal(animalId)
-    .then((result) => {
+    animalService.getAnimal(animalId).then((result) => {
       setAnimal(result.data);
     });
     // eslint-disable-next-line
@@ -27,23 +25,60 @@ function PetDetailPage() {
             alt={animal.animalName}
           />
         </div>
-        
 
         <div className="col-12 col-md-6 mt-md-5 text-start m-5 m-md-0 text-center text-md-start">
           <div className="row">
-          <Link to={"/animales/"+animal._id+"/editar"}> <img className="penEdit" src="../../penEdit.png" alt="editar"></img></Link>
+            <Link to={"/animales/" + animal._id + "/editar"}>
+              {" "}
+              <img
+                className="penEdit"
+                src="../../penEdit.png"
+                alt="editar"
+              ></img>
+            </Link>
 
+            <h2 className="text-start m-3">{animal.animalName}</h2>
+            <p className="text-start w-75" id="description">
+              {animal.description}
+            </p>
 
- 
-            <div className="col-10 col-md-6">
+            <div className="col-10 col-md-6 ">
               <p>
-                <strong>Nombre: </strong>
-                {animal.animalName}
-              </p>
-
-              <p>
-                <strong>Sexo: </strong>
-                {animal.gender}
+                {animal.gender === "Hembra" ? (
+                  <>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      className="bi bi-gender-female"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M8 1a4 4 0 1 0 0 8 4 4 0 0 0 0-8zM3 5a5 5 0 1 1 5.5 4.975V12h2a.5.5 0 0 1 0 1h-2v2.5a.5.5 0 0 1-1 0V13h-2a.5.5 0 0 1 0-1h2V9.975A5 5 0 0 1 3 5z"
+                      />{" "}
+                    </svg>
+                    <p>Hembra</p>
+                  </>
+                ) : (
+                  <>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      className="bi bi-gender-male"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M9.5 2a.5.5 0 0 1 0-1h5a.5.5 0 0 1 .5.5v5a.5.5 0 0 1-1 0V2.707L9.871 6.836a5 5 0 1 1-.707-.707L13.293 2H9.5zM6 6a4 4 0 1 0 0 8 4 4 0 0 0 0-8z"
+                      />
+                    </svg>
+                    <p>Macho</p>
+                  </>
+                )}
               </p>
               <p className="card-text">
                 <strong>Fecha de nacimiento: </strong>
@@ -67,7 +102,6 @@ function PetDetailPage() {
                 {animal.lifestyle}
               </p>
             </div>
-            
 
             <div className="col-10 col-md-6">
               <p>
@@ -76,44 +110,96 @@ function PetDetailPage() {
               </p>
               <p>
                 <strong>Castrado: </strong>
-                {animal.castrated === true ? <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check" viewBox="0 0 16 16">
-  <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/>
-</svg> : <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
-  <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
-</svg>}
+                {animal.castrated === true ? (
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    className="bi bi-check"
+                    viewBox="0 0 16 16"
+                  >
+                    <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z" />
+                  </svg>
+                ) : (
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    className="bi bi-x"
+                    viewBox="0 0 16 16"
+                  >
+                    <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
+                  </svg>
+                )}
               </p>
               <p>
                 <strong>Vacunado: </strong>
-                {animal.vaccines === true ? <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check" viewBox="0 0 16 16">
-  <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/>
-</svg> : <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
-  <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
-</svg>}
+                {animal.vaccines === true ? (
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    className="bi bi-check"
+                    viewBox="0 0 16 16"
+                  >
+                    <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z" />
+                  </svg>
+                ) : (
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    className="bi bi-x"
+                    viewBox="0 0 16 16"
+                  >
+                    <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
+                  </svg>
+                )}
               </p>
-              <p>
-                <strong>Enfermedades: </strong>
-                {animal.illness === true ? <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check" viewBox="0 0 16 16">
-  <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/>
-</svg> : <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
-  <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
-</svg>}
-              </p>
+
               <p>
                 <strong>Microchip: </strong>
-                {animal.microchip === true ? <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check" viewBox="0 0 16 16">
-  <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/>
-</svg> : <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
-  <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
-</svg>}
+                {animal.microchip === true ? (
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    className="bi bi-check"
+                    viewBox="0 0 16 16"
+                  >
+                    <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z" />
+                  </svg>
+                ) : (
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    className="bi bi-x"
+                    viewBox="0 0 16 16"
+                  >
+                    <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
+                  </svg>
+                )}
               </p>
-              
-              <Link to={"/perfil/"+animal.creator} > <strong>Protectora </strong></Link>
+              <p>
+                <img
+                  className="locationIcon"
+                  src="../../locationIcon.png"
+                  alt="ubicacion"
+                ></img>
+                {animal.location}
+              </p>
             </div>
 
-            <p className="text-start">
-              <strong>Descripción: </strong> <br></br>
-              {animal.description}
-            </p>
+            <Link to={"/perfil/" + animal.creator}>
+              <strong>Protectora </strong>
+            </Link>
 
             <button
               type="button"

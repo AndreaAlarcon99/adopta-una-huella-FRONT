@@ -1,9 +1,40 @@
 #cajaAnimal {
   border-radius: 1em;
   box-shadow: 0 0 10px gray;
-  margin: 1em;
-}
-#cajaAnimal img {
-  border-radius: 1em;
   padding: 0;
+}
+
+#cajaAnimal img {
+  border-radius: 1em 1em 0 0;
+}
+#fotoAnimal {
+  height: 40vh;
+  object-fit: cover;
+}
+
+.locationIcon {
+  width: 1.5vw;
+}
+
+.birthdayIcon {
+  width: 1.5vw;
+}
+
+.cardDetails {
+  font-size: 1.1rem;
+}
+
+.linkInfo {
+  text-decoration: none;
+}
+.linkInfo:hover {
+  text-decoration: none;
+}
+
+#footerCard {
+  background-color: #dde5b6;
+}
+
+#footerCard:hover {
+  background-color: #adc178;
 }

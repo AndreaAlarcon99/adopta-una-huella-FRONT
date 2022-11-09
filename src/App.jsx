@@ -22,14 +22,17 @@ import PetDetailPage from "./pages/PetDetailPage/PetDetailPage";
 import EditPetPage from "./pages/EditPetPage/EditPetPage";
 
 function App() {
-  const [userId, setUserId] = useState();
+
+  const [userId, setUserId] = useState()
 
   useEffect(() => {
-    authService.verify()
-    .then((resp) => {
-      setUserId(resp.data._id);
-    });
-  }, []);
+    authService
+      .verify()
+      .then(resp =>{
+        setUserId(resp.data._id)
+      })
+  }, [])
+  
 
   return (
     <div className="App">
@@ -40,7 +43,7 @@ function App() {
         <Route path="/informacion-adopcion" element={<InfoAdoptionPage />} />
         <Route path="/adoptados" element={<AdoptedPets />} />
         <Route path="/animales" element={<PetListPage />} />
-        <Route path="/crear-animal" element={<AddPet />} />
+        <Route path="/añadir-animal" element={<AddPet />} />
         <Route path="/animales/:animalId" element={<PetDetailPage />} />
         <Route path="/animales/:animalId/editar" element={<EditPetPage />} />
 
@@ -48,7 +51,7 @@ function App() {
           path="/perfil/:userId"
           element={
             // <IsPrivate>
-            <ProfilePage />
+              <ProfilePage />
             // </IsPrivate>
           }
         />

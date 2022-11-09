@@ -1,0 +1,22 @@
+#checkbox {
+  display: inline-block;
+  margin-left: 2em;
+}
+#formCrear img {
+  width: 0;
+}
+
+@media (min-width: 1140px) {
+  #formCrear img {
+    width: 40vw;
+    margin-top: 10%;
+  }
+
+  #formCrear {
+    display: flex;
+  }
+
+  #formCrear form {
+    width: 55vw;
+  }
+}
