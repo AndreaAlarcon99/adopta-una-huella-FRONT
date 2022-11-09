@@ -9,18 +9,15 @@ import userService from "../../services/user.service";
 
 function ProfilePage() {
   const { userId } = useParams();
-  const [enAdopcion, setEnAdopcion] = useState([]);
-  const { user } = useContext(AuthContext);
   const [protectora, setProtectora] = useState({});
-  const { email } = thisUser;
 
-
+  const { user } = useContext(AuthContext);
+  
+  const [enAdopcion, setEnAdopcion] = useState([]);
 
   useEffect(() => {
     userService.getUser(userId)
-    .then(resp => {
-      console.log("RESPONSE DATA ", resp.data)
-      setProtectora(resp.data)})
+    .then(resp => setProtectora(resp.data))
     // .then(animalService.getAnimalesFiltrados(protectora._id)
     //       .then(results => {
     //         console.log('animales filtrados', results.data)
@@ -30,47 +27,45 @@ function ProfilePage() {
     // eslint-disable-next-line
   }, []);
 
-  const [nombreAnon, setNombreAnon] = useState()
-  const [telefonoAnon, setTelefonoAnon] = useState()
-  const [emailAnon, setEmailAnon] = useState()
-  const [mensajeAnon, setMensajeAnon] = useState()
+  // const [nombreAnon, setNombreAnon] = useState()
+  // const [telefonoAnon, setTelefonoAnon] = useState()
+  // const [emailAnon, setEmailAnon] = useState()
+  // const [mensajeAnon, setMensajeAnon] = useState()
 
-  const handlerNombre = ({target}) => setNombreAnon(target.value)
-  const handlerTelefono = ({target}) => setTelefonoAnon(target.value)
-  const handlerEmail = ({target}) => setEmailAnon(target.value)
-  const handlerText = ({target}) => setMensajeAnon(target.value)
+  // const handlerNombre = ({target}) => setNombreAnon(target.value)
+  // const handlerTelefono = ({target}) => setTelefonoAnon(target.value)
+  // const handlerEmail = ({target}) => setEmailAnon(target.value)
+  // const handlerText = ({target}) => setMensajeAnon(target.value)
 
-  const handlerSendEmail = () => {
-    const mailData = {
-      email,
-      nombreAnon,
-      telefonoAnon,
-      emailAnon,
-      mensajeAnon
-    }
-    userService.sendEmail(mailData)
-    .then(console.log('adopción solicitada'))
-    .catch(err =>console.log(err))
+//   const handlerSendEmail = () => {
+//     const mailData = {
+//       email,
+//       nombreAnon,
+//       telefonoAnon,
+//       emailAnon,
+//       mensajeAnon
+//     }
+//     userService.sendEmail(mailData)
+//     .then(console.log('adopción solicitada'))
+//     .catch(err =>console.log(err))
 
-  useEffect(() => {
-    userService.getUser(userId)
-    .then(results => {
-      console.log('SOY RESULTS.DATA', results.data)
-      return setUser(results.data)
-    })
-    .then(console.log('SOY EL NUEVO STATE DE USER3 ', user))
-    // animalService.getAnimalesFiltrados({creator: userId})
-    // .then(results => {
-    //   // console.log('GETANIMAL: ' + results.data)
-    //   return setEnAdopcion(results.data)
-    // })
-    .catch(err => console.log(err))
-  })
-}
+//   useEffect(() => {
+//     userService.getUser(userId)
+//     .then(results => {
+//       console.log('SOY RESULTS.DATA', results.data)
+//       return setUser(results.data)
+//     })
+//     .then(console.log('SOY EL NUEVO STATE DE USER3 ', user))
+//     // animalService.getAnimalesFiltrados({creator: userId})
+//     // .then(results => {
+//     //   // console.log('GETANIMAL: ' + results.data)
+//     //   return setEnAdopcion(results.data)
+//     // })
+//     .catch(err => console.log(err))
+//   })
+// }
 
   return (
-
-
   <>
     <div className="container-fluid mt-5 p-0 w-100" id="cover">
       <div className="row">
@@ -133,7 +128,7 @@ function ProfilePage() {
                           className="form-control"
                           id="recipient-name"
                           name="nombreAnon"
-                        onChange={handlerNombre}
+                        // onChange={handlerNombre}
                       />
                       </div>
                       <div className="mb-3">
@@ -148,7 +143,7 @@ function ProfilePage() {
                           className="form-control"
                           id="recipient-name"
                           name='telefonoAnon'
-                        onChange={handlerTelefono}
+                        // onChange={handlerTelefono}
                       />
                       </div>
                       <div className="mb-3">
@@ -163,7 +158,7 @@ function ProfilePage() {
                           className="form-control"
                           id="recipient-name"
                           name="emailAnon"
-                        onChange={handlerEmail}
+                        // onChange={handlerEmail}
                       />
                       </div>
                       <div className="mb-3">
@@ -178,13 +173,15 @@ function ProfilePage() {
                           id="message-text"
                           placeholder="Pregunta a la protectora..."
                           name="mensajeAnon"
-                        onChange={handlerText}
+                        // onChange={handlerText}
                       ></textarea>
                       </div>
                     </form>
                   </div>
                   <div className="modal-footer">
-                    <button type="button" className="btn" id="btSend" onClick={handlerSendEmail}>
+                    <button type="button" className="btn" id="btSend" 
+                    // onClick={handlerSendEmail}
+                    >
                       Enviar mensaje
                     </button>
                   </div>
@@ -211,10 +208,6 @@ function ProfilePage() {
       </div>
     </div>
   </>
-    
-
-   
-  
   );
 }
 
