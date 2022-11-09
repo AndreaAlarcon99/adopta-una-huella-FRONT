@@ -22,7 +22,6 @@ function App() {
   return (
     <div className="App">
       <Navbar />
-{/* patata */}
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/informacion-adopcion" element={<InfoAdoptionPage />} />

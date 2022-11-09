@@ -4,7 +4,6 @@ import axios from "axios";
 const apiUrl = process.env.API_SERVER_URL || "http://localhost:5005";
 
 class AnimalService {
-
   getToken() {
     return localStorage.getItem("authToken");
   }
@@ -14,7 +13,6 @@ class AnimalService {
   getAnimals(animals) {
     return axios.get(apiUrl + "/animales", { params: animals });
   }
-
   getAdoptedAnimals() {
     return axios.get(apiUrl + "/animalesAdoptados");
   }
