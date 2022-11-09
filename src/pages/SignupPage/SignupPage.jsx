@@ -29,7 +29,6 @@ function SignupPage() {
   const { storeToken, authenticateUser } = useContext(AuthContext);
 
   const handleSignupSubmit = (e) => {
-    console.log("hola que tal ");
     e.preventDefault();
     // Create an object representing the request body
     const requestBody = {

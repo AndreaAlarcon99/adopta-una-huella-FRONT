@@ -1,7 +1,3 @@
-.imagenUser {
-  border-radius: 5%;
-}
-
 #botonUser {
   background-color: #adc178;
   font-size: 1.2rem;
@@ -16,6 +12,8 @@
   color: white;
 }
 .imagenUser {
+  width: 32rem;
+  height: 32rem;
   border-radius: 5%;
 }
 

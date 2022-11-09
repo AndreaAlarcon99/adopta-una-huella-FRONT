@@ -15,21 +15,9 @@ function AuthProviderWrapper(props) {
   };
 
   const authenticateUser = () => {
-    // Get the stored token from the localStorage
     const storedToken = localStorage.getItem("authToken");
-
-    // If the token exists in the localStorage
     if (storedToken) {
-      // Send a request to the server using axios
-      /* 
-        axios.get(
-          `${process.env.REACT_APP_SERVER_URL}/auth/verify`,
-          { headers: { Authorization: `Bearer ${storedToken}` } }
-        )
-        .then((response) => {})
-        */
 
-      // Or using a service
       authService
         .verify()
         .then((response) => {

@@ -3,6 +3,7 @@ import animalService from "../../services/animal.service";
 import { useParams } from "react-router-dom";
 import "./PetDetailPage.css";
 import { Link } from "react-router-dom";
+import Maps from "../../components/Maps/maps";
 
 function PetDetailPage() {
 
@@ -19,6 +20,7 @@ function PetDetailPage() {
 
   return (
     <div className="container-fluid mt-5 p-0 w-100">
+      <Maps />
       <div className="row">
         <div className="col-10 col-md-6 p-0 m-auto">
           <img

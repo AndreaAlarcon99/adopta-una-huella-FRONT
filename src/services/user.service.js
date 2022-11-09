@@ -16,6 +16,9 @@ class UserService {
     editUser(user){
         return axios.put(apiUrl + "/perfil/" + user._id, user, {headers:{authorization: `Bearer ${this.getToken()}`}})
     }
+    sendEmail(mailData){
+        return axios.post(apiUrl + "/perfil/" + mailData)
+    }
 }
 
 const userService = new UserService();

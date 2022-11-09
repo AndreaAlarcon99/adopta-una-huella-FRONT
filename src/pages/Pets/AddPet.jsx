@@ -46,8 +46,6 @@ function AddPet() {
       .addAnimal(animal)
       .then((results) => {
         navigate("/animales");
-
-        console.log("QUE ES RESULTS? ", results);
       })
       .catch((error) => {
         const errorDescription = error.results;
