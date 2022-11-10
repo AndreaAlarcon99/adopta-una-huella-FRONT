@@ -48,16 +48,17 @@ function SignupPage() {
 
   return (
     <div className="SignupPage" id="divSignupPage">
-      <h1 className="text-start m-5">Darse de alta</h1>
+      <h1 className="text-start m-4">Darse de alta</h1>
 
       <form onSubmit={handleSignupSubmit} encType="multipart/form-data">
         <div className="seccion">
-          <h5 className="text-start m-4"> Datos personales</h5>
+          <h5 className="text-start m-4"> Datos del centro</h5>
           <div className="form-floating mb-3">
             <input
               type="text"
               className="form-control"
               id="floatingInput"
+              placeholder=" "
               value={username}
               onChange={(e) => setUsername(e.target.value)}
             />
@@ -76,22 +77,10 @@ function SignupPage() {
           </div>
           <div className="form-floating mb-3">
             <input
-              type="file"
-              className="form-control"
-              id="floatingInput"
-              onChange={(e) => setImgUser(e.target.files[0])}
-            />
-            <label htmlFor="floatingInput">Subir imagen</label>
-          </div>
-        </div>
-        <div className="seccion">
-          <h5 className="text-start m-4"> Datos del centro</h5>
-
-          <div className="form-floating mb-3">
-            <input
               type="text"
               className="form-control"
               id="floatingInput"
+              placeholder=" "
               value={licence}
               onChange={(e) => setLicence(e.target.value)}
             />
@@ -102,6 +91,7 @@ function SignupPage() {
               type="text"
               className="form-control"
               id="floatingInput"
+              placeholder=" "
               value={location}
               onChange={(e) => setLocation(e.target.value)}
             />
@@ -112,11 +102,19 @@ function SignupPage() {
             <textarea
               className="form-control"
               id="floatingTextarea2"
+              placeholder=" "
               style={{ height: "100px" }}
               value={description}
               onChange={(e) => setDescription(e.target.value)}
             ></textarea>
             <label htmlFor="floatingTextarea2">Descripción</label>
+          </div>
+          <div className="text-left mt-3" id="fileUpload">
+            <input 
+              type="file"
+              onChange={(e) => setImgUser(e.target.files[0])}
+            />
+            <label htmlFor="subir imagen">Subir imagen</label>
           </div>
         </div>
         <div className="seccion">

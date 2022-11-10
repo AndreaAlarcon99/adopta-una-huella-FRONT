@@ -13,36 +13,11 @@ function ProfilePage() {
       .getUser(userId)
       .then((result) => {
         setUser(result.data);
-        // console.log("result.data: ", result.data);
       })
       .catch((err) => console.log("error de profile: ", err));
     // eslint-disable-next-line
   }, []);
 
-
-
-  //   const [nombreAnon, setNombreAnon] = useState();
-  //   const [telefonoAnon, setTelefonoAnon] = useState();
-  //   const [emailAnon, setEmailAnon] = useState();
-  //   const [mensajeAnon, setMensajeAnon] = useState();
-
-
-  //   const handlerNombre = ({ target }) => setNombreAnon(target.value);
-  //   const handlerTelefono = ({ target }) => setTelefonoAnon(target.value);
-  //   const handlerEmail = ({ target }) => setEmailAnon(target.value);
-  //   const handlerText = ({ target }) => setMensajeAnon(target.value);
-
-//   const handlerSendEmail = () => {
-//     const mailData = {
-//       email,
-//       nombreAnon,
-//       telefonoAnon,
-//       emailAnon,
-//       mensajeAnon
-//     }
-//     userService.sendEmail(mailData)
-//     .then(console.log('adopción solicitada'))
-//     .catch(err =>console.log(err))
 
   return (
     <>

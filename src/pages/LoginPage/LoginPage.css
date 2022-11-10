@@ -14,4 +14,14 @@
     text-decoration: none;
   }
 
+  #divLogginPage{
+    max-width: 800px;
+    min-width: 200px;
+    margin: auto;
+    border-radius: 10%;
+    background-color: #F0EAD2;
+    padding-top: 3vh;
+    padding-bottom: 3vh;
+}
+
   
