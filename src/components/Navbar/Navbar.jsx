@@ -8,26 +8,32 @@ function Navbar() {
   // the values from AuthContext.Provider's `value` prop
   const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
   return (
-    <nav className="navbar navbar-expand" id="totalNavbar">
-      <div className="container-fluid" id="containerNavbar">
-        <img
+
+    <nav className="navbar navbar-expand-lg bg-light sticky-top">
+  <div className="container-fluid">
+    <Link to="/" >
+    <img
           className="navbar-brand"
           src="../../../HuellaNueva.png"
           alt="logo"
           id="logo"
         />
-        <div
-          className="collapse navbar-collapse justify-content-end p-2"
-          id="navbarNavDropdown"
-        >
-          <ul className="navbar-nav">
-            <li className="nav-item">
-              <Link to="/" className="nav-link active" aria-current="page">
-                {" "}
-                Inicio{" "}
+    </Link>
+    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+      <span className="navbar-toggler-icon"></span>
+    </button>
+    <div className="collapse navbar-collapse " id="navbarTogglerDemo02">
+      <ul className="navbar-nav me-auto mb-2 mb-lg-0 ">
+      <li className="nav-item">
+               <Link to="/" className="nav-link active" aria-current="page">
+                 Inicio
               </Link>
             </li>
-
+            <li className="nav-item">
+              <Link to="/informacion-adopcion" className="nav-link">
+                Información
+              </Link>
+            </li>
             <li className="nav-item dropdown">
               <p
                 className="nav-link dropdown-toggle"
@@ -53,13 +59,6 @@ function Navbar() {
                   </Link>{" "}
                 </li>
               </ul>
-            </li>
-
-            <li className="nav-item">
-              <Link to="/informacion-adopcion" className="nav-link">
-                {" "}
-                Información{" "}
-              </Link>
             </li>
             {isLoggedIn ? (
               <>
@@ -96,10 +95,12 @@ function Navbar() {
               </>
             )}
           </ul>
-        </div>
-      </div>
-    </nav>
+    </div>
+  </div>
+</nav>
   );
 }
 
 export default Navbar;
+
+// position-absolute top-100 start-50
