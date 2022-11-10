@@ -322,11 +322,11 @@ function EditPetPage() {
             </div>
           </div>
         </form>
-        <form onSubmit={submitAdopted}>
+        {/* <form onSubmit={submitAdopted}>
           <button type="submit" className="btn btn-primary">
             Animal adoptado
           </button>
-        </form>
+        </form> */}
       </div>
     </div>
   );

@@ -57,18 +57,19 @@ function SignupPage() {
             <input
               type="text"
               className="form-control"
-              id="floatingInput"
+              id="floatingName"
+              placeholder="nombre"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
             />
-            <label htmlFor="floatingInput">Nombre del centro </label>
+            <label htmlFor="floatingName">Nombre del centro </label>
           </div>
           <div className="form-floating mb-3">
             <input
               type="email"
               className="form-control"
               id="floatingInput"
-              placeholder="name@example.com"
+              placeholder="nombre@ejemplo.com"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
