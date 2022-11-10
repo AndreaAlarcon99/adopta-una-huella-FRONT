@@ -24,6 +24,7 @@ function ProfilePage() {
     // eslint-disable-next-line
   }, []);
 
+
   //   const [nombreAnon, setNombreAnon] = useState();
   //   const [telefonoAnon, setTelefonoAnon] = useState();
   //   const [emailAnon, setEmailAnon] = useState();
@@ -45,6 +46,7 @@ function ProfilePage() {
   //     userService.sendEmail(mailData)
   //     .then(console.log('adopción solicitada'))
   //     .catch(err =>console.log(err))
+
 
   return (
     <>

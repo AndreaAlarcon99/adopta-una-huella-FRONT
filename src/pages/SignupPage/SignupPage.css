@@ -1,13 +1,22 @@
+h1 {
+  font-weight: lighter;
+}
 
 .seccion {
   border-top: 2px solid rgba(165, 164, 164, 0.5);
   margin: 2em;
 }
 
-/* #divSignupPage{
-    max-width: 400px;
+#divSignupPage{
+    max-width: 800px;
     min-width: 200px;
-} */
+    margin: auto;
+    border-radius: 5%;
+    background-color: #F0EAD2;
+    padding-top: 3vh;
+    padding-bottom: 3vh;
+}
+
 
 #btnSignUp2{
     background-color: #ADC178;;

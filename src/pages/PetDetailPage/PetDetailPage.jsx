@@ -1,9 +1,13 @@
-import { useEffect, useState, useContext } from "react";
+
+import { useContext, useEffect, useState } from "react";
+
 import animalService from "../../services/animal.service";
 import { useParams } from "react-router-dom";
 import "./PetDetailPage.css";
 import { Link } from "react-router-dom";
-import { AuthContext, authContext } from "../../context/auth.context";
+
+import { AuthContext } from "../../context/auth.context";
+
 // import userService from "../../services/user.service";
 // import Maps from "../../components/Maps/maps";
 
@@ -13,6 +17,9 @@ function PetDetailPage() {
   const { user, isLoggedIn } = useContext(AuthContext);
 
   const { animalId } = useParams();
+
+  const { user } = useContext(AuthContext);
+
 
   // const [nombreAnon, setNombreAnon] = useState();
   // const [telefonoAnon, setTelefonoAnon] = useState();

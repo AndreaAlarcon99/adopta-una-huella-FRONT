@@ -45,11 +45,11 @@ function LoginPage() {
   };
 
   return (
-    <div className="LoginPage">
+    <div className="LoginPage" id="divLogginPage">
       <h1>Entrar</h1>
 
       <form onSubmit={handleLoginSubmit}>
-        <div className="form-floating mb-3">
+        <div className="form-floating m-4">
           <input
             type="email"
             className="form-control"
@@ -61,7 +61,7 @@ function LoginPage() {
           <label htmlFor="floatingInput">Email </label>
         </div>
 
-        <div className="form-floating mb-3">
+        <div className="form-floating m-4">
           <input
             type="password"
             className="form-control"
