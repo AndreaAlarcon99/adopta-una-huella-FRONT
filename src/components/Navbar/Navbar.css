@@ -1,3 +1,6 @@
+nav {
+  background-color: white;
+}
 #logo {
   width: 50vw;
 }
@@ -8,18 +11,18 @@
   }
 }
 
-#btSignUp{
-  background-color: #A98467;
+#btSignUp {
+  background-color: #a98467;
   color: white;
 }
 
-#btLogOut{
-  background-color: #A98467;
+#btLogOut {
+  background-color: #a98467;
   color: white;
 }
 #btLogIn:hover {
-  background-color: #F0EAD2;
-  color: #A98467;
+  background-color: #f0ead2;
+  color: #a98467;
 }
 
 /* @media (max-width: 769px) {
