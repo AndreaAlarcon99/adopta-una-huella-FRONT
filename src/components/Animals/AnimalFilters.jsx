@@ -59,10 +59,10 @@ function AnimalFilters({ updateAnimals }) {
   };
 
   return (
-    <nav class="navbar ">
-      <div class="container-fluid">
+    <nav className="navbar ">
+      <div className="container-fluid">
         <button
-          class="btn"
+          className="btn"
           type="button"
           data-bs-toggle="offcanvas"
           data-bs-target="#offcanvasNavbar"
@@ -74,9 +74,8 @@ function AnimalFilters({ updateAnimals }) {
               width="36"
               height="36"
               fill="currentColor"
-              class="bi bi-filter-left"
+              className="bi bi-filter-left m-2"
               viewBox="0 0 16 16"
-              className="m-2"
             >
               <path d="M2 10.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z" />
             </svg>
@@ -84,14 +83,14 @@ function AnimalFilters({ updateAnimals }) {
           </span>
         </button>
         <div
-          class="offcanvas offcanvas-start"
-          tabindex="-1"
+          className="offcanvas offcanvas-start"
+          tabIndex="-1"
           id="offcanvasNavbar"
           aria-labelledby="offcanvasNavbarLabel"
         >
           <div id="filtrosLateral">
             <form onSubmit={submitHandler}>
-              <div class="offcanvas-body">
+              <div className="offcanvas-body">
                 <div className="filtroEspecifico">
                   <h4>Tipo de animal</h4>
                   <div className="form-check text-start">
