@@ -4,13 +4,14 @@ import "./AnimalComponent.css";
 function AnimalComponent({ animal }) {
   return (
     <div className="col-8 col-md-3 m-3 m-lg-4" id="cajaAnimal">
-      <img
-        id="fotoAnimal"
-        src={animal.imgAnimal}
-        className="card-img-top "
-        alt={animal.animalType}
-      />
-
+      <div>
+        <img
+          id="fotoAnimal"
+          src={animal.imgAnimal}
+          className="card-img-top "
+          alt={animal.animalType}
+        />
+      </div>
       <div className="card-body">
         <br></br>
         <h4 className="card-title">
@@ -69,13 +70,21 @@ function AnimalComponent({ animal }) {
           ></img>
           {animal.birthday.toString().slice(0, 10)} <br></br>
         </p>
-    {animal.adopted === true && <p>Animal Adoptado!!</p>}
+        {/* {animal.adopted === true && <div>ADOPTADO</div>} */}
 
-        <Link to={"/animales/" + animal._id} className="linkInfo">
-          <div className="card-footer text-muted" id="footerCard">
-            <span className="text-white text-bold">Más información</span>
-          </div>
-        </Link>
+        {animal.adopted === false ? (
+          <Link to={"/animales/" + animal._id} className="linkInfo">
+            <div className="card-footer text-muted" id="footerCard">
+              <span className="text-white text-bold">Más información</span>
+            </div>
+          </Link>
+        ) : (
+          <Link to={"/animales/" + animal._id} className="linkInfo">
+            <div className="card-footer text-muted" id="footerCardAdopted">
+              <span className="text-white text-bold">ADOPTADO</span>
+            </div>
+          </Link>
+        )}
       </div>
     </div>
   );

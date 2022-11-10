@@ -18,14 +18,19 @@ function PetListPage() {
   }, []);
 
   return (
-    <div >
+    <div>
       <AnimalFilters updateAnimals={updateAnimals} />
-      <h2 className="mb-3"> Animales en adopción </h2>
-      <div className="container" id="alinear">
-        <div className="row">
-          {animals.map((animal) => (
-            <AnimalComponent animal={animal} key={animal._id} />
-          ))}
+      <div id="title">
+        <h2 className="title"> Animales en adopción </h2>
+        <h6 className="resultado">{animals.length} resultados encontrados</h6>
+      </div>
+      <div id="margin">
+        <div className="container " id="alinearList">
+          <div className="row ">
+            {animals.map((animal) => (
+              <AnimalComponent animal={animal} key={animal._id} />
+            ))}
+          </div>
         </div>
       </div>
     </div>

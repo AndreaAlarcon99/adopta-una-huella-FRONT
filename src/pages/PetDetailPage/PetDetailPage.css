@@ -5,14 +5,24 @@
 #A98467 marrón claro
 #6C584C marrón fuerte
 */
+#fotoAnimal {
+  height: 40vh;
+  object-fit: cover;
+  position: relative;
+  z-index: 0;
+}
 
 .imagenAnimal {
   border-radius: 5%;
+  object-fit: cover;
+  position: relative;
+  height: 75vh;
 }
 
 .botonAdoptar {
   background-color: #adc178;
   font-size: 1.2rem;
+  margin: auto;
 }
 
 #btSend {

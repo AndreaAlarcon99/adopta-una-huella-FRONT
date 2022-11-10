@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 import "./PetDetailPage.css";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/auth.context";
-import userService from "../../services/user.service";
+// import userService from "../../services/user.service";
 
 // import userService from "../../services/user.service";
 // import Maps from "../../components/Maps/maps";
@@ -15,74 +15,52 @@ function PetDetailPage() {
   const { user, isLoggedIn } = useContext(AuthContext);
   const { animalId } = useParams();
 
-  const [protectora, setProtectora] = useState("");
+  // const [protectora, setProtectora] = useState("");
 
-  const [nombreAnon, setNombreAnon] = useState();
-  const [telefonoAnon, setTelefonoAnon] = useState();
-  const [emailAnon, setEmailAnon] = useState();
-  const [mensajeAnon, setMensajeAnon] = useState();
+  // const [nombreAnon, setNombreAnon] = useState();
+  // const [telefonoAnon, setTelefonoAnon] = useState();
+  // const [emailAnon, setEmailAnon] = useState();
+  // const [mensajeAnon, setMensajeAnon] = useState();
 
-  const handlerNombre = ({ target }) => setNombreAnon(target.value);
-  const handlerTelefono = ({ target }) => setTelefonoAnon(target.value);
-  const handlerEmail = ({ target }) => setEmailAnon(target.value);
-  const handlerText = ({ target }) => setMensajeAnon(target.value);
-
+  // const handlerNombre = ({ target }) => setNombreAnon(target.value);
+  // const handlerTelefono = ({ target }) => setTelefonoAnon(target.value);
+  // const handlerEmail = ({ target }) => setEmailAnon(target.value);
+  // const handlerText = ({ target }) => setMensajeAnon(target.value);
 
   useEffect(() => {
     animalService
       .getAnimal(animalId)
       .then((result) => {
         setAnimal(result.data);
-        userService.getUser(result.data.creator).then((result) => {
-          console.log("CREADOR ANIMAL ", result.data);
-          setProtectora(result.data);
-        });
+        // userService.getUser(result.data.creator).then((result) => {
+        //   console.log("CREADOR ANIMAL ", result.data);
+        //   setProtectora(result.data);
+        // });
       })
       .catch((err) => console.log(err));
 
     // eslint-disable-next-line
   }, []);
 
+  // const handlerSendEmail = () => {
+  //   console.log(protectora);
+  //   const mailData = {
+  //     userId: protectora._id,
+  //     email: protectora.email,
+  //     nombreAnon,
+  //     telefonoAnon,
+  //     emailAnon,
+  //     mensajeAnon,
+  //   };
 
-  // useEffect(() => {
-  //   let prom1 = animalService.getAnimal(animalId);
-  //   let prom2 = userService.getUser(animal.creator);
-
-  //   Promise.all([prom1, prom2]).then((response) => {
-  //     setAnimal(response.data);
-  //     userService.sendEmail(mailData).then((mailData) => {
-  //       console.log("maildata: ", mailData);
-  //     });
-  //   });
-  // });
-  // useEffect(() => {
-  //   const animalDb = animalService.getAnimal(animalId);
-  //   const userDb = userService.getUser(animal.creator);
-  //   Promise.all([animalDb, userDb])
-  //     .then((animalDb) => setAnimal(animalDb.data))
-  //     .then((userDb) => setUser(userDb.data));
-  //   // eslint-disable-next-line
-  // }, []);
-
-  const handlerSendEmail = () => {
-    console.log(protectora);
-    const mailData = {
-      userId: protectora._id,
-      email: protectora.email,
-      nombreAnon,
-      telefonoAnon,
-      emailAnon,
-      mensajeAnon,
-    };
-
-    userService
-      .sendEmail(mailData)
-      .then(console.log("adopción solicitada"))
-      .catch((err) => console.log(err));
-  };
+  //   userService
+  //     .sendEmail(mailData)
+  //     .then(console.log("adopción solicitada"))
+  //     .catch((err) => console.log(err));
+  // };
 
   return (
-    <div className="container-fluid mt-5 p-0 w-100">
+    <div className="container-fluid   w-100">
       {/* <Maps /> */}
       <div className="row">
         <div className="col-10 col-md-6 p-0 m-auto">
@@ -92,21 +70,29 @@ function PetDetailPage() {
             alt={animal.animalName}
           />
         </div>
+
         <div className="col-12 col-md-6 mt-md-5 text-start m-5 m-md-0 text-center text-md-start">
           <div className="row">
             {isLoggedIn && (user.admin || user._id === animal.creator) && (
               <>
-              <Link to={"/animales/" + animal._id + "/editar"}>
-                {" "}
-                <img
-                  className="penEdit"
-                  src="../../penEdit.png"
-                  alt="editar"
-                ></img>
-              </Link>
+                <Link to={"/animales/" + animal._id + "/editar"}>
+                  {" "}
+                  <img
+                    className="penEdit"
+                    src="../../penEdit.png"
+                    alt="editar"
+                  ></img>
+                </Link>
               </>
             )}
-            <h2 className="text-start m-3">{animal.animalName}</h2>
+            {animal.adopted === true ? (
+              <h2 className="text-start ">
+                {animal.animalName} ha sido adoptado
+              </h2>
+            ) : (
+              <h2 className="text-start">{animal.animalName}</h2>
+            )}
+            {/* <h2 className="text-start m-3">{animal.animalName}</h2> */}
             <p className="text-start w-75" id="description">
               {animal.description}
             </p>
@@ -231,17 +217,19 @@ function PetDetailPage() {
             </div>
 
             <Link to={"/perfil/" + animal.creator}>
-              <strong>Protectora </strong>
+              <strong>Ver perfil de la protectora </strong>
             </Link>
-            {animal.adopted === false && (!(user.admin || user._id === animal.creator)) && <button
-              type="button"
-              className="btn text-white w-25 mx-auto botonAdoptar"
-              data-bs-toggle="modal"
-              data-bs-target="#exampleModal"
-              data-bs-whatever="@getbootstrap"
-            >
-              Adoptar
-            </button>}
+            {animal.adopted === false && (
+              <button
+                type="button"
+                className="btn text-white w-25  botonAdoptar"
+                data-bs-toggle="modal"
+                data-bs-target="#exampleModal"
+                data-bs-whatever="@getbootstrap"
+              >
+                Adoptar
+              </button>
+            )}
             <div
               className="modal fade"
               id="exampleModal"
@@ -274,7 +262,7 @@ function PetDetailPage() {
                         <input
                           type="text"
                           className="form-control"
-                          onChange={handlerNombre}
+                          // onChange={handlerNombre}
                           id="recipient-name"
                         />
                       </div>
@@ -288,7 +276,7 @@ function PetDetailPage() {
                         <input
                           type="text"
                           className="form-control"
-                          onChange={handlerTelefono}
+                          // onChange={handlerTelefono}
                           id="recipient-name"
                         />
                       </div>
@@ -302,7 +290,7 @@ function PetDetailPage() {
                         <input
                           type="text"
                           className="form-control"
-                          onChange={handlerEmail}
+                          // onChange={handlerEmail}
                           id="recipient-name"
                         />
                       </div>
@@ -316,7 +304,7 @@ function PetDetailPage() {
                         <textarea
                           className="form-control"
                           id="message-text"
-                          onChange={handlerText}
+                          // onChange={handlerText}
                           placeholder="Pregunta a la protectora..."
                         ></textarea>
                       </div>
@@ -327,7 +315,7 @@ function PetDetailPage() {
                       type="button"
                       className="btn"
                       id="btSend"
-                      onClick={handlerSendEmail}
+                      // onClick={handlerSendEmail}
                     >
                       Enviar mensaje
                     </button>
@@ -335,6 +323,23 @@ function PetDetailPage() {
                 </div>
               </div>
             </div>
+            <Link
+              to={"/animales"}
+              style={{ textDecoration: "none", color: "black" }}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="26"
+                height="26"
+                fill="currentColor"
+                className="bi bi-backspace m-2"
+                viewBox="0 0 16 16"
+              >
+                <path d="M5.83 5.146a.5.5 0 0 0 0 .708L7.975 8l-2.147 2.146a.5.5 0 0 0 .707.708l2.147-2.147 2.146 2.147a.5.5 0 0 0 .707-.708L9.39 8l2.146-2.146a.5.5 0 0 0-.707-.708L8.683 7.293 6.536 5.146a.5.5 0 0 0-.707 0z" />
+                <path d="M13.683 1a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-7.08a2 2 0 0 1-1.519-.698L.241 8.65a1 1 0 0 1 0-1.302L5.084 1.7A2 2 0 0 1 6.603 1h7.08zm-7.08 1a1 1 0 0 0-.76.35L1 8l4.844 5.65a1 1 0 0 0 .759.35h7.08a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1h-7.08z" />
+              </svg>
+              Volver atrás
+            </Link>
           </div>
         </div>
       </div>
