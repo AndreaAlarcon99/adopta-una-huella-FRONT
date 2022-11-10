@@ -1,52 +1,67 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import animalService from "../../services/animal.service";
 import { useParams } from "react-router-dom";
 import "./PetDetailPage.css";
 import { Link } from "react-router-dom";
 import userService from "../../services/user.service";
-// import Maps from "../../components/Maps/maps";
+import { AuthContext } from "../../context/auth.context";
 
 function PetDetailPage() {
+  //MOSTRAR ANIMAL
   const [animal, setAnimal] = useState("");
-  const [user, setUser] = useState("");
+  
+  const { user, isLoggedIn } = useContext(AuthContext)
+
   const { animalId } = useParams();
+  //FORM
+  // const [nombreAnon, setNombreAnon] = useState();
+  // const [telefonoAnon, setTelefonoAnon] = useState();
+  // const [emailAnon, setEmailAnon] = useState();
+  // const [mensajeAnon, setMensajeAnon] = useState();
+  // const handlerNombre = ({ target }) => setNombreAnon(target.value);
+  // const handlerTelefono = ({ target }) => setTelefonoAnon(target.value);
+  // const handlerEmail = ({ target }) => setEmailAnon(target.value);
+  // const handlerText = ({ target }) => setMensajeAnon(target.value);
 
-
-  const [nombreAnon, setNombreAnon] = useState();
-  const [telefonoAnon, setTelefonoAnon] = useState();
-  const [emailAnon, setEmailAnon] = useState();
-  const [mensajeAnon, setMensajeAnon] = useState();
-
-  const handlerNombre = ({ target }) => setNombreAnon(target.value);
-  const handlerTelefono = ({ target }) => setTelefonoAnon(target.value);
-  const handlerEmail = ({ target }) => setEmailAnon(target.value);
-  const handlerText = ({ target }) => setMensajeAnon(target.value);
 
   useEffect(() => {
-    const animalDb = animalService.getAnimal(animalId)      
-    const userDb = userService.getUser(animal.creator)
-    Promise.all( [ animalDb , userDb ] )
-    .then(animalDb => setAnimal(animalDb.data))
-    .then(userDb => setUser(userDb.data))
-    // eslint-disable-next-line 
+    animalService.getAnimal(animalId).then((result) => {
+      setAnimal(result.data);
+      // console.log("result data aninal: ", result.data);
+    });
+    // eslint-disable-next-line
   }, []);
 
-  const handlerSendEmail = () => {
-    const mailData = {
-      email: user.email,
-      nombreAnon,
-      telefonoAnon,
-      emailAnon,
-      mensajeAnon
-    }
-    userService.sendEmail(mailData)
-      .then(console.log('adopción solicitada'))
-      .catch(err =>console.log(err))
-  }
+  // useEffect(() => {
+  //   const animalDb = animalService.getAnimal(animalId)      
+  //   const userDb = userService.getUser(animal.creator)
+  //   console.log('animalDb')
+    
+  //   Promise.all( [ animalDb , userDb ] )
+  //   .then(res => {
+  //     console.log(res[0].data)
+  //     console.log(res[1].data)
+  //     setAnimal(res[0].data)
+  //     setUser(res[1].data)
+  //   })
+  //   // eslint-disable-next-line 
+  // }, []);
+
+  // const handlerSendEmail = () => {
+  //   const mailData = {
+  //     email: user.email,
+  //     nombreAnon,
+  //     telefonoAnon,
+  //     emailAnon,
+  //     mensajeAnon
+  //   }
+  //   userService.sendEmail(mailData)
+  //     .then(console.log('adopción solicitada'))
+  //     .catch(err =>console.log(err))
+  // }
 
   return (
     <div className="container-fluid mt-5 p-0 w-100">
-      {/* <Maps /> */}
       <div className="row">
         <div className="col-10 col-md-6 p-0 m-auto">
           <img
@@ -58,14 +73,19 @@ function PetDetailPage() {
 
         <div className="col-12 col-md-6 mt-md-5 text-start m-5 m-md-0 text-center text-md-start">
           <div className="row">
+
+            { isLoggedIn &&
+            (user.admin || user._id===animal.creator) && 
+            
             <Link to={"/animales/" + animal._id + "/editar"}>
-              {" "}
-              <img
-                className="penEdit"
-                src="../../penEdit.png"
-                alt="editar"
-              ></img>
+            {" "}
+            <img
+              className="penEdit"
+              src="../../penEdit.png"
+              alt="editar"
+            ></img>
             </Link>
+            }
 
             <h2 className="text-start m-3">{animal.animalName}</h2>
             <p className="text-start w-75" id="description">
@@ -273,7 +293,7 @@ function PetDetailPage() {
                         <input
                           type="text"
                           className="form-control"
-                          onChange={handlerNombre}
+                          // onChange={handlerNombre}
                           id="recipient-name"
                         />
                       </div>
@@ -287,7 +307,7 @@ function PetDetailPage() {
                         <input
                           type="text"
                           className="form-control"
-                          onChange={handlerTelefono}
+                          // onChange={handlerTelefono}
                           id="recipient-name"
                         />
                       </div>
@@ -301,7 +321,7 @@ function PetDetailPage() {
                         <input
                           type="text"
                           className="form-control"
-                          onChange={handlerEmail}
+                          // onChange={handlerEmail}
                           id="recipient-name"
                         />
                       </div>
@@ -315,14 +335,16 @@ function PetDetailPage() {
                         <textarea
                           className="form-control"
                           id="message-text"
-                          onChange={handlerText}
+                          // onChange={handlerText}
                           placeholder="Pregunta a la protectora..."
                         ></textarea>
                       </div>
                     </form>
                   </div>
                   <div className="modal-footer">
-                    <button type="button" className="btn" id="btSend" onClick={handlerSendEmail}>
+                    <button type="button" className="btn" id="btSend" 
+                    // onClick={handlerSendEmail}
+                    >
                       Enviar mensaje
                     </button>
                   </div>
@@ -333,6 +355,7 @@ function PetDetailPage() {
         </div>
       </div>
     </div>
+    
   );
 }
 
