@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import animalService from "../../services/animal.service";
 import { useParams } from "react-router-dom";
 import "./PetDetailPage.css";
@@ -9,20 +9,20 @@ import { AuthContext } from "../../context/auth.context";
 function PetDetailPage() {
   //MOSTRAR ANIMAL
   const [animal, setAnimal] = useState("");
-  
-  const { user, isLoggedIn } = useContext(AuthContext)
+
+  const { user, isLoggedIn } = useContext(AuthContext);
 
   const { animalId } = useParams();
-  //FORM
+
   // const [nombreAnon, setNombreAnon] = useState();
   // const [telefonoAnon, setTelefonoAnon] = useState();
   // const [emailAnon, setEmailAnon] = useState();
   // const [mensajeAnon, setMensajeAnon] = useState();
+
   // const handlerNombre = ({ target }) => setNombreAnon(target.value);
   // const handlerTelefono = ({ target }) => setTelefonoAnon(target.value);
   // const handlerEmail = ({ target }) => setEmailAnon(target.value);
   // const handlerText = ({ target }) => setMensajeAnon(target.value);
-
 
   useEffect(() => {
     animalService.getAnimal(animalId).then((result) => {
@@ -33,18 +33,12 @@ function PetDetailPage() {
   }, []);
 
   // useEffect(() => {
-  //   const animalDb = animalService.getAnimal(animalId)      
-  //   const userDb = userService.getUser(animal.creator)
-  //   console.log('animalDb')
-    
-  //   Promise.all( [ animalDb , userDb ] )
-  //   .then(res => {
-  //     console.log(res[0].data)
-  //     console.log(res[1].data)
-  //     setAnimal(res[0].data)
-  //     setUser(res[1].data)
-  //   })
-  //   // eslint-disable-next-line 
+  //   const animalDb = animalService.getAnimal(animalId);
+  //   const userDb = userService.getUser(animal.creator);
+  //   Promise.all([animalDb, userDb])
+  //     .then((animalDb) => setAnimal(animalDb.data))
+  //     .then((userDb) => setUser(userDb.data));
+  //   // eslint-disable-next-line
   // }, []);
 
   // const handlerSendEmail = () => {
@@ -73,19 +67,16 @@ function PetDetailPage() {
 
         <div className="col-12 col-md-6 mt-md-5 text-start m-5 m-md-0 text-center text-md-start">
           <div className="row">
-
-            { isLoggedIn &&
-            (user.admin || user._id===animal.creator) && 
-            
-            <Link to={"/animales/" + animal._id + "/editar"}>
-            {" "}
-            <img
-              className="penEdit"
-              src="../../penEdit.png"
-              alt="editar"
-            ></img>
-            </Link>
-            }
+            {isLoggedIn && (user.admin || user._id === animal.creator) && (
+              <Link to={"/animales/" + animal._id + "/editar"}>
+                {" "}
+                <img
+                  className="penEdit"
+                  src="../../penEdit.png"
+                  alt="editar"
+                ></img>
+              </Link>
+            )}
 
             <h2 className="text-start m-3">{animal.animalName}</h2>
             <p className="text-start w-75" id="description">
@@ -342,8 +333,11 @@ function PetDetailPage() {
                     </form>
                   </div>
                   <div className="modal-footer">
-                    <button type="button" className="btn" id="btSend" 
-                    // onClick={handlerSendEmail}
+                    <button
+                      type="button"
+                      className="btn"
+                      id="btSend"
+                      // onClick={handlerSendEmail}
                     >
                       Enviar mensaje
                     </button>
