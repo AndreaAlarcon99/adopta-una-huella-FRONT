@@ -14,9 +14,15 @@ function AnimalTypeFilter({ updateAnimals }) {
       animalType: [],
     };
 
-    if (perros) valoresFiltro.animalType.push("Perro");
-    if (gatos) valoresFiltro.animalType.push("Gato");
-    if (exoticos) valoresFiltro.animalType.push("Exótico");
+    if (perros) {
+      valoresFiltro.animalType = [];
+      valoresFiltro.animalType.push("Perro");
+    }
+    if (gatos) {
+      valoresFiltro.animalType = [];
+      valoresFiltro.animalType.push("Gato");
+    }
+    if (exoticos) 
 
     animalService
       .getAnimals(valoresFiltro)

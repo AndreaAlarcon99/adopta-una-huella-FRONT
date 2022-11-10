@@ -21,7 +21,7 @@ class UserService {
     });
   }
   sendEmail(mailData) {
-    return axios.post(apiUrl + "/perfil/" + mailData);
+    return axios.post(apiUrl + '/perfil/' + mailData.userId + '/send');
   }
 }
 

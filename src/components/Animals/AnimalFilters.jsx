@@ -52,7 +52,7 @@ function AnimalFilters({ updateAnimals }) {
   };
 
   return (
-    <div id="filtrosLateral">
+      <div id="filtrosLateral">
       <form onSubmit={submitHandler}>
         <div className="filtroEspecifico">
           <h4>Género</h4>

@@ -8,59 +8,69 @@ import { Link } from "react-router-dom";
 
 import { AuthContext } from "../../context/auth.context";
 
-// import userService from "../../services/user.service";
+import userService from "../../services/user.service";
 // import Maps from "../../components/Maps/maps";
 
 function PetDetailPage() {
   //MOSTRAR ANIMAL
   const [animal, setAnimal] = useState("");
+  const [protectora, setProtectora] = useState('')
 
   const { user, isLoggedIn } = useContext(AuthContext);
 
   const { animalId } = useParams();
 
-  const { user } = useContext(AuthContext);
 
+  const [nombreAnon, setNombreAnon] = useState();
+  const [telefonoAnon, setTelefonoAnon] = useState();
+  const [emailAnon, setEmailAnon] = useState();
+  const [mensajeAnon, setMensajeAnon] = useState();
 
-  // const [nombreAnon, setNombreAnon] = useState();
-  // const [telefonoAnon, setTelefonoAnon] = useState();
-  // const [emailAnon, setEmailAnon] = useState();
-  // const [mensajeAnon, setMensajeAnon] = useState();
-
-  // const handlerNombre = ({ target }) => setNombreAnon(target.value);
-  // const handlerTelefono = ({ target }) => setTelefonoAnon(target.value);
-  // const handlerEmail = ({ target }) => setEmailAnon(target.value);
-  // const handlerText = ({ target }) => setMensajeAnon(target.value);
+  const handlerNombre = ({ target }) => setNombreAnon(target.value);
+  const handlerTelefono = ({ target }) => setTelefonoAnon(target.value);
+  const handlerEmail = ({ target }) => setEmailAnon(target.value);
+  const handlerText = ({ target }) => setMensajeAnon(target.value);
 
   useEffect(() => {
-    animalService.getAnimal(animalId).then((result) => {
+    animalService.getAnimal(animalId)
+    .then((result) => {
       setAnimal(result.data);
-      // console.log("result data aninal: ", result.data);
-    });
+      console.log("result data animal: ", result.data);
+    })
+    .then(userService.getUser(animal.creator)
+    .then(result => setProtectora(result.data))
+    )
     // eslint-disable-next-line
   }, []);
 
   // useEffect(() => {
+  //   console.log('hola')
   //   const animalDb = animalService.getAnimal(animalId);
-  //   const userDb = userService.getUser(animal.creator);
-  //   Promise.all([animalDb, userDb])
-  //     .then((animalDb) => setAnimal(animalDb.data))
-  //     .then((userDb) => setUser(userDb.data));
+  //   const protectoraDb = userService.getUser(animal.creator);
+  //   Promise.all([animalDb, protectoraDb])
+  //     .then((res) => {
+  //       setAnimal(res[0].data) 
+  //       setProtectora(res[1].data)
+  //       console.log(res[0])  
+  //       console.log(res[1])  
+  //     }).catch(err => console.log(err))
   //   // eslint-disable-next-line
   // }, []);
 
-  // const handlerSendEmail = () => {
-  //   const mailData = {
-  //     email: user.email,
-  //     nombreAnon,
-  //     telefonoAnon,
-  //     emailAnon,
-  //     mensajeAnon
-  //   }
-  //   userService.sendEmail(mailData)
-  //     .then(console.log('adopción solicitada'))
-  //     .catch(err =>console.log(err))
-  // }
+  const handlerSendEmail = () => {
+    const mailData = {
+      userId: protectora._id,
+      email: protectora.email,
+      nombreAnon,
+      telefonoAnon,
+      emailAnon,
+      mensajeAnon
+    }
+    console.log(mailData)
+    userService.sendEmail(mailData)
+      .then(console.log('adopción solicitada'))
+      .catch(err =>console.log(err))
+  }
 
   return (
     <div className="container-fluid mt-5 p-0 w-100">
@@ -137,7 +147,6 @@ function PetDetailPage() {
                 <strong>Tamaño: </strong>
                 {animal.size}
               </p>
-
               <p>
                 <strong>Peso: </strong>
                 {animal.weight} Kg
@@ -209,7 +218,6 @@ function PetDetailPage() {
                   </svg>
                 )}
               </p>
-
               <p>
                 <strong>Microchip: </strong>
                 {animal.microchip === true ? (
@@ -292,7 +300,7 @@ function PetDetailPage() {
                         <input
                           type="text"
                           className="form-control"
-                          // onChange={handlerNombre}
+                          onChange={handlerNombre}
                           id="recipient-name"
                         />
                       </div>
@@ -306,7 +314,7 @@ function PetDetailPage() {
                         <input
                           type="text"
                           className="form-control"
-                          // onChange={handlerTelefono}
+                          onChange={handlerTelefono}
                           id="recipient-name"
                         />
                       </div>
@@ -320,7 +328,7 @@ function PetDetailPage() {
                         <input
                           type="text"
                           className="form-control"
-                          // onChange={handlerEmail}
+                          onChange={handlerEmail}
                           id="recipient-name"
                         />
                       </div>
@@ -334,7 +342,7 @@ function PetDetailPage() {
                         <textarea
                           className="form-control"
                           id="message-text"
-                          // onChange={handlerText}
+                          onChange={handlerText}
                           placeholder="Pregunta a la protectora..."
                         ></textarea>
                       </div>
@@ -345,7 +353,7 @@ function PetDetailPage() {
                       type="button"
                       className="btn"
                       id="btSend"
-                      // onClick={handlerSendEmail}
+                      onClick={handlerSendEmail}
                     >
                       Enviar mensaje
                     </button>
