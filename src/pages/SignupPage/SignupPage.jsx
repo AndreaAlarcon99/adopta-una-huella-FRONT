@@ -111,7 +111,7 @@ function SignupPage() {
           </div>
 
           <div className="text-start mt-3" id="fileUpload">
-          <h5 className="text-start m-4"> Foto de perfil</h5>
+          <h5 className="text-start m-4">Foto de perfil</h5>
             <input 
 
               type="file"

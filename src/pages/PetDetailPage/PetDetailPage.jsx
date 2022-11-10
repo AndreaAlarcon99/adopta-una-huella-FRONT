@@ -14,17 +14,7 @@ function PetDetailPage() {
   const [animal, setAnimal] = useState("");
   const { user, isLoggedIn } = useContext(AuthContext);
   const { animalId } = useParams();
-
-  // const [nombreAnon, setNombreAnon] = useState();
-  // const [telefonoAnon, setTelefonoAnon] = useState();
-  // const [emailAnon, setEmailAnon] = useState();
-  // const [mensajeAnon, setMensajeAnon] = useState();
-
-  // const handlerNombre = ({ target }) => setNombreAnon(target.value);
-  // const handlerTelefono = ({ target }) => setTelefonoAnon(target.value);
-  // const handlerEmail = ({ target }) => setEmailAnon(target.value);
-  // const handlerText = ({ target }) => setMensajeAnon(target.value);
-
+  
   // USE EFFECT DE LETI QUE FUNCIONA BIEN!!!!!!!!!
   useEffect(() => {
     animalService.getAnimal(animalId).then((result) => {
@@ -33,41 +23,6 @@ function PetDetailPage() {
     });
     // eslint-disable-next-line
   }, []);
-
-  // useEffect(() => {
-  //   let prom1 = animalService.getAnimal(animalId);
-  //   let prom2 = userService.getUser(animal.creator);
-
-  //   const mailData = {
-  //     email: user.email,
-  //     nombreAnon,
-  //     telefonoAnon,
-  //     emailAnon,
-  //     mensajeAnon,
-  //   };
-
-  //   Promise.all([prom1, prom2]).then((response) => {
-  //     setAnimal(response.data);
-  //     userService.sendEmail(mailData).then((mailData) => {
-  //       console.log("maildata: ", mailData);
-  //     });
-  //   });
-  // });
-  // useEffect(() => {
-  //   const animalDb = animalService.getAnimal(animalId);
-  //   const userDb = userService.getUser(animal.creator);
-  //   Promise.all([animalDb, userDb])
-  //     .then((animalDb) => setAnimal(animalDb.data))
-  //     .then((userDb) => setUser(userDb.data));
-  //   // eslint-disable-next-line
-  // }, []);
-
-  // const handlerSendEmail = () => {
-
-  //   userService.sendEmail(mailData)
-  //     .then(console.log('adopción solicitada'))
-  //     .catch(err =>console.log(err))
-  // }
 
   return (
     <div className="container-fluid mt-5 p-0 w-100">
@@ -83,6 +38,7 @@ function PetDetailPage() {
         <div className="col-12 col-md-6 mt-md-5 text-start m-5 m-md-0 text-center text-md-start">
           <div className="row">
             {isLoggedIn && (user.admin || user._id === animal.creator) && (
+              <>
               <Link to={"/animales/" + animal._id + "/editar"}>
                 {" "}
                 <img
@@ -91,6 +47,7 @@ function PetDetailPage() {
                   alt="editar"
                 ></img>
               </Link>
+              </>
             )}
             <h2 className="text-start m-3">{animal.animalName}</h2>
             <p className="text-start w-75" id="description">
@@ -261,8 +218,7 @@ function PetDetailPage() {
             <Link to={"/perfil/" + animal.creator}>
               <strong>Protectora </strong>
             </Link>
-
-            <button
+            {animal.adopted === false && (!(user.admin || user._id === animal.creator)) && <button
               type="button"
               className="btn text-white w-25 mx-auto botonAdoptar"
               data-bs-toggle="modal"
@@ -270,8 +226,7 @@ function PetDetailPage() {
               data-bs-whatever="@getbootstrap"
             >
               Adoptar
-            </button>
-
+            </button>}
             <div
               className="modal fade"
               id="exampleModal"
