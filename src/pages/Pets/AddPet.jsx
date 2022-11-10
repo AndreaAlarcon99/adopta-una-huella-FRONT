@@ -91,7 +91,7 @@ function AddPet() {
 
   return (
     <div id="formCrear">
-      <div>
+      <div id="divAddPet">
         <h1>Añade un animal</h1>
         <form
           className="container"
@@ -131,14 +131,13 @@ function AddPet() {
             />
             <label htmlFor="floatingInput">Nombre del animal</label>
           </div>
-          <div className="form-floating mb-3">
-            <input
+          <div className="text-start mt-3" id="fileUpload">
+          <h6 className="text-start m-3"> Foto del animal:</h6>
+            <input className="mb-3 px-4"
               type="file"
-              className="form-control"
-              id="floatingInput"
               onChange={(e) => setImgAnimal(e.target.files[0])}
             />
-            <label htmlFor="floatingInput">Imagen del animal</label>
+            <label htmlFor="subir imagen"></label>
           </div>
           <div className="form-floating mb-3">
             <input
