@@ -46,7 +46,6 @@ function AddPet() {
     uploadData.append("location", location);
     uploadData.append("creator", user._id);
 
-
     // const promiseAnimal = () => {
     //   return new Promise(
     //     animalService
@@ -66,25 +65,26 @@ function AddPet() {
     let prom1 = animalService.addAnimal(uploadData);
     let prom2 = userService.getUser(user._id);
 
-
-
     Promise.all([prom1, prom2])
       .then((response) => {
         // console.log("response 0:", response[0].data);
         // console.log("response 1:", response[1].data);
 
-        const animalsArr = [...response[1].data.ourAnimals];
-        console.log("array de animales antes: ", animalsArr);
+        const animalsArr = [
+          ...response[1].data.ourAnimals,
+          response[0].data._id,
+        ];
 
-        animalsArr.push(response[0].data._id);
-        console.log("array de animales después: ", animalsArr);
+        // console.log("array de animales: ", animalsArr);
 
         //hacemos copia del array ourAnimals para actualizarlo cada vez que creamos un animal nuevo. Le metemos el nuevo id de animal al user en concreto.
         userService
-          .editUser(response[1].data._id, { ourAnimals: animalsArr })
-          .then(() => {
+          .editUser({ ourAnimals: animalsArr }, response[1].data._id)
+          .then((result) => {
+            // console.log("resultado final: ", result.data);
             navigate("/animales");
-          });
+          })
+          .catch((err) => console.log(err));
       })
       .catch((err) => console.log(err));
   };

@@ -15,6 +15,7 @@ class UserService {
     });
   }
   editUser(user, userId) {
+    console.log("userId axios: ", userId);
     return axios.put(apiUrl + "/perfil/" + userId, user, {
       headers: { authorization: `Bearer ${this.getToken()}` },
     });
@@ -22,7 +23,6 @@ class UserService {
   sendEmail(mailData) {
     return axios.post(apiUrl + "/perfil/" + mailData);
   }
-
 }
 
 const userService = new UserService();

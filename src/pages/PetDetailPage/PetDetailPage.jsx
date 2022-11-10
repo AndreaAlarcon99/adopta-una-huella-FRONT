@@ -1,15 +1,25 @@
-import { useEffect, useState } from "react";
+
+import { useContext, useEffect, useState } from "react";
+
 import animalService from "../../services/animal.service";
 import { useParams } from "react-router-dom";
 import "./PetDetailPage.css";
 import { Link } from "react-router-dom";
+
+import { AuthContext } from "../../context/auth.context";
+
 // import userService from "../../services/user.service";
 // import Maps from "../../components/Maps/maps";
 
 function PetDetailPage() {
   const [animal, setAnimal] = useState("");
-  // const [user, setUser] = useState("");
+
+  const { user, isLoggedIn } = useContext(AuthContext);
+
   const { animalId } = useParams();
+
+  const { user } = useContext(AuthContext);
+
 
   // const [nombreAnon, setNombreAnon] = useState();
   // const [telefonoAnon, setTelefonoAnon] = useState();
@@ -65,6 +75,7 @@ function PetDetailPage() {
 
         <div className="col-12 col-md-6 mt-md-5 text-start m-5 m-md-0 text-center text-md-start">
           <div className="row">
+<<<<<<< HEAD
             <Link to={"/animales/" + animal._id + "/editar"}>
               <img
                 className="penEdit"
@@ -72,6 +83,18 @@ function PetDetailPage() {
                 alt="editar"
               ></img>
             </Link>
+=======
+            {isLoggedIn && (user.admin || user._id === animal.creator) && (
+              <Link to={"/animales/" + animal._id + "/editar"}>
+                {" "}
+                <img
+                  className="penEdit"
+                  src="../../penEdit.png"
+                  alt="editar"
+                ></img>
+              </Link>
+            )}
+>>>>>>> 520012d949c5c36f8f37d5ac57e21c6f6b237405
 
             <h2 className="text-start m-3">{animal.animalName}</h2>
             <p className="text-start w-75" id="description">
