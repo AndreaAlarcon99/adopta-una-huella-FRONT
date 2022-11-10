@@ -15,13 +15,16 @@
   }
 
   #divLogginPage{
-    max-width: 800px;
+    max-width: 500px;
     min-width: 200px;
     margin: auto;
-    border-radius: 10%;
+    margin-top: 10vh;
+    border-radius: 5%;
     background-color: #F0EAD2;
     padding-top: 3vh;
     padding-bottom: 3vh;
 }
+
+
 
   
