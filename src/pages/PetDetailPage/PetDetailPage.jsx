@@ -1,4 +1,3 @@
-
 import { useContext, useEffect, useState } from "react";
 
 import animalService from "../../services/animal.service";
@@ -7,6 +6,7 @@ import "./PetDetailPage.css";
 import { Link } from "react-router-dom";
 
 import { AuthContext } from "../../context/auth.context";
+import userService from "../../services/user.service";
 
 // import userService from "../../services/user.service";
 // import Maps from "../../components/Maps/maps";
@@ -18,9 +18,6 @@ function PetDetailPage() {
 
   const { animalId } = useParams();
 
-  const { user } = useContext(AuthContext);
-
-
   // const [nombreAnon, setNombreAnon] = useState();
   // const [telefonoAnon, setTelefonoAnon] = useState();
   // const [emailAnon, setEmailAnon] = useState();
@@ -31,6 +28,7 @@ function PetDetailPage() {
   // const handlerEmail = ({ target }) => setEmailAnon(target.value);
   // const handlerText = ({ target }) => setMensajeAnon(target.value);
 
+  // USE EFFECT DE LETI QUE FUNCIONA BIEN!!!!!!!!!
   useEffect(() => {
     animalService.getAnimal(animalId).then((result) => {
       setAnimal(result.data);
@@ -39,6 +37,25 @@ function PetDetailPage() {
     // eslint-disable-next-line
   }, []);
 
+  // useEffect(() => {
+  //   let prom1 = animalService.getAnimal(animalId);
+  //   let prom2 = userService.getUser(animal.creator);
+
+  //   const mailData = {
+  //     email: user.email,
+  //     nombreAnon,
+  //     telefonoAnon,
+  //     emailAnon,
+  //     mensajeAnon,
+  //   };
+
+  //   Promise.all([prom1, prom2]).then((response) => {
+  //     setAnimal(response.data);
+  //     userService.sendEmail(mailData).then((mailData) => {
+  //       console.log("maildata: ", mailData);
+  //     });
+  //   });
+  // });
   // useEffect(() => {
   //   const animalDb = animalService.getAnimal(animalId);
   //   const userDb = userService.getUser(animal.creator);
@@ -49,13 +66,7 @@ function PetDetailPage() {
   // }, []);
 
   // const handlerSendEmail = () => {
-  //   const mailData = {
-  //     email: user.email,
-  //     nombreAnon,
-  //     telefonoAnon,
-  //     emailAnon,
-  //     mensajeAnon
-  //   }
+
   //   userService.sendEmail(mailData)
   //     .then(console.log('adopción solicitada'))
   //     .catch(err =>console.log(err))

@@ -1,16 +1,3 @@
-#filtrosLateral {
-  float: left;
-  height: 100vh;
-  width: 14vw;
-  position: fixed;
-  /* background-color: rgba(234, 231, 231, 0.6); */
-}
-
-.filtroEspecifico {
-  /* border-bottom: 2px solid #f0ead2; */
-  margin: 1em;
-}
-
 .filtroEspecifico h4 {
   font-weight: lighter;
   text-align: start;

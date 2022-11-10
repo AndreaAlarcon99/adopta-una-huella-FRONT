@@ -110,7 +110,7 @@ function SignupPage() {
             <label htmlFor="floatingTextarea2">Descripción</label>
           </div>
           <div className="text-left mt-3" id="fileUpload">
-            <input 
+            <input
               type="file"
               onChange={(e) => setImgUser(e.target.files[0])}
             />
