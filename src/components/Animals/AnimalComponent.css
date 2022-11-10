@@ -32,9 +32,11 @@
 }
 
 #footerCard {
-  background-color: #dde5b6;
+  background-color: #adc178;
+  height: 4vh;
+  border-radius: 0 0 1em 1em;
 }
 
 #footerCard:hover {
-  background-color: #adc178;
+  background-color: #7a8656;
 }
