@@ -3,46 +3,53 @@ import animalService from "../../services/animal.service";
 import { useParams } from "react-router-dom";
 import "./PetDetailPage.css";
 import { Link } from "react-router-dom";
-import userService from "../../services/user.service";
+// import userService from "../../services/user.service";
 // import Maps from "../../components/Maps/maps";
 
 function PetDetailPage() {
   const [animal, setAnimal] = useState("");
-  const [user, setUser] = useState("");
+  // const [user, setUser] = useState("");
   const { animalId } = useParams();
 
+  // const [nombreAnon, setNombreAnon] = useState();
+  // const [telefonoAnon, setTelefonoAnon] = useState();
+  // const [emailAnon, setEmailAnon] = useState();
+  // const [mensajeAnon, setMensajeAnon] = useState();
 
-  const [nombreAnon, setNombreAnon] = useState();
-  const [telefonoAnon, setTelefonoAnon] = useState();
-  const [emailAnon, setEmailAnon] = useState();
-  const [mensajeAnon, setMensajeAnon] = useState();
-
-  const handlerNombre = ({ target }) => setNombreAnon(target.value);
-  const handlerTelefono = ({ target }) => setTelefonoAnon(target.value);
-  const handlerEmail = ({ target }) => setEmailAnon(target.value);
-  const handlerText = ({ target }) => setMensajeAnon(target.value);
+  // const handlerNombre = ({ target }) => setNombreAnon(target.value);
+  // const handlerTelefono = ({ target }) => setTelefonoAnon(target.value);
+  // const handlerEmail = ({ target }) => setEmailAnon(target.value);
+  // const handlerText = ({ target }) => setMensajeAnon(target.value);
 
   useEffect(() => {
-    const animalDb = animalService.getAnimal(animalId)      
-    const userDb = userService.getUser(animal.creator)
-    Promise.all( [ animalDb , userDb ] )
-    .then(animalDb => setAnimal(animalDb.data))
-    .then(userDb => setUser(userDb.data))
-    // eslint-disable-next-line 
+    animalService.getAnimal(animalId).then((result) => {
+      setAnimal(result.data);
+      // console.log("result data aninal: ", result.data);
+    });
+    // eslint-disable-next-line
   }, []);
 
-  const handlerSendEmail = () => {
-    const mailData = {
-      email: user.email,
-      nombreAnon,
-      telefonoAnon,
-      emailAnon,
-      mensajeAnon
-    }
-    userService.sendEmail(mailData)
-      .then(console.log('adopción solicitada'))
-      .catch(err =>console.log(err))
-  }
+  // useEffect(() => {
+  //   const animalDb = animalService.getAnimal(animalId);
+  //   const userDb = userService.getUser(animal.creator);
+  //   Promise.all([animalDb, userDb])
+  //     .then((animalDb) => setAnimal(animalDb.data))
+  //     .then((userDb) => setUser(userDb.data));
+  //   // eslint-disable-next-line
+  // }, []);
+
+  // const handlerSendEmail = () => {
+  //   const mailData = {
+  //     email: user.email,
+  //     nombreAnon,
+  //     telefonoAnon,
+  //     emailAnon,
+  //     mensajeAnon
+  //   }
+  //   userService.sendEmail(mailData)
+  //     .then(console.log('adopción solicitada'))
+  //     .catch(err =>console.log(err))
+  // }
 
   return (
     <div className="container-fluid mt-5 p-0 w-100">
@@ -273,7 +280,7 @@ function PetDetailPage() {
                         <input
                           type="text"
                           className="form-control"
-                          onChange={handlerNombre}
+                          // onChange={handlerNombre}
                           id="recipient-name"
                         />
                       </div>
@@ -287,7 +294,7 @@ function PetDetailPage() {
                         <input
                           type="text"
                           className="form-control"
-                          onChange={handlerTelefono}
+                          // onChange={handlerTelefono}
                           id="recipient-name"
                         />
                       </div>
@@ -301,7 +308,7 @@ function PetDetailPage() {
                         <input
                           type="text"
                           className="form-control"
-                          onChange={handlerEmail}
+                          // onChange={handlerEmail}
                           id="recipient-name"
                         />
                       </div>
@@ -315,14 +322,19 @@ function PetDetailPage() {
                         <textarea
                           className="form-control"
                           id="message-text"
-                          onChange={handlerText}
+                          // onChange={handlerText}
                           placeholder="Pregunta a la protectora..."
                         ></textarea>
                       </div>
                     </form>
                   </div>
                   <div className="modal-footer">
-                    <button type="button" className="btn" id="btSend" onClick={handlerSendEmail}>
+                    <button
+                      type="button"
+                      className="btn"
+                      id="btSend"
+                      // onClick={handlerSendEmail}
+                    >
                       Enviar mensaje
                     </button>
                   </div>
