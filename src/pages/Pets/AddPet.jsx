@@ -46,8 +46,27 @@ function AddPet() {
     uploadData.append("location", location);
     uploadData.append("creator", user._id);
 
+
+    // const promiseAnimal = () => {
+    //   return new Promise(
+    //     animalService
+    //       .addAnimal(uploadData)
+    //       .then((result) => console.log("resultado de promiseAnimal: ", result))
+    //   );
+    // };
+
+    // const promiseUser = () => {
+    //   return new Promise(
+    //     userService
+    //       .getUser(user._id)
+    //       .then((result) => console.log("resultado de promiseUser: ", result))
+    //   );
+    // };
+
     let prom1 = animalService.addAnimal(uploadData);
     let prom2 = userService.getUser(user._id);
+
+
 
     Promise.all([prom1, prom2])
       .then((response) => {
