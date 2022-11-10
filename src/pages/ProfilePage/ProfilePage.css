@@ -11,11 +11,6 @@
   background-color: #a98467;
   color: white;
 }
-.imagenUser {
-  width: 32rem;
-  height: 32rem;
-  border-radius: 5%;
-}
 
 #botonUser {
   background-color: #adc178;
@@ -29,4 +24,27 @@
 #btSend {
   background-color: #a98467;
   color: white;
+}
+
+.botonAdoptar {
+  background-color: #adc178;
+  font-size: 1.2rem;
+}
+
+#btSend {
+  background-color: #a98467;
+  color: white;
+}
+
+.penEdit {
+  text-decoration: none;
+  color: black;
+}
+
+#nuestrosAnimales {
+  color: #6C584C;
+}
+
+#nombreProtectora {
+  width: 90%;
 }

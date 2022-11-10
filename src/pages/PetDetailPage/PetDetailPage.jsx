@@ -5,7 +5,6 @@ import animalService from "../../services/animal.service";
 import { useParams } from "react-router-dom";
 import "./PetDetailPage.css";
 import { Link } from "react-router-dom";
-
 import { AuthContext } from "../../context/auth.context";
 
 // import userService from "../../services/user.service";
@@ -13,13 +12,8 @@ import { AuthContext } from "../../context/auth.context";
 
 function PetDetailPage() {
   const [animal, setAnimal] = useState("");
-
   const { user, isLoggedIn } = useContext(AuthContext);
-
   const { animalId } = useParams();
-
-  const { user } = useContext(AuthContext);
-
 
   // const [nombreAnon, setNombreAnon] = useState();
   // const [telefonoAnon, setTelefonoAnon] = useState();
@@ -72,7 +66,6 @@ function PetDetailPage() {
             alt={animal.animalName}
           />
         </div>
-
         <div className="col-12 col-md-6 mt-md-5 text-start m-5 m-md-0 text-center text-md-start">
           <div className="row">
             {isLoggedIn && (user.admin || user._id === animal.creator) && (
@@ -85,7 +78,6 @@ function PetDetailPage() {
                 ></img>
               </Link>
             )}
-
             <h2 className="text-start m-3">{animal.animalName}</h2>
             <p className="text-start w-75" id="description">
               {animal.description}
@@ -237,11 +229,17 @@ function PetDetailPage() {
                 )}
               </p>
               <p>
-                <img
-                  className="locationIcon"
-                  src="../../locationIcon.png"
-                  alt="ubicacion"
-                ></img>
+                <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            className="bi bi-geo-alt"
+            viewBox="0 0 16 16"
+          >
+            <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z" />
+            <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+          </svg>
                 {animal.location}
               </p>
             </div>
