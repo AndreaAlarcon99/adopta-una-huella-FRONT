@@ -218,7 +218,8 @@ function PetDetailPage() {
             <Link to={"/perfil/" + animal.creator}>
               <strong>Protectora </strong>
             </Link>
-            {animal.adopted === false && (!(user.admin || user._id === animal.creator)) && <button
+
+            {animal.adopted === false && <button
               type="button"
               className="btn text-white w-25 mx-auto botonAdoptar"
               data-bs-toggle="modal"
