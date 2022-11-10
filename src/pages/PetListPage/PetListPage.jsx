@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import AnimalComponent from "../../components/Animals/AnimalComponent";
 import AnimalFilters from "../../components/Animals/AnimalFilters";
-import AnimalTypeFilter from "../../components/Animals/AnimalTypeFilter";
 import animalService from "../../services/animal.service";
 import "./PetListPage.css";
 
@@ -19,10 +18,9 @@ function PetListPage() {
   }, []);
 
   return (
-    <div>
+    <div >
       <AnimalFilters updateAnimals={updateAnimals} />
       <h2 className="mb-3"> Animales en adopción </h2>
-      <AnimalTypeFilter updateAnimals={updateAnimals} />
       <div className="container" id="alinear">
         <div className="row">
           {animals.map((animal) => (

@@ -1,12 +1,11 @@
-
 import { useContext, useEffect, useState } from "react";
 
 import animalService from "../../services/animal.service";
 import { useParams } from "react-router-dom";
 import "./PetDetailPage.css";
 import { Link } from "react-router-dom";
-
 import { AuthContext } from "../../context/auth.context";
+import userService from "../../services/user.service";
 
 import userService from "../../services/user.service";
 // import Maps from "../../components/Maps/maps";
@@ -14,12 +13,10 @@ import userService from "../../services/user.service";
 function PetDetailPage() {
   //MOSTRAR ANIMAL
   const [animal, setAnimal] = useState("");
-  const [protectora, setProtectora] = useState('')
-
   const { user, isLoggedIn } = useContext(AuthContext);
-
   const { animalId } = useParams();
 
+  const [protectora, setProtectora] = useState("");
 
   const [nombreAnon, setNombreAnon] = useState();
   const [telefonoAnon, setTelefonoAnon] = useState();
@@ -31,18 +28,34 @@ function PetDetailPage() {
   const handlerEmail = ({ target }) => setEmailAnon(target.value);
   const handlerText = ({ target }) => setMensajeAnon(target.value);
 
+
   useEffect(() => {
-    animalService.getAnimal(animalId)
-    .then((result) => {
-      setAnimal(result.data);
-      console.log("result data animal: ", result.data);
-    })
-    .then(userService.getUser(animal.creator)
-    .then(result => setProtectora(result.data))
-    )
+    animalService
+      .getAnimal(animalId)
+      .then((result) => {
+        setAnimal(result.data);
+        userService.getUser(result.data.creator).then((result) => {
+          console.log("CREADOR ANIMAL ", result.data);
+          setProtectora(result.data);
+        });
+      })
+      .catch((err) => console.log(err));
+
     // eslint-disable-next-line
   }, []);
 
+
+  // useEffect(() => {
+  //   let prom1 = animalService.getAnimal(animalId);
+  //   let prom2 = userService.getUser(animal.creator);
+
+  //   Promise.all([prom1, prom2]).then((response) => {
+  //     setAnimal(response.data);
+  //     userService.sendEmail(mailData).then((mailData) => {
+  //       console.log("maildata: ", mailData);
+  //     });
+  //   });
+  // });
   // useEffect(() => {
   //   console.log('hola')
   //   const animalDb = animalService.getAnimal(animalId);
@@ -58,19 +71,21 @@ function PetDetailPage() {
   // }, []);
 
   const handlerSendEmail = () => {
+    console.log(protectora);
     const mailData = {
       userId: protectora._id,
       email: protectora.email,
       nombreAnon,
       telefonoAnon,
       emailAnon,
-      mensajeAnon
-    }
-    console.log(mailData)
-    userService.sendEmail(mailData)
-      .then(console.log('adopción solicitada'))
-      .catch(err =>console.log(err))
-  }
+      mensajeAnon,
+    };
+
+    userService
+      .sendEmail(mailData)
+      .then(console.log("adopción solicitada"))
+      .catch((err) => console.log(err));
+  };
 
   return (
     <div className="container-fluid mt-5 p-0 w-100">
@@ -82,10 +97,10 @@ function PetDetailPage() {
             alt={animal.animalName}
           />
         </div>
-
         <div className="col-12 col-md-6 mt-md-5 text-start m-5 m-md-0 text-center text-md-start">
           <div className="row">
             {isLoggedIn && (user.admin || user._id === animal.creator) && (
+              <>
               <Link to={"/animales/" + animal._id + "/editar"}>
                 {" "}
                 <img
@@ -94,8 +109,8 @@ function PetDetailPage() {
                   alt="editar"
                 ></img>
               </Link>
+              </>
             )}
-
             <h2 className="text-start m-3">{animal.animalName}</h2>
             <p className="text-start w-75" id="description">
               {animal.description}
@@ -103,45 +118,16 @@ function PetDetailPage() {
 
             <div className="col-10 col-md-6 ">
               <p>
-                {animal.gender === "Hembra" ? (
-                  <>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="16"
-                      fill="currentColor"
-                      className="bi bi-gender-female"
-                      viewBox="0 0 16 16"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M8 1a4 4 0 1 0 0 8 4 4 0 0 0 0-8zM3 5a5 5 0 1 1 5.5 4.975V12h2a.5.5 0 0 1 0 1h-2v2.5a.5.5 0 0 1-1 0V13h-2a.5.5 0 0 1 0-1h2V9.975A5 5 0 0 1 3 5z"
-                      />{" "}
-                    </svg>
-                    <p>Hembra</p>
-                  </>
-                ) : (
-                  <>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="16"
-                      fill="currentColor"
-                      className="bi bi-gender-male"
-                      viewBox="0 0 16 16"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M9.5 2a.5.5 0 0 1 0-1h5a.5.5 0 0 1 .5.5v5a.5.5 0 0 1-1 0V2.707L9.871 6.836a5 5 0 1 1-.707-.707L13.293 2H9.5zM6 6a4 4 0 1 0 0 8 4 4 0 0 0 0-8z"
-                      />
-                    </svg>
-                    <p>Macho</p>
-                  </>
-                )}
+                <strong>Especie: </strong>
+                {animal.animalType}
               </p>
               <p className="card-text">
                 <strong>Fecha de nacimiento: </strong>
                 {animal.birthday}
+              </p>
+              <p>
+                <strong>Sexo: </strong>
+                {animal.gender}
               </p>
               <p className="card-text">
                 <strong>Tamaño: </strong>
@@ -151,21 +137,22 @@ function PetDetailPage() {
                 <strong>Peso: </strong>
                 {animal.weight} Kg
               </p>
+            </div>
+
+            <div className="col-10 col-md-6">
+              <p>
+                <strong>Localización: </strong>
+                {animal.location}
+              </p>
               <p>
                 <strong>Etapa: </strong>
                 {animal.age}
               </p>
               <p>
-                <strong>Estilo de vida: </strong>
+                <strong>Nivel de actividad: </strong>
                 {animal.lifestyle}
               </p>
-            </div>
 
-            <div className="col-10 col-md-6">
-              <p>
-                <strong>Animal: </strong>
-                {animal.animalType}
-              </p>
               <p>
                 <strong>Castrado: </strong>
                 {animal.castrated === true ? (
@@ -244,21 +231,12 @@ function PetDetailPage() {
                   </svg>
                 )}
               </p>
-              <p>
-                <img
-                  className="locationIcon"
-                  src="../../locationIcon.png"
-                  alt="ubicacion"
-                ></img>
-                {animal.location}
-              </p>
             </div>
 
             <Link to={"/perfil/" + animal.creator}>
               <strong>Protectora </strong>
             </Link>
-
-            <button
+            {animal.adopted === false && (!(user.admin || user._id === animal.creator)) && <button
               type="button"
               className="btn text-white w-25 mx-auto botonAdoptar"
               data-bs-toggle="modal"
@@ -266,8 +244,7 @@ function PetDetailPage() {
               data-bs-whatever="@getbootstrap"
             >
               Adoptar
-            </button>
-
+            </button>}
             <div
               className="modal fade"
               id="exampleModal"
