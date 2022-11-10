@@ -2,7 +2,6 @@ import { useContext, useState } from "react";
 import animalService from "../../services/animal.service";
 import userService from "../../services/user.service";
 import "./AddPet.css";
-// import { Navigate } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 import { AuthContext } from "../../context/auth.context";
@@ -47,6 +46,7 @@ function AddPet() {
     uploadData.append("location", location);
     uploadData.append("creator", user._id);
 
+
     // const promiseAnimal = () => {
     //   return new Promise(
     //     animalService
@@ -63,17 +63,19 @@ function AddPet() {
     //   );
     // };
 
-    // let prom1 = animalService.addAnimal(uploadData);
-    // let prom2 = userService.getUser(user._id);
+    let prom1 = animalService.addAnimal(uploadData);
+    let prom2 = userService.getUser(user._id);
+
 
 
     Promise.all([prom1, prom2])
       .then((response) => {
-        console.log("response 0:", response[0].data);
-        console.log("response 1:", response[1].data);
+        // console.log("response 0:", response[0].data);
+        // console.log("response 1:", response[1].data);
 
         const animalsArr = [...response[1].data.ourAnimals];
         console.log("array de animales antes: ", animalsArr);
+
         animalsArr.push(response[0].data._id);
         console.log("array de animales después: ", animalsArr);
 
@@ -85,23 +87,6 @@ function AddPet() {
           });
       })
       .catch((err) => console.log(err));
-
-    // animalService
-    //   .addAnimal(uploadData)
-    //   .then((results) => {
-    //     console.log("animal creado ", results);
-    //     userService
-    //       .getUser(user._id) //el user lo recogemos del contexto
-    //       .then((response) => {
-    //         console.log("usuario ", response);
-    //         response.data.ourAnimals.push(results.data._id);
-    //       });
-    //     // navigate("/animales");
-    //   })
-    //   .catch((error) => {
-    //     const errorDescription = error.results;
-    //     setErrorMessage(errorDescription);
-    //   });
   };
 
   return (

@@ -22,7 +22,7 @@
   color: #A98467;
 }
 
-@media (max-width: 769px) {
+/* @media (max-width: 769px) {
   #totalNavbar {
       display: flex;
       flex-wrap: wrap;
@@ -39,8 +39,8 @@
   #botones {
     display: block;
   }  
-}
+} 
 
 #botones {
   margin: auto;
-}
+} */

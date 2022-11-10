@@ -19,6 +19,7 @@ function EditPetPage() {
   const [illness, setIllness] = useState("");
   const [microchip, setMicrochip] = useState("");
   const [location, setLocation] = useState("");
+  const [adopted, setAdopted] = useState(false);
 
   const { animalId } = useParams();
   const navigate = useNavigate();
@@ -84,6 +85,13 @@ function EditPetPage() {
         navigate("/");
       })
       .catch((error) => console.log("soy error de deleteAnimal ", error));
+  };
+
+  const submitAdopted = (e) => {
+    e.preventDefault();
+    const animal = {
+      adopted,
+    };
   };
 
   return (
@@ -313,6 +321,11 @@ function EditPetPage() {
               </div>
             </div>
           </div>
+        </form>
+        <form onSubmit={submitAdopted}>
+          <button type="submit" className="btn btn-primary">
+            Animal adoptado
+          </button>
         </form>
       </div>
     </div>
