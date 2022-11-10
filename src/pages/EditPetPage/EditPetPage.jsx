@@ -44,6 +44,7 @@ function EditPetPage() {
         setIllness(animalToUpdate.illness);
         setMicrochip(animalToUpdate.microchip);
         setLocation(animalToUpdate.location);
+        setAdopted(animalToUpdate.adopted);
       })
       .catch((error) => console.log("soy error de catch en getAnimal ", error));
   }, [animalId]);
@@ -66,6 +67,7 @@ function EditPetPage() {
       illness,
       microchip,
       location,
+      adopted,
     };
 
     animalService
@@ -85,13 +87,6 @@ function EditPetPage() {
         navigate("/");
       })
       .catch((error) => console.log("soy error de deleteAnimal ", error));
-  };
-
-  const submitAdopted = (e) => {
-    e.preventDefault();
-    const animal = {
-      adopted,
-    };
   };
 
   return (
@@ -266,6 +261,18 @@ function EditPetPage() {
               <option value={false}>No</option>
             </select>
           </div>
+          <div className="mb-3">
+            <p>El animal ya está adoptado</p>
+            <select
+              className="form-select mb-3"
+              aria-label="Default select example"
+              value={adopted}
+              onChange={(e) => setAdopted(e.target.value)}
+            >
+              <option value={true}>Sí</option>
+              <option value={false}>No</option>
+            </select>
+          </div>
 
           <button type="submit" className="btn btn-primary">
             Editar animal
@@ -322,11 +329,6 @@ function EditPetPage() {
             </div>
           </div>
         </form>
-        {/* <form onSubmit={submitAdopted}>
-          <button type="submit" className="btn btn-primary">
-            Animal adoptado
-          </button>
-        </form> */}
       </div>
     </div>
   );

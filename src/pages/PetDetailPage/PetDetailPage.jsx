@@ -27,6 +27,7 @@ function PetDetailPage() {
   const handlerEmail = ({ target }) => setEmailAnon(target.value);
   const handlerText = ({ target }) => setMensajeAnon(target.value);
 
+
   useEffect(() => {
     animalService
       .getAnimal(animalId)
@@ -41,6 +42,7 @@ function PetDetailPage() {
 
     // eslint-disable-next-line
   }, []);
+
 
   // useEffect(() => {
   //   let prom1 = animalService.getAnimal(animalId);
@@ -93,6 +95,7 @@ function PetDetailPage() {
         <div className="col-12 col-md-6 mt-md-5 text-start m-5 m-md-0 text-center text-md-start">
           <div className="row">
             {isLoggedIn && (user.admin || user._id === animal.creator) && (
+              <>
               <Link to={"/animales/" + animal._id + "/editar"}>
                 {" "}
                 <img
@@ -101,6 +104,7 @@ function PetDetailPage() {
                   alt="editar"
                 ></img>
               </Link>
+              </>
             )}
             <h2 className="text-start m-3">{animal.animalName}</h2>
             <p className="text-start w-75" id="description">
@@ -229,8 +233,7 @@ function PetDetailPage() {
             <Link to={"/perfil/" + animal.creator}>
               <strong>Protectora </strong>
             </Link>
-
-            <button
+            {animal.adopted === false && (!(user.admin || user._id === animal.creator)) && <button
               type="button"
               className="btn text-white w-25 mx-auto botonAdoptar"
               data-bs-toggle="modal"
@@ -238,8 +241,7 @@ function PetDetailPage() {
               data-bs-whatever="@getbootstrap"
             >
               Adoptar
-            </button>
-
+            </button>}
             <div
               className="modal fade"
               id="exampleModal"

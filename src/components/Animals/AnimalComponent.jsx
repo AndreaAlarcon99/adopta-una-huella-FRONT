@@ -69,6 +69,8 @@ function AnimalComponent({ animal }) {
           ></img>
           {animal.birthday.toString().slice(0, 10)} <br></br>
         </p>
+    {animal.adopted === true && <p>Animal Adoptado!!</p>}
+
         <Link to={"/animales/" + animal._id} className="linkInfo">
           <div className="card-footer text-muted" id="footerCard">
             <span className="text-white text-bold">Más información</span>

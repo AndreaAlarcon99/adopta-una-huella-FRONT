@@ -18,7 +18,7 @@ function PetListPage() {
   }, []);
 
   return (
-    <div>
+    <div >
       <AnimalFilters updateAnimals={updateAnimals} />
       <h2 className="mb-3"> Animales en adopción </h2>
       <div className="container" id="alinear">
