@@ -3,6 +3,10 @@
   font-size: 1.2rem;
 }
 
+#imgProtectora {
+  height: 40vh;
+  object-fit: cover;
+}
 #containerDescription {
   border: 2px 2px #a98467;
 }
@@ -42,7 +46,7 @@
 }
 
 #nuestrosAnimales {
-  color: #6C584C;
+  color: #6c584c;
 }
 
 #nombreProtectora {
