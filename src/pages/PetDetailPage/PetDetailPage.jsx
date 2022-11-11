@@ -6,11 +6,12 @@ import "./PetDetailPage.css";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/auth.context";
 import userService from "../../services/user.service";
+import DeleteAnimal from "../../components/Delete/DeleteAnimal";
 
-// import userService from "../../services/user.service";
 // import Maps from "../../components/Maps/maps";
 
 function PetDetailPage() {
+  //MOSTRAR ANIMAL
   const [animal, setAnimal] = useState("");
   const { user, isLoggedIn } = useContext(AuthContext);
   const { animalId } = useParams();
@@ -56,11 +57,16 @@ function PetDetailPage() {
   //   });
   // });
   // useEffect(() => {
+  //   console.log('hola')
   //   const animalDb = animalService.getAnimal(animalId);
-  //   const userDb = userService.getUser(animal.creator);
-  //   Promise.all([animalDb, userDb])
-  //     .then((animalDb) => setAnimal(animalDb.data))
-  //     .then((userDb) => setUser(userDb.data));
+  //   const protectoraDb = userService.getUser(animal.creator);
+  //   Promise.all([animalDb, protectoraDb])
+  //     .then((res) => {
+  //       setAnimal(res[0].data) 
+  //       setProtectora(res[1].data)
+  //       console.log(res[0])  
+  //       console.log(res[1])  
+  //     }).catch(err => console.log(err))
   //   // eslint-disable-next-line
   // }, []);
 
@@ -83,7 +89,6 @@ function PetDetailPage() {
 
   return (
     <div className="container-fluid mt-5 p-0 w-100">
-      {/* <Maps /> */}
       <div className="row">
         <div className="col-10 col-md-6 p-0 m-auto">
           <img
@@ -104,6 +109,7 @@ function PetDetailPage() {
                   alt="editar"
                 ></img>
               </Link>
+              
               </>
             )}
             <h2 className="text-start m-3">{animal.animalName}</h2>
@@ -128,7 +134,6 @@ function PetDetailPage() {
                 <strong>Tamaño: </strong>
                 {animal.size}
               </p>
-
               <p>
                 <strong>Peso: </strong>
                 {animal.weight} Kg
@@ -201,7 +206,6 @@ function PetDetailPage() {
                   </svg>
                 )}
               </p>
-
               <p>
                 <strong>Microchip: </strong>
                 {animal.microchip === true ? (
@@ -233,6 +237,10 @@ function PetDetailPage() {
             <Link to={"/perfil/" + animal.creator}>
               <strong>Protectora </strong>
             </Link>
+
+            {isLoggedIn && (user.admin || user._id === animal.creator) && (
+              <DeleteAnimal  animal={animal}/>
+            )}
             {animal.adopted === false && (!(user.admin || user._id === animal.creator)) && <button
               type="button"
               className="btn text-white w-25 mx-auto botonAdoptar"
@@ -339,6 +347,7 @@ function PetDetailPage() {
         </div>
       </div>
     </div>
+    
   );
 }
 

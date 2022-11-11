@@ -9,8 +9,11 @@ class UserService {
   getUser(userId) {
     return axios.get(apiUrl + "/perfil/" + userId);
   }
+  getUsers() {
+    return axios.get(apiUrl + "/protectoras");
+  }
   deleteUser(userId) {
-    return axios.delete(apiUrl + "/peril/" + userId, {
+    return axios.delete(apiUrl + "/perfil/" + userId, {
       headers: { authorization: `Bearer ${this.getToken()}` },
     });
   }

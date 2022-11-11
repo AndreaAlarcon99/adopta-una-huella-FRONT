@@ -4,6 +4,7 @@ import "./AnimalComponent.css";
 function AnimalComponent({ animal }) {
   return (
     <div className="col-8 col-md-3 m-3 m-lg-4" id="cajaAnimal">
+        <Link to={"/animales/" + animal._id} className="linkInfo">
       <img
         id="fotoAnimal"
         src={animal.imgAnimal}
@@ -71,12 +72,11 @@ function AnimalComponent({ animal }) {
         </p>
     {animal.adopted === true && <p>Animal Adoptado!!</p>}
 
-        <Link to={"/animales/" + animal._id} className="linkInfo">
           <div className="card-footer text-muted" id="footerCard">
             <span className="text-white text-bold">Más información</span>
           </div>
-        </Link>
-      </div>
+        </div>
+      </Link>
     </div>
   );
 }

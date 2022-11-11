@@ -41,6 +41,11 @@ function Navbar() {
                 Información
               </Link>
             </li>
+            <li className="nav-item">
+              <Link to="/protectoras" className="nav-link">
+                Protectoras
+              </Link>
+            </li>
             <li className="nav-item dropdown">
               <p
                 className="nav-link dropdown-toggle"
