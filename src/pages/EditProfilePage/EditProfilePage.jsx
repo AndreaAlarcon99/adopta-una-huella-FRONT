@@ -3,39 +3,38 @@ import userService from "../../services/user.service";
 import { useParams, useNavigate } from "react-router-dom";
 import "./EditProfilePage.css";
 
-function EditProfilePage(){
+function EditProfilePage() {
+  const [username, setUsername] = useState("");
+  const [description, setDescription] = useState("");
+  const [location, setLocation] = useState("");
+  const [imgUser, setImgUser] = useState("");
+  const [email, setEmail] = useState("");
 
-    const [username, setUsername] = useState("")
-    const [description, setDescription] = useState("")
-    const [location, setLocation] = useState("")
-    const [imgUser, setImgUser] = useState("")
-    const [email, setEmail] = useState("")
+  const { userId } = useParams();
+  const navigate = useNavigate();
 
-    const { userId } = useParams();
-    const navigate = useNavigate();
+  useEffect(() => {
+    userService
+      .getUser(userId)
+      .then((response) => {
+        const userToUpdate = response.data;
+        setUsername(userToUpdate.username);
+        setDescription(userToUpdate.description);
+        setLocation(userToUpdate.location);
+        setEmail(userToUpdate.email);
+        setImgUser(userToUpdate.imgUser);
+      })
+      .catch((error) => console.log("soy error de catch en getUser ", error));
+  }, [userId]);
 
-    useEffect(() => {
-        userService
-          .getUser(userId)
-          .then((response) => {
-            const userToUpdate = response.data;
-            setUsername(userToUpdate.username);
-            setDescription(userToUpdate.description);
-            setLocation(userToUpdate.location);
-            setEmail(userToUpdate.email);
-            setImgUser(userToUpdate.imgUser);
-          })
-          .catch((error) => console.log("soy error de catch en getUser ", error));
-      }, [userId]);
-
-    const submitHandler = (e) => {
-        e.preventDefault();
-        const user = {
-            username,
-            description,
-            location,
-            imgUser,
-        };
+  const submitHandler = (e) => {
+    e.preventDefault();
+    const user = {
+      username,
+      description,
+      location,
+      imgUser,
+    };
 
     userService
       .editUser(user, userId)
@@ -47,13 +46,13 @@ function EditProfilePage(){
       );
   };
 
-    return(
-        <div id="formEdit">
+  return (
+    <div id="formEdit">
       <div>
         <img className="rounded-circle" src={imgUser} alt="protectora" />
       </div>
       <div>
-        <form className="container" onSubmit={submitHandler}>
+        <form id="divEdit" className="container" onSubmit={submitHandler}>
           <h2>Editar datos de {username}</h2>
           <div className="mb-3">
             <label htmlFor="protectora" className="form-label ">
@@ -110,7 +109,7 @@ function EditProfilePage(){
         </form>
       </div>
     </div>
-    )
+  );
 }
 
 export default EditProfilePage;

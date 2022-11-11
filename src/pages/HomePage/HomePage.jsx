@@ -14,7 +14,6 @@ function HomePage() {
   }, []);
 
   return (
-
     <div>
       <div id="tituloPortada">
         <p>Te ayudamos a encontrar a tu nuevo mejor amigo</p>
@@ -32,8 +31,8 @@ function HomePage() {
       </div>
       <div>
         <h4 className="text-start m-4">NUESTROS ANCIANOS</h4>
-        <div className="container-fluid">
-          <div className="row">
+        <div className="container-fluid" id="alinear">
+          <div className="row justify-content-center">
             {animals.map((animal) => (
               <AnimalComponent animal={animal} key={animal._id} />
             ))}

@@ -44,6 +44,7 @@ function EditPetPage() {
         setIllness(animalToUpdate.illness);
         setMicrochip(animalToUpdate.microchip);
         setLocation(animalToUpdate.location);
+        setAdopted(animalToUpdate.adopted);
       })
       .catch((error) => console.log("soy error de catch en getAnimal ", error));
   }, [animalId]);
@@ -66,12 +67,13 @@ function EditPetPage() {
       illness,
       microchip,
       location,
+      adopted,
     };
 
     animalService
       .editAnimal(animal, animalId)
       .then((response) => {
-        navigate("/animales/" + animalId);
+        navigate("/animales");
       })
       .catch((error) =>
         console.log("soy error de catch en editAnimal ", error, animal)
@@ -82,16 +84,9 @@ function EditPetPage() {
     animalService
       .deleteAnimal(animalId)
       .then(() => {
-        navigate("/");
+        navigate("/animales");
       })
       .catch((error) => console.log("soy error de deleteAnimal ", error));
-  };
-
-  const submitAdopted = (e) => {
-    e.preventDefault();
-    const animal = {
-      adopted,
-    };
   };
 
   return (
@@ -100,8 +95,20 @@ function EditPetPage() {
         <img className="rounded-circle" src={imgAnimal} alt="perro" />
       </div>
       <div>
-        <form className="container" onSubmit={submitHandler}>
+        <form id="divEdit" className="container" onSubmit={submitHandler}>
           <h2>Editar datos de {animalName}</h2>
+          <div className="mb-3">
+            <p>¿Este animal ha sido adoptado?</p>
+            <select
+              className="form-select mb-3"
+              aria-label="Default select example"
+              value={adopted}
+              onChange={(e) => setAdopted(e.target.value)}
+            >
+              <option value={true}>Sí</option>
+              <option value={false}>No</option>
+            </select>
+          </div>
           <div className="mb-3">
             <label htmlFor="animalName" className="form-label ">
               Nombre del animal:
@@ -322,11 +329,6 @@ function EditPetPage() {
             </div>
           </div>
         </form>
-        {/* <form onSubmit={submitAdopted}>
-          <button type="submit" className="btn btn-primary">
-            Animal adoptado
-          </button>
-        </form> */}
       </div>
     </div>
   );
