@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const apiUrl = "http://localhost:5005";
+const apiUrl = process.env.REACT_APP_API_SERVER_URL || "http://localhost:5005";
 
 class UserService {
   getToken() {
@@ -9,8 +9,11 @@ class UserService {
   getUser(userId) {
     return axios.get(apiUrl + "/perfil/" + userId);
   }
+  getUsers() {
+    return axios.get(apiUrl + "/protectoras");
+  }
   deleteUser(userId) {
-    return axios.delete(apiUrl + "/peril/" + userId, {
+    return axios.delete(apiUrl + "/perfil/" + userId, {
       headers: { authorization: `Bearer ${this.getToken()}` },
     });
   }

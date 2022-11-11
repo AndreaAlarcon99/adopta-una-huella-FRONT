@@ -10,6 +10,7 @@
 #fotoAnimal {
   height: 40vh;
   object-fit: cover;
+  position: relative;
 }
 
 .locationIcon {
@@ -39,4 +40,10 @@
 
 #footerCard:hover {
   background-color: #7a8656;
+}
+
+#footerCardAdopted {
+  background-color: #6c584c;
+  height: 4vh;
+  border-radius: 0 0 1em 1em;
 }

@@ -59,10 +59,10 @@ function AnimalFilters({ updateAnimals }) {
   };
 
   return (
-    <nav className="navbar ">
-      <div className="container-fluid">
+    <nav className="navbar  bg-transparent" id="nav">
+      <div className="container-fluid" id="index">
         <button
-          className="btn"
+          className="btn bg-transparent"
           type="button"
           data-bs-toggle="offcanvas"
           data-bs-target="#offcanvasNavbar"
@@ -82,6 +82,7 @@ function AnimalFilters({ updateAnimals }) {
             Buscar por filtros
           </span>
         </button>
+
         <div
           className="offcanvas offcanvas-start"
           tabIndex="-1"
