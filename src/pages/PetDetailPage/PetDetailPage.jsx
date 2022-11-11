@@ -6,8 +6,8 @@ import "./PetDetailPage.css";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/auth.context";
 import userService from "../../services/user.service";
+import DeleteAnimal from "../../components/Delete/DeleteAnimal";
 
-import userService from "../../services/user.service";
 // import Maps from "../../components/Maps/maps";
 
 function PetDetailPage() {
@@ -109,6 +109,7 @@ function PetDetailPage() {
                   alt="editar"
                 ></img>
               </Link>
+              
               </>
             )}
             <h2 className="text-start m-3">{animal.animalName}</h2>
@@ -236,6 +237,10 @@ function PetDetailPage() {
             <Link to={"/perfil/" + animal.creator}>
               <strong>Protectora </strong>
             </Link>
+
+            {isLoggedIn && (user.admin || user._id === animal.creator) && (
+              <DeleteAnimal  animal={animal}/>
+            )}
             {animal.adopted === false && (!(user.admin || user._id === animal.creator)) && <button
               type="button"
               className="btn text-white w-25 mx-auto botonAdoptar"

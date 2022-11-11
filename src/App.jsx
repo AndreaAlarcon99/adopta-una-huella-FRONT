@@ -16,6 +16,7 @@ import EditPetPage from "./pages/EditPetPage/EditPetPage";
 import EditProfilePage from "./pages/EditProfilePage/EditProfilePage";
 import Navbar from "./components/Navbar/Navbar";
 import IsAnon from "./components/IsAnon/IsAnon";
+import ProtectoraPage from "./pages/ProtectoraPage/ProtectoraPage";
 
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
         <Route path="/animales/:animalId/editar" element={<EditPetPage />} />
         <Route path="/perfil/:userId" element={ <ProfilePage />} />
         <Route path="/perfil/:userId/editar" element={<EditProfilePage />} />
+        <Route path="/protectoras" element={<ProtectoraPage />} />
 
         <Route path="/signup" element={<IsAnon> <SignupPage /> </IsAnon>}/>
         <Route path="/login" element={<IsAnon> <LoginPage /> </IsAnon>}/>
