@@ -32,7 +32,7 @@ function HomePage() {
       <div>
         <h4 className="text-start m-4">NUESTROS ANCIANOS</h4>
         <div className="container-fluid" id="alinear">
-          <div className="row">
+          <div className="row justify-content-center">
             {animals.map((animal) => (
               <AnimalComponent animal={animal} key={animal._id} />
             ))}

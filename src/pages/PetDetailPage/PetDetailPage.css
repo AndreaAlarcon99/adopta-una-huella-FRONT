@@ -25,6 +25,9 @@
   margin: auto;
 }
 
+.botonAdoptar:hover {
+  background-color: #adc178;
+}
 #btSend {
   background-color: #a98467;
   color: white;

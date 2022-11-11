@@ -5,7 +5,7 @@ import userService from "../../services/user.service";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/auth.context";
 import "./ProfilePage.css";
-import DeleteUser from '../../components/Delete/DeleteUser'
+import DeleteUser from "../../components/Delete/DeleteUser";
 
 function ProfilePage() {
   const [protectora, setProtectora] = useState("");
@@ -107,16 +107,16 @@ function ProfilePage() {
               <p className="text-start w-75" id="description">
                 {protectora.description}
               </p>
-              {isLoggedIn && (user.admin || user._id === userId) && 
-                  <DeleteUser  user={user}/>
-              }
+              {isLoggedIn && (user.admin || user._id === userId) && (
+                <DeleteUser user={user} />
+              )}
             </div>
           </div>
           <h3 className="text-start pt-5 px-5 mx-5 w-50" id="nuestrosAnimales">
             Nuestros animales
           </h3>
           <div className="container mx-5">
-            <div className="row">
+            <div className="row justify-content-center">
               {protectora.ourAnimals.length === 0 ? (
                 <div>
                   <p>Esta protectora no tiene ningún animal en adopción</p>
