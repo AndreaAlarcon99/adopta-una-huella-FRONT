@@ -25,8 +25,8 @@ function PetListPage() {
         <h6 className="resultado">{animals.length} resultados encontrados</h6>
       </div>
       <div id="margin">
-        <div className="container " id="alinearList">
-          <div className="row ">
+        <div className="container ">
+          <div className="row justify-content-center ">
             {animals.map((animal) => (
               <AnimalComponent animal={animal} key={animal._id} />
             ))}

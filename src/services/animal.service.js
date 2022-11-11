@@ -1,7 +1,7 @@
 import axios from "axios";
 // import User from "../../../adopta-una-huella-BACK/models/User.model";
 
-const apiUrl = process.env.API_SERVER_URL || "http://localhost:5005";
+const apiUrl = process.env.REACT_APP_API_SERVER_URL || "http://localhost:5005";
 
 class AnimalService {
   getToken() {
