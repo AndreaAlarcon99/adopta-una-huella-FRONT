@@ -8,15 +8,10 @@ function Navbar() {
   // the values from AuthContext.Provider's `value` prop
   const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
   return (
-    <nav className="navbar navbar-expand-lg  sticky-top ">
-      <div className="container-fluid ">
+    <nav className="justify-content-end navbar navbar-expand-lg  sticky-top ">
+      <div className="container-fluid">
         <Link to="/">
-          <img
-            className="navbar-brand"
-            src="../../../HuellaNueva.png"
-            alt="logo"
-            id="logo"
-          />
+          <img src="../../../HuellaNueva.png" alt="logo" id="logo" />
         </Link>
         <button
           className="navbar-toggler"

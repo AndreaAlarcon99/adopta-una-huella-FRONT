@@ -61,6 +61,7 @@ function ProfilePage() {
         <div className="row">
           <div className="col-10 col-md-6 p-0 m-auto px-md-5">
             <img
+              id="imgProtectora"
               src={protectora.imgUser}
               className="img-fluid w-75 imagenAnimal shadow-lg"
               alt={protectora.username}

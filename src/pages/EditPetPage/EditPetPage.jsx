@@ -73,7 +73,7 @@ function EditPetPage() {
     animalService
       .editAnimal(animal, animalId)
       .then((response) => {
-        navigate("/animales/" + animalId);
+        navigate("/animales");
       })
       .catch((error) =>
         console.log("soy error de catch en editAnimal ", error, animal)
@@ -84,7 +84,7 @@ function EditPetPage() {
     animalService
       .deleteAnimal(animalId)
       .then(() => {
-        navigate("/");
+        navigate("/animales");
       })
       .catch((error) => console.log("soy error de deleteAnimal ", error));
   };
@@ -97,6 +97,18 @@ function EditPetPage() {
       <div>
         <form className="container" onSubmit={submitHandler}>
           <h2>Editar datos de {animalName}</h2>
+          <div className="mb-3">
+            <p>¿Este animal ha sido adoptado?</p>
+            <select
+              className="form-select mb-3"
+              aria-label="Default select example"
+              value={adopted}
+              onChange={(e) => setAdopted(e.target.value)}
+            >
+              <option value={true}>Sí</option>
+              <option value={false}>No</option>
+            </select>
+          </div>
           <div className="mb-3">
             <label htmlFor="animalName" className="form-label ">
               Nombre del animal:
@@ -256,18 +268,6 @@ function EditPetPage() {
               aria-label="Default select example"
               value={microchip}
               onChange={(e) => setMicrochip(e.target.value)}
-            >
-              <option value={true}>Sí</option>
-              <option value={false}>No</option>
-            </select>
-          </div>
-          <div className="mb-3">
-            <p>El animal ya está adoptado</p>
-            <select
-              className="form-select mb-3"
-              aria-label="Default select example"
-              value={adopted}
-              onChange={(e) => setAdopted(e.target.value)}
             >
               <option value={true}>Sí</option>
               <option value={false}>No</option>
