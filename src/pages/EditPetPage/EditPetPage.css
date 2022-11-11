@@ -2,6 +2,10 @@
   width: 0;
 }
 
+#divEdit {
+  max-width: 800px;
+  margin-right: 10vw;
+}
 @media (min-width: 1140px) {
   #formEdit img {
     width: 20vw;
