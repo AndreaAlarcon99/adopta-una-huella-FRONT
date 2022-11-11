@@ -5,12 +5,15 @@ import { useParams } from "react-router-dom";
 import "./PetDetailPage.css";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/auth.context";
-// import userService from "../../services/user.service";
 
-// import userService from "../../services/user.service";
+import userService from "../../services/user.service";
+import DeleteAnimal from "../../components/Delete/DeleteAnimal";
+
+
 // import Maps from "../../components/Maps/maps";
 
 function PetDetailPage() {
+  //MOSTRAR ANIMAL
   const [animal, setAnimal] = useState("");
   const { user, isLoggedIn } = useContext(AuthContext);
   const { animalId } = useParams();
@@ -53,15 +56,52 @@ function PetDetailPage() {
   //     mensajeAnon,
   //   };
 
-  //   userService
-  //     .sendEmail(mailData)
-  //     .then(console.log("adopción solicitada"))
-  //     .catch((err) => console.log(err));
-  // };
+
+  // useEffect(() => {
+  //   let prom1 = animalService.getAnimal(animalId);
+  //   let prom2 = userService.getUser(animal.creator);
+
+  //   Promise.all([prom1, prom2]).then((response) => {
+  //     setAnimal(response.data);
+  //     userService.sendEmail(mailData).then((mailData) => {
+  //       console.log("maildata: ", mailData);
+  //     });
+  //   });
+  // });
+  // useEffect(() => {
+  //   console.log('hola')
+  //   const animalDb = animalService.getAnimal(animalId);
+  //   const protectoraDb = userService.getUser(animal.creator);
+  //   Promise.all([animalDb, protectoraDb])
+  //     .then((res) => {
+  //       setAnimal(res[0].data) 
+  //       setProtectora(res[1].data)
+  //       console.log(res[0])  
+  //       console.log(res[1])  
+  //     }).catch(err => console.log(err))
+  //   // eslint-disable-next-line
+  // }, []);
+
+  const handlerSendEmail = () => {
+    console.log(protectora);
+    const mailData = {
+      userId: protectora._id,
+      email: protectora.email,
+      nombreAnon,
+      telefonoAnon,
+      emailAnon,
+      mensajeAnon,
+    };
+
+    userService
+      .sendEmail(mailData)
+      .then(console.log("adopción solicitada"))
+      .catch((err) => console.log(err));
+  };
 
   return (
-    <div className="container-fluid   w-100">
-      {/* <Maps /> */}
+    <div className="container-fluid mt-5 p-0 w-100">
+
       <div className="row">
         <div className="col-10 col-md-6 p-0 m-auto">
           <img
@@ -75,14 +115,17 @@ function PetDetailPage() {
           <div className="row">
             {isLoggedIn && (user.admin || user._id === animal.creator) && (
               <>
-                <Link to={"/animales/" + animal._id + "/editar"}>
-                  {" "}
-                  <img
-                    className="penEdit"
-                    src="../../penEdit.png"
-                    alt="editar"
-                  ></img>
-                </Link>
+
+              <Link to={"/animales/" + animal._id + "/editar"}>
+                {" "}
+                <img
+                  className="penEdit"
+                  src="../../penEdit.png"
+                  alt="editar"
+                ></img>
+              </Link>
+              
+
               </>
             )}
             {animal.adopted === true ? (
@@ -114,7 +157,6 @@ function PetDetailPage() {
                 <strong>Tamaño: </strong>
                 {animal.size}
               </p>
-
               <p>
                 <strong>Peso: </strong>
                 {animal.weight} Kg
@@ -187,7 +229,6 @@ function PetDetailPage() {
                   </svg>
                 )}
               </p>
-
               <p>
                 <strong>Microchip: </strong>
                 {animal.microchip === true ? (
@@ -219,6 +260,7 @@ function PetDetailPage() {
             <Link to={"/perfil/" + animal.creator}>
               <strong>Ver perfil de la protectora </strong>
             </Link>
+
             {animal.adopted === false && (
               <button
                 type="button"
@@ -230,6 +272,7 @@ function PetDetailPage() {
                 Adoptar
               </button>
             )}
+
             <div
               className="modal fade"
               id="exampleModal"
@@ -344,6 +387,7 @@ function PetDetailPage() {
         </div>
       </div>
     </div>
+    
   );
 }
 
