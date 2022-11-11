@@ -139,10 +139,10 @@ function PetDetailPage() {
                 <strong>Especie: </strong>
                 {animal.animalType}
               </p>
-              <p className="card-text">
+              {/* <p className="card-text">
                 <strong>Fecha de nacimiento: </strong>
                 {animal.birthday}
-              </p>
+              </p> */}
               <p>
                 <strong>Sexo: </strong>
                 {animal.gender}
@@ -155,6 +155,10 @@ function PetDetailPage() {
                 <strong>Peso: </strong>
                 {animal.weight} Kg
               </p>
+              <p>
+                <strong>Etapa: </strong>
+                {animal.age}
+              </p>
             </div>
 
             <div className="col-10 col-md-6">
@@ -162,10 +166,7 @@ function PetDetailPage() {
                 <strong>Localización: </strong>
                 {animal.location}
               </p>
-              <p>
-                <strong>Etapa: </strong>
-                {animal.age}
-              </p>
+
               <p>
                 <strong>Nivel de actividad: </strong>
                 {animal.lifestyle}
