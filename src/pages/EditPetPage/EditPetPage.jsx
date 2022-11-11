@@ -95,7 +95,7 @@ function EditPetPage() {
         <img className="rounded-circle" src={imgAnimal} alt="perro" />
       </div>
       <div>
-        <form className="container" onSubmit={submitHandler}>
+        <form id="divEdit" className="container" onSubmit={submitHandler}>
           <h2>Editar datos de {animalName}</h2>
           <div className="mb-3">
             <p>¿Este animal ha sido adoptado?</p>
