@@ -45,27 +45,42 @@ function LoginPage() {
   };
 
   return (
-    <div className="LoginPage">
-      <h1>Login</h1>
+    <div className="LoginPage" id="divLogginPage">
+      <h1>Entrar</h1>
 
       <form onSubmit={handleLoginSubmit}>
-        <label>Email:</label>
-        <input type="email" name="email" value={email} onChange={handleEmail} />
+        <div className="form-floating m-4">
+          <input
+            type="email"
+            className="form-control"
+            id="floatingInput"
+            placeholder="name@example.com"
+            value={email}
+            onChange={handleEmail}
+          />
+          <label htmlFor="floatingInput">Email </label>
+        </div>
 
-        <label>Password:</label>
-        <input
-          type="password"
-          name="password"
-          value={password}
-          onChange={handlePassword}
-        />
+        <div className="form-floating m-4">
+          <input
+            type="password"
+            className="form-control"
+            id="floatingPassword3"
+            placeholder="Password"
+            value={password}
+            onChange={handlePassword}
+          />
+          <label htmlFor="floatingPassword3">Contraseña</label>
+        </div>
 
-        <button type="submit">Login</button>
+        <button className="btn" id="btnLogIn" type="submit">
+          Entrar
+        </button>
       </form>
       {errorMessage && <p className="error-message">{errorMessage}</p>}
-
-      <p>Don't have an account yet?</p>
-      <Link to={"/signup"}> Sign Up</Link>
+      <br></br>
+      <p>¿No tienes cuenta?
+      <Link to={"/signup"} id="btnSignUp"> Regístrate</Link></p>
     </div>
   );
 }

@@ -1,0 +1,18 @@
+.filtroEspecifico h4 {
+  font-weight: lighter;
+  text-align: start;
+}
+.filtroEspecifico label {
+  margin-left: 2em;
+}
+
+#filtrosLateral h3 {
+  color: #a98467;
+}
+#aplicarFiltros {
+  background-color: #a98467;
+  color: white;
+}
+#aplicarFiltros:hover {
+  background-color: #6c584c;
+}

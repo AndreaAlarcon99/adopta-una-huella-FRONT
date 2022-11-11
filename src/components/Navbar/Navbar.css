@@ -1,0 +1,50 @@
+nav {
+  background-color: white;
+  width: 100vw;
+}
+#logo {
+  width: 50vw;
+}
+
+@media (min-width: 768px) {
+  #logo {
+    width: 20vw;
+  }
+}
+
+#btSignUp {
+  background-color: #a98467;
+  color: white;
+}
+
+#btLogOut {
+  background-color: #a98467;
+  color: white;
+}
+#btLogIn:hover {
+  background-color: #f0ead2;
+  color: #a98467;
+}
+
+/* @media (max-width: 769px) {
+  #totalNavbar {
+      display: flex;
+      flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 992px) {
+  #containerNavbar {
+      justify-content: center;
+  }
+}
+
+@media (min-width: 600px) {
+  #botones {
+    display: block;
+  }  
+} 
+
+#botones {
+  margin: auto;
+} */

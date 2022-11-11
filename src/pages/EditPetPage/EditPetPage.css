@@ -1,0 +1,21 @@
+#formEdit img {
+  width: 0;
+}
+
+@media (min-width: 1140px) {
+  #formEdit img {
+    width: 20vw;
+    height: 35vh;
+    object-fit: cover;
+  }
+
+  #formEdit {
+    display: flex;
+    justify-content: space-between;
+    margin: 3%;
+  }
+
+  #formEdit form {
+    width: 70vw;
+  }
+}

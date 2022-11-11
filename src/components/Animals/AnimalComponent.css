@@ -1,0 +1,49 @@
+#cajaAnimal {
+  border-radius: 1em;
+  box-shadow: 0 0 10px gray;
+  padding: 0;
+}
+
+#cajaAnimal img {
+  border-radius: 1em 1em 0 0;
+}
+#fotoAnimal {
+  height: 40vh;
+  object-fit: cover;
+  position: relative;
+}
+
+.locationIcon {
+  width: 1.5vw;
+}
+
+.birthdayIcon {
+  width: 1.5vw;
+}
+
+.cardDetails {
+  font-size: 1.1rem;
+}
+
+.linkInfo {
+  text-decoration: none;
+}
+.linkInfo:hover {
+  text-decoration: none;
+}
+
+#footerCard {
+  background-color: #adc178;
+  height: 4vh;
+  border-radius: 0 0 1em 1em;
+}
+
+#footerCard:hover {
+  background-color: #7a8656;
+}
+
+#footerCardAdopted {
+  background-color: #6c584c;
+  height: 4vh;
+  border-radius: 0 0 1em 1em;
+}

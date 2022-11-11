@@ -1,0 +1,30 @@
+#btnLogIn{
+    background-color: #ADC178;;
+    color: white;
+  }
+
+  #btnSignUp:hover {
+    background-color: #F0EAD2;
+    color: #A98467;
+    text-decoration: none;
+  }
+
+  #btnSignUp {
+    color: #A98467;
+    text-decoration: none;
+  }
+
+  #divLogginPage{
+    max-width: 500px;
+    min-width: 200px;
+    margin: auto;
+    margin-top: 10vh;
+    border-radius: 5%;
+    background-color: #F0EAD2;
+    padding-top: 3vh;
+    padding-bottom: 3vh;
+}
+
+
+
+  

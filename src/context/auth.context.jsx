@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import authService from "../services/auth.service";
+import { useNavigate } from "react-router-dom";
 
 const AuthContext = React.createContext();
 
@@ -7,27 +8,16 @@ function AuthProviderWrapper(props) {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [user, setUser] = useState(null);
+  const setNavigate = useNavigate(null);
 
   const storeToken = (token) => {
     localStorage.setItem("authToken", token);
   };
 
   const authenticateUser = () => {
-    // Get the stored token from the localStorage
     const storedToken = localStorage.getItem("authToken");
-
-    // If the token exists in the localStorage
     if (storedToken) {
-      // Send a request to the server using axios
-      /* 
-        axios.get(
-          `${process.env.REACT_APP_SERVER_URL}/auth/verify`,
-          { headers: { Authorization: `Bearer ${storedToken}` } }
-        )
-        .then((response) => {})
-        */
 
-      // Or using a service
       authService
         .verify()
         .then((response) => {
@@ -61,6 +51,7 @@ function AuthProviderWrapper(props) {
     // Upon logout, remove the token from the localStorage
     removeToken();
     authenticateUser();
+    setNavigate("/");
   };
 
   useEffect(() => {

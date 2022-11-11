@@ -1,0 +1,17 @@
+.resultado {
+  color: gray;
+}
+
+#title {
+  width: 100vw;
+
+  background-color: white;
+
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+}
+
+#alinearList {
+  margin-left: 13vw;
+}

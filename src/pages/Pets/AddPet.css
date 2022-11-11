@@ -1,0 +1,16 @@
+#checkbox {
+  display: inline-block;
+  margin-left: 2em;
+}
+
+#divAddPet{
+  max-width: 800px;
+  min-width: 200px;
+  margin: auto;
+  border-radius: 5%;
+  background-color: #F0EAD2;
+  padding-top: 3vh;
+  padding-bottom: 3vh;
+  margin-top: 3vh;
+  margin-bottom: 3vh;
+}

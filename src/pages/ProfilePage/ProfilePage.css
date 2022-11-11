@@ -1,0 +1,54 @@
+#botonUser {
+  background-color: #adc178;
+  font-size: 1.2rem;
+}
+
+#imgProtectora {
+  height: 40vh;
+  object-fit: cover;
+}
+#containerDescription {
+  border: 2px 2px #a98467;
+}
+
+#btSend {
+  background-color: #a98467;
+  color: white;
+}
+
+#botonUser {
+  background-color: #adc178;
+  font-size: 1.2rem;
+}
+
+#containerDescription {
+  border: 2px 2px #a98467;
+}
+
+#btSend {
+  background-color: #a98467;
+  color: white;
+}
+
+.botonAdoptar {
+  background-color: #adc178;
+  font-size: 1.2rem;
+}
+
+#btSend {
+  background-color: #a98467;
+  color: white;
+}
+
+.penEdit {
+  text-decoration: none;
+  color: black;
+}
+
+#nuestrosAnimales {
+  color: #6c584c;
+}
+
+#nombreProtectora {
+  width: 90%;
+}
