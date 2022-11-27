@@ -16,7 +16,6 @@ function EditPetPage() {
   const [vaccines, setVaccines] = useState("");
   const [size, setSize] = useState("");
   const [lifestyle, setLifestyle] = useState("");
-  const [illness, setIllness] = useState("");
   const [microchip, setMicrochip] = useState("");
   const [location, setLocation] = useState("");
   const [adopted, setAdopted] = useState(false);
@@ -41,12 +40,11 @@ function EditPetPage() {
         setVaccines(animalToUpdate.vaccines);
         setSize(animalToUpdate.size);
         setLifestyle(animalToUpdate.lifestyle);
-        setIllness(animalToUpdate.illness);
         setMicrochip(animalToUpdate.microchip);
         setLocation(animalToUpdate.location);
         setAdopted(animalToUpdate.adopted);
       })
-      .catch((error) => console.log("soy error de catch en getAnimal ", error));
+      .catch((error) => console.log("Error: ", error));
   }, [animalId]);
 
   const submitHandler = (e) => {
@@ -64,7 +62,6 @@ function EditPetPage() {
       vaccines,
       size,
       lifestyle,
-      illness,
       microchip,
       location,
       adopted,
@@ -76,7 +73,7 @@ function EditPetPage() {
         navigate("/animales");
       })
       .catch((error) =>
-        console.log("soy error de catch en editAnimal ", error, animal)
+        console.log("Error: ", error, animal)
       );
   };
 
@@ -86,7 +83,7 @@ function EditPetPage() {
       .then(() => {
         navigate("/animales");
       })
-      .catch((error) => console.log("soy error de deleteAnimal ", error));
+      .catch((error) => console.log("Error: ", error));
   };
 
   return (
@@ -123,24 +120,24 @@ function EditPetPage() {
             />
           </div>
           <div className="mb-3">
-            <label htmlFor="priceApartment" className="form-label">
+            <label htmlFor="description" className="form-label">
               Descripción:
             </label>
             <textarea
               className="form-control"
-              id="priceApartment"
+              id="description"
               value={description}
               onChange={(e) => setDescription(e.target.value)}
             ></textarea>
           </div>
           <div className="mb-3">
-            <label htmlFor="priceApartment" className="form-label">
+            <label htmlFor="location" className="form-label">
               Ubicación del animal:
             </label>
             <input
               type="text"
               className="form-control"
-              id="priceApartment"
+              id="location"
               value={location}
               onChange={(e) => setLocation(e.target.value)}
             />
@@ -158,13 +155,13 @@ function EditPetPage() {
             </select>
           </div>
           <div className="mb-3">
-            <label htmlFor="priceApartment" className="form-label">
+            <label htmlFor="birthday" className="form-label">
               Fecha de nacimiento
             </label>
             <input
-              type="text"
+              type="Date"
               className="form-control"
-              id="priceApartment"
+              id="birthday"
               value={birthday}
               onChange={(e) => setBirthday(e.target.value)}
             />
@@ -184,13 +181,13 @@ function EditPetPage() {
             </select>
           </div>
           <div className="mb-3">
-            <label htmlFor="priceApartment" className="form-label">
+            <label htmlFor="weight" className="form-label">
               Peso
             </label>
             <input
               type="number"
               className="form-control"
-              id="priceApartment"
+              id="weight"
               value={weight}
               onChange={(e) => setWeight(e.target.value)}
             />
