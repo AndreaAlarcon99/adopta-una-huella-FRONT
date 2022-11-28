@@ -109,15 +109,6 @@ function PetDetailPage() {
 
         <div className="col-12 col-md-6 mt-md-5 text-start m-5 m-md-0 text-center text-md-start">
           <div className="row">
-<<<<<<< HEAD
-            <Link to={"/animales/" + animal._id + "/editar"}>
-              <img
-                className="penEdit"
-                src="../../penEdit.png"
-                alt="editar"
-              ></img>
-            </Link>
-=======
             {isLoggedIn && (user.admin || user._id === animal.creator) && (
               <>
                 <Link to={"/animales/" + animal._id + "/editar"}>
@@ -130,11 +121,6 @@ function PetDetailPage() {
                 </Link>
               </>
             )}
-<<<<<<< HEAD
->>>>>>> 520012d949c5c36f8f37d5ac57e21c6f6b237405
-
-            <h2 className="text-start m-3">{animal.animalName}</h2>
-=======
             {animal.adopted === true ? (
               <h2 className="text-start ">
                 {animal.animalName} ha sido adoptado
@@ -143,7 +129,6 @@ function PetDetailPage() {
               <h2 className="text-start">{animal.animalName}</h2>
             )}
             {/* <h2 className="text-start m-3">{animal.animalName}</h2> */}
->>>>>>> 1d8ca81eecdcca5527c53df4e0991a2e6ebcd3df
             <p className="text-start w-75" id="description">
               {animal.description}
             </p>
