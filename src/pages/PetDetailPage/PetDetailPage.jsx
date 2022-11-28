@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/auth.context";
 
 // import userService from "../../services/user.service";
-
+//para maps
 // import Maps from "../../components/Maps/maps";
 
 function PetDetailPage() {
