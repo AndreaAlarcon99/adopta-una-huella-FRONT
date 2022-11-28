@@ -19,6 +19,8 @@ function LoginPage() {
   const handleLoginSubmit = (e) => {
     e.preventDefault();
     const requestBody = { email, password };
+
+    // Send a request to the server using a service
     authService
       .login(requestBody)
       .then((response) => {

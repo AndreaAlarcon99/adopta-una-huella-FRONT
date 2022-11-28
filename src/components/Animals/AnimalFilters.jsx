@@ -26,7 +26,7 @@ function AnimalFilters({ updateAnimals }) {
   };
 
   return (
-    <nav className="navbar  bg-transparent" id="nav">
+    <nav className="navbar bg-transparent" id="nav">
       <div className="container-fluid" id="index">
         <button
           className="btn bg-transparent"

@@ -34,8 +34,16 @@ function Navbar() {
                 Nuestros animales
               </p>
               <ul className="dropdown-menu">
-                <li><Link to="/animales" className="dropdown-item"> En adopción </Link></li>
-                <li><Link to="/adoptados" className="dropdown-item"> Adoptados </Link></li>
+                <li>
+                  <Link to="/animales" className="dropdown-item">
+                    En adopción
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/adoptados" className="dropdown-item">
+                    Adoptados
+                  </Link>
+                </li>
               </ul>
             </li>
             <li className="nav-item"> <Link to="/protectoras" className="nav-link"> Protectoras </Link> </li>
@@ -43,17 +51,30 @@ function Navbar() {
 
             {isLoggedIn ? (
               <>
-                <Link to="/crear-animal" className="nav-link"> Añadir animal </Link>
-                <Link to={"/perfil/" + user._id} className="nav-link"> Mi perfil </Link>
-                <button className="btn m-2" id="btLogOut" onClick={logOutUser}> Cerrar sesión </button>
+                <Link to="/crear-animal" className="nav-link">
+                  Añadir animal
+                </Link>
+                <Link to={"/perfil/" + user._id} className="nav-link">
+                  Mi perfil
+                </Link>
+                <button className="btn m-2" id="btLogOut" onClick={logOutUser}>
+                  Cerrar sesión
+                </button>
               </>
             ) : (
               <>
                 <Link to="/login">
-                  <button className="btn btn-outline-secondary m-1" id="btLogIn"> Iniciar sesión </button>
+                  <button
+                    className="btn btn-outline-secondary m-1"
+                    id="btLogIn"
+                  >
+                    Iniciar sesión
+                  </button>
                 </Link>
                 <Link to="/signup">
-                  <button className="btn m-1 " id="btSignUp"> Registrarse </button>
+                  <button className="btn m-1 " id="btSignUp">
+                    Registrarse
+                  </button>
                 </Link>
               </>
             )}
@@ -66,4 +87,3 @@ function Navbar() {
 
 export default Navbar;
 
-// position-absolute top-100 start-50

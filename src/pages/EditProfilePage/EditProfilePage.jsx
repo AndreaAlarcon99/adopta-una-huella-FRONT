@@ -36,7 +36,7 @@ function EditProfilePage() {
         setEmail(userToUpdate.email);
         setImgUser(userToUpdate.imgUser);
       })
-      .catch((error) => console.log("soy error de catch en getUser ", error));
+      .catch((error) => console.log("Error: ", error));
   }, [userId]);
 
   const submitHandler = (e) => {
@@ -51,8 +51,12 @@ function EditProfilePage() {
 
     userService
       .editUser(user, userId)
-      .then(() => navigate("/perfil/" + userId))
-      .catch(error => console.log("soy error de catch en editUser ", error, user));
+      .then((response) => {
+        navigate("/perfil/" + userId);
+      })
+      .catch((error) =>
+        console.log("Error: ", error, user)
+      );
   };
 
   return (

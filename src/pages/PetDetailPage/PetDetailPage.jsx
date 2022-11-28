@@ -11,8 +11,7 @@ import IconTruthy from "./components/IconTruthy";
 
 
 // import userService from "../../services/user.service";
-// import DeleteAnimal from "../../components/Delete/DeleteAnimal";
-
+//para maps
 // import Maps from "../../components/Maps/maps";
 
 function PetDetailPage() {
