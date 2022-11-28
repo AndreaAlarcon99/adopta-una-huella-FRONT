@@ -3,11 +3,13 @@
   justify-content: space-between;
   align-content: center;
 }
+
 #imagen2 img {
   width: 48vw;
   float: right;
   margin-top: 5%;
 }
+
 #imagen1 img {
   width: 50vw;
   float: left;

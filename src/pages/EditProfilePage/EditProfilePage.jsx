@@ -24,7 +24,7 @@ function EditProfilePage() {
         setEmail(userToUpdate.email);
         setImgUser(userToUpdate.imgUser);
       })
-      .catch((error) => console.log("soy error de catch en getUser ", error));
+      .catch((error) => console.log("Error: ", error));
   }, [userId]);
 
   const submitHandler = (e) => {
@@ -42,7 +42,7 @@ function EditProfilePage() {
         navigate("/perfil/" + userId);
       })
       .catch((error) =>
-        console.log("soy error de catch en editUser ", error, user)
+        console.log("Error: ", error, user)
       );
   };
 
