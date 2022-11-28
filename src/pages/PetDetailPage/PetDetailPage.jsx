@@ -7,7 +7,6 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/auth.context";
 
 // import userService from "../../services/user.service";
-// import DeleteAnimal from "../../components/Delete/DeleteAnimal";
 
 // import Maps from "../../components/Maps/maps";
 

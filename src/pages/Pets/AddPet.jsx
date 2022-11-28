@@ -46,22 +46,8 @@ function AddPet() {
     uploadData.append("location", location);
     uploadData.append("creator", user._id);
 
-    // const promiseAnimal = () => {
-    //   return new Promise(
-    //     animalService
-    //       .addAnimal(uploadData)
-    //       .then((result) => console.log("resultado de promiseAnimal: ", result))
-    //   );
-    // };
 
-    // const promiseUser = () => {
-    //   return new Promise(
-    //     userService
-    //       .getUser(user._id)
-    //       .then((result) => console.log("resultado de promiseUser: ", result))
-    //   );
-    // };
-
+    //relacionamos animal con user.
     let prom1 = animalService.addAnimal(uploadData);
     let prom2 = userService.getUser(user._id);
 
@@ -74,14 +60,12 @@ function AddPet() {
           ...response[1].data.ourAnimals,
           response[0].data._id,
         ];
-
-        // console.log("array de animales: ", animalsArr);
-
-        //hacemos copia del array ourAnimals para actualizarlo cada vez que creamos un animal nuevo. Le metemos el nuevo id de animal al user en concreto.
+        //hacemos copia del array ourAnimals para actualizarlo cada vez que creamos un animal nuevo. 
+        //Le metemos el nuevo id de animal al user en concreto.
+      
         userService
           .editUser({ ourAnimals: animalsArr }, response[1].data._id)
           .then((result) => {
-            // console.log("resultado final: ", result.data);
             navigate("/animales");
           })
           .catch((err) => console.log(err));
@@ -154,8 +138,7 @@ function AddPet() {
             <input
               type="Date"
               className="form-control"
-              placeholder="Día"
-              aria-label="Username"
+              placeholder=" "
               value={birthday}
               onChange={(e) => setBirthday(e.target.value)}
             />

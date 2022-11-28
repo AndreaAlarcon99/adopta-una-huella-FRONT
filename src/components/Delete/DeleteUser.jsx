@@ -64,9 +64,6 @@ const DeleteUser = () => {
           </div>
         </div>
       </div>
-      {/* <button className="btn btn-danger w-25" onClick={deleteHandler}>
-        Eliminar Protectora
-      </button> */}
     </div>
   );
 };

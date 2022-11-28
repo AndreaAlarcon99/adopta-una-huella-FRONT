@@ -37,11 +37,12 @@ $ npm start
 | /informacion-adopcion  |     public \*      | InfoAdoptionPage |
 | /adoptados             |     public \*      | AdoptedPets      |
 | /animales              |     public \*      | PetListPage      |
-| /animales/:petId       |     public \*      | PetDetailPage    |
-| /:userId               |     public \*      | ProfilePage      |
-| /:userId/editar        | private (user) \*  | EditProfilPage   |
-| /:userId/:petId/editar | private (user) \*  | EditPet          |
-| /:userId/crear         | private (user) \*  | AddPet           |
+| /animales/:animalId    |     public \*      | PetDetailPage    |
+| /perfil/:userId        |     public \*      | ProfilePage      |
+| /perfil/:userId/editar | private (user) \*  | EditProfilPage   |
+| /animales/:petId/editar| private (user) \*  | EditPet          |
+| /crear-animal          | private (user) \*  | AddPet           |
+| /protectoras           |     public \*      | ProtectoraPage   |
 
 \*admin
 
@@ -49,11 +50,13 @@ $ npm start
 
 - Navbar
 - AnimalComponent
+- AnimalFilters
+- DeleteUser
+- Protectora
 - AnimalForm
 - IsAnon
 - IsPrivate
 - IsLoading
-- UserForm
 - Footer
 
 ---
