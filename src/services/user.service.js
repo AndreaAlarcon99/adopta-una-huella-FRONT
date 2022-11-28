@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const apiUrl = process.env.REACT_APP_API_SERVER_URL || "http://localhost:5005";
+const apiUrl = process.env.REACT_APP_API_SERVER_URL || "http://localhost:8080";
 
 class UserService {
   getToken() {
