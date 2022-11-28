@@ -321,7 +321,7 @@ function AnimalFilters({ updateAnimals }) {
                   </div>
                   <br></br>
                 </div>
-                <button className="btn" type="submit" id="aplicarFiltros">
+                <button className="btn" data-bs-dismiss="offcanvas" type="submit" id="aplicarFiltros">
                   Aplicar filtros
                 </button>
               </div>
