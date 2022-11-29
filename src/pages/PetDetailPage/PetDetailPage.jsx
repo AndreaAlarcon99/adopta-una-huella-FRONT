@@ -131,7 +131,6 @@ function PetDetailPage() {
             ) : (
               <h2 className="text-start">{animal.animalName}</h2>
             )}
-            {/* <h2 className="text-start m-3">{animal.animalName}</h2> */}
             <p className="text-start w-75" id="description">
               {animal.description}
             </p>
