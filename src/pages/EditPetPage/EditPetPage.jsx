@@ -2,20 +2,6 @@ import { useEffect, useState } from "react";
 import animalService from "../../services/animal.service";
 import { useParams, useNavigate } from "react-router-dom";
 import "./EditPetPage.css";
-import Adoptado from "./components/Adoptado";
-import NombreAnimal from "./components/NombreAnimal";
-import Descripcion from "./components/Descripcion";
-import Ubicacion from "./components/Ubicacion";
-import TipoDeAnimal from "./components/TipoDeAnimal";
-import Peso from "./components/Peso";
-import Etapa from "./components/Etapa";
-import Tamano from "./components/Tamano";
-import Nacimiento from "./components/Nacimiento";
-import Genero from "./components/Genero";
-import LifeStyle from "./components/LifeStyle";
-import Castrado from "./components/Castrado";
-import Vacunado from "./components/Vacunado";
-import Microchip from "./components/Microchip";
 
 function EditPetPage() {
   const [animalName, setAnimalName] = useState("");
@@ -36,38 +22,6 @@ function EditPetPage() {
 
   const { animalId } = useParams();
   const navigate = useNavigate();
-  
-  const [ animal, setAnimal ] = useState({})
-  
-  const [ animalName, setAnimalName ] = useState(animal.animalName);
-  const [ adopted, setAdopted ] = useState(animal.adopted);
-  const [ castrated, setCastrated ] = useState(animal.castrated);
-  const [ description, setDescription ] = useState(animal.description);
-  const [ age, setAge ] = useState(animal.age);
-  const [ gender, setGender ] = useState(animal.gender);
-  const [ lifestyle, setLifestyle ] = useState(animal.lifestyle);
-  const [ microchip, setMicrochip ] = useState(animal.microchip);
-  const [ birthday, setBirthday ] = useState(animal.birthday);
-  const [ weight, setWeight ] = useState(animal.weight);
-  const [ location, setLocation ] = useState(animal.location);
-  const [ vaccines, setVaccines ] = useState(animal.vaccines);
-  const [ size, setSize ] = useState(animal.size);
-  const [ animalType, setAnimalType ] = useState(animal.animalType);
-
-  const handlerAnimalName = valor => setAnimalName(valor);
-  const handlerAdopted = valor => setAdopted(valor);
-  const handlerCastrated = valor => setCastrated(valor);
-  const handlerDescription = valor => setDescription(valor);
-  const handlerAge = valor => setAge(valor);
-  const handlerGender = valor => setGender(valor);
-  const handlerLifestyle = valor => setLifestyle(valor);
-  const handlerMicrochip = valor => setMicrochip(valor);
-  const handlerBirthday = valor => setBirthday(valor);
-  const handlerWeight = valor => setWeight(valor);
-  const handlerLocation = valor => setLocation(valor);
-  const handlerVaccines = valor => setVaccines(valor);
-  const handlerSize = valor => setSize(valor);
-  const handlerAnimalType = valor => setAnimalType(valor);
 
   useEffect(() => {
     animalService
@@ -135,7 +89,7 @@ function EditPetPage() {
   return (
     <div id="formEdit">
       <div>
-        <img className="rounded-circle" src={animal.imgAnimal} alt="perro" />
+        <img className="rounded-circle" src={imgAnimal} alt="perro" />
       </div>
       <div>
         <form id="divEdit" className="container" onSubmit={submitHandler}>
