@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import userService from "../../services/user.service";
 import { AuthContext } from "../../context/auth.context";
 import { useContext } from "react";
@@ -9,12 +9,10 @@ const DeleteUser = () => {
   const { logOutUser } = useContext(AuthContext);
 
   const { userId } = useParams();
-  const navigate = useNavigate();
 
   const deleteUserHandler = () => {
     userService
       .deleteUser(userId)
-      .then(navigate("/protectoras"))
       .then(logOutUser)
       .catch((err) => console.log(err));
   };
