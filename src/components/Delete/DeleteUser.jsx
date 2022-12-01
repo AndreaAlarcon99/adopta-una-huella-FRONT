@@ -1,14 +1,19 @@
 import React from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import userService from "../../services/user.service";
+import { AuthContext } from "../../context/auth.context";
+import { useContext } from "react";
 
 const DeleteUser = () => {
+
+  const { logOutUser } = useContext(AuthContext);
+
   const { userId } = useParams();
-  const navigate = useNavigate();
-  const deleteHandler = () => {
+
+  const deleteUserHandler = () => {
     userService
       .deleteUser(userId)
-      .then(navigate("/protectoras"))
+      .then(logOutUser)
       .catch((err) => console.log(err));
   };
   return (
@@ -55,7 +60,7 @@ const DeleteUser = () => {
               <button
                 type="button"
                 className="btn btn-primary"
-                onClick={deleteHandler}
+                onClick={deleteUserHandler}
                 data-bs-dismiss="modal"
               >
                 Eliminar

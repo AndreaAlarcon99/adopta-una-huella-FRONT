@@ -70,7 +70,7 @@ function EditPetPage() {
     animalService
       .editAnimal(animal, animalId)
       .then((response) => {
-        navigate("/animales");
+        navigate("/animales/" + animalId);
       })
       .catch((error) =>
         console.log("Error: ", error, animal)
@@ -276,7 +276,7 @@ function EditPetPage() {
           </button>
           <button
             type="button"
-            className="btn btn-danger"
+            className="btn btn-danger editBtn"
             data-bs-toggle="modal"
             data-bs-target="#exampleModal"
           >
