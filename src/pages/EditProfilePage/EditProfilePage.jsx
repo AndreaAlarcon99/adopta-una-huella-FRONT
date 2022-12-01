@@ -2,25 +2,13 @@ import { useEffect, useState } from "react";
 import userService from "../../services/user.service";
 import { useParams, useNavigate } from "react-router-dom";
 import "./EditProfilePage.css";
-import EditUsername from "./components/EditUsername";
-import EditEmail from "./components/EditEmail";
-import EditDescription from "./components/EditDescription";
-import EditLocation from "./components/EditLocation";
 
 function EditProfilePage() {
-
-  const [userToUpdate, setUserToUpdate] = useState({})
-
-  const [username, setUsername] = useState(userToUpdate.username);
-  const [description, setDescription] = useState(userToUpdate.description);
-  const [location, setLocation] = useState(userToUpdate.location);
-  const [imgUser, setImgUser] = useState(userToUpdate.imgUser);
-  const [email, setEmail] = useState(userToUpdate.email);
-
-  const handlerUsername = valor => setUsername(valor);
-  const handlerDescription = valor => setDescription(valor);
-  const handlerLocation = valor => setLocation(valor);
-  const handlerEmail = valor => setEmail(valor);
+  const [username, setUsername] = useState("");
+  const [description, setDescription] = useState("");
+  const [location, setLocation] = useState("");
+  const [imgUser, setImgUser] = useState("");
+  const [email, setEmail] = useState("");
 
   const { userId } = useParams();
   const navigate = useNavigate();
@@ -29,7 +17,7 @@ function EditProfilePage() {
     userService
       .getUser(userId)
       .then((response) => {
-        setUserToUpdate(response.data);
+        const userToUpdate = response.data;
         setUsername(userToUpdate.username);
         setDescription(userToUpdate.description);
         setLocation(userToUpdate.location);
@@ -46,7 +34,6 @@ function EditProfilePage() {
       description,
       location,
       imgUser,
-      email
     };
 
     userService
@@ -67,10 +54,55 @@ function EditProfilePage() {
       <div>
         <form id="divEdit" className="container" onSubmit={submitHandler}>
           <h2>Editar datos de {username}</h2>
-          <EditUsername userToUpdate={userToUpdate} handlerUsername={handlerUsername} />
-          <EditEmail userToUpdate={userToUpdate} handlerEmail={handlerEmail} />
-          <EditDescription userToUpdate={userToUpdate} handlerDescription={handlerDescription} /> 
-          <EditLocation userToUpdate={userToUpdate} handlerLocation={handlerLocation} />
+          <div className="mb-3">
+            <label htmlFor="protectora" className="form-label ">
+              Nombre de la protectora:
+            </label>
+            <input
+              type="text"
+              className="form-control"
+              id="protectora"
+              aria-describedby="emailHelp"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+            />
+          </div>
+          <div className="mb-3">
+            <label htmlFor="email" className="form-label ">
+              Email:
+            </label>
+            <input
+              type="text"
+              className="form-control"
+              id="email"
+              aria-describedby="emailHelp"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
+          <div className="mb-3">
+            <label htmlFor="descripcion" className="form-label">
+              Descripción:
+            </label>
+            <textarea
+              className="form-control"
+              id="descripcion"
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+            ></textarea>
+          </div>
+          <div className="mb-3">
+            <label htmlFor="ubicacion" className="form-label">
+              Ubicación de la protectora:
+            </label>
+            <input
+              type="text"
+              className="form-control"
+              id="ubicacion"
+              value={location}
+              onChange={(e) => setLocation(e.target.value)}
+            />
+          </div>
           <button type="submit" className="btn btn-primary">
             Editar perfil
           </button>
@@ -81,3 +113,17 @@ function EditProfilePage() {
 }
 
 export default EditProfilePage;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
