@@ -27,17 +27,10 @@ function Navbar() {
         <div className="collapse navbar-collapse " id="navbarTogglerDemo02">
           <ul className="navbar-nav ms-auto mb-2 mb-lg-0 ">
             <li className="nav-item">
-              <Link to="/" className="nav-link active" aria-current="page">
-                Inicio
-              </Link>
+              <Link to="/" className="nav-link active" aria-current="page"> Inicio </Link>
             </li>
             <li className="nav-item dropdown">
-              <p
-                className="nav-link dropdown-toggle"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
+              <p className="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Nuestros animales
               </p>
               <ul className="dropdown-menu">
@@ -53,16 +46,8 @@ function Navbar() {
                 </li>
               </ul>
             </li>
-            <li className="nav-item">
-              <Link to="/protectoras" className="nav-link">
-                Protectoras
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link to="/informacion-adopcion" className="nav-link">
-                Información
-              </Link>
-            </li>
+            <li className="nav-item"> <Link to="/protectoras" className="nav-link"> Protectoras </Link> </li>
+            <li className="nav-item"> <Link to="/informacion-adopcion" className="nav-link"> Información </Link> </li>
 
             {isLoggedIn ? (
               <>
