@@ -25,33 +25,6 @@ function ProfilePage() {
     // eslint-disable-next-line
   }, []);
 
-  //   const [nombreAnon, setNombreAnon] = useState();
-  //   const [telefonoAnon, setTelefonoAnon] = useState();
-  //   const [emailAnon, setEmailAnon] = useState();
-  //   const [mensajeAnon, setMensajeAnon] = useState();
-
-  //   const handlerNombre = ({ target }) => setNombreAnon(target.value);
-  //   const handlerTelefono = ({ target }) => setTelefonoAnon(target.value);
-  //   const handlerEmail = ({ target }) => setEmailAnon(target.value);
-  //   const handlerText = ({ target }) => setMensajeAnon(target.value);
-
-  //   const handlerSendEmail = () => {
-  //     const mailData = {
-  //       email,
-  //       nombreAnon,
-  //       telefonoAnon,
-  //       emailAnon,
-  //       mensajeAnon
-  //     }
-  //     userService.sendEmail(mailData)
-  //     .then(console.log('adopción solicitada'))
-  //     .catch(err =>console.log(err))
-
-  // <h2 className="text-start m-3">{animal.animalName}</h2>
-  // <p className="text-start w-75" id="description">
-  //   {animal.description}
-  // </p>
-
   return (
     <div className="container-fluid mt-5 p-0 w-100">
       {isLoading ? (
