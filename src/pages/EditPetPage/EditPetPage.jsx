@@ -271,12 +271,12 @@ function EditPetPage() {
             </select>
           </div>
 
-          <button type="submit" className="btn btn-primary">
+          <button type="submit" className="btn btn-primary editBtn">
             Editar animal
           </button>
           <button
             type="button"
-            className="btn btn-danger editBtn"
+            className="btn btn-danger"
             data-bs-toggle="modal"
             data-bs-target="#exampleModal"
           >
