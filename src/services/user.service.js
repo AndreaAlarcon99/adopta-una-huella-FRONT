@@ -18,13 +18,12 @@ class UserService {
     });
   }
   editUser(user, userId) {
-    console.log("userId axios: ", userId);
     return axios.put(apiUrl + "/perfil/" + userId, user, {
       headers: { authorization: `Bearer ${this.getToken()}` },
     });
   }
   sendEmail(mailData) {
-    return axios.post(apiUrl + "/perfil/" + mailData.userId + "/send");
+    return axios.post(apiUrl + "/perfil/" + mailData.userId + "/send", mailData);
   }
 }
 

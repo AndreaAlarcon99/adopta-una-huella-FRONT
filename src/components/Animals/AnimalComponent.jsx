@@ -1,16 +1,20 @@
+import { Link } from "react-router-dom";
 import "./AnimalComponent.css";
-import IconoHembra from "./components/iconos/IconoHembra";
-import IconoMacho from "./components/iconos/IconoMacho";
-import IconoLocation from "./components/iconos/IconoLocation";
-import LinkMasInformacion from "./components/Links/LinkMasInformacion";
-import LinkAdoptado from "./components/Links/LinkAdoptado";
 
 function AnimalComponent({ animal }) {
   return (
-    <div className="col-8 col-md-3 m-3 m-lg-4 mx-auto" id="cajaAnimal">      
-      <img id="fotoAnimal" src={animal.imgAnimal} className="card-img-top " alt={animal.animalType} />
+    <div className="col-8 col-md-3 m-3 m-lg-4 mx-auto" id="cajaAnimal">
+      <div>
+        <img
+          id="fotoAnimal"
+          src={animal.imgAnimal}
+          className="card-img-top "
+          alt={animal.animalType}
+        />
+      </div>
+
       <div className="card-body">
-        <br/>
+        <br></br>
         <h4 className="card-title">
           {animal.animalName}
           {animal.gender === "Hembra" ? (
@@ -48,9 +52,23 @@ function AnimalComponent({ animal }) {
           )}
         </h4>
         <p className="card-text pt-1 cardDetails">
-            <IconoLocation />
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            className="bi bi-geo-alt"
+            viewBox="0 0 16 16"
+          >
+            <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z" />
+            <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+          </svg>
           {animal.location} <br></br>
-            <img className="birthdayIcon" src="../../birthdayIcon.png" alt="nacimiento" />
+          <img
+            className="birthdayIcon"
+            src="../../birthdayIcon.png"
+            alt="nacimiento"
+          ></img>
           {animal.birthday.toString().slice(0, 10)} <br></br>
         </p>
         
@@ -61,7 +79,11 @@ function AnimalComponent({ animal }) {
             </div>
           </Link>
         ) : (
-            <LinkAdoptado animal={animal} />
+          <Link to={"/animales/" + animal._id} className="linkInfo">
+            <div className="card-footer text-muted" id="footerCardAdopted">
+              <span className="text-white text-bold">ADOPTADO</span>
+            </div>
+          </Link>
         )}
       </div>
     </div>

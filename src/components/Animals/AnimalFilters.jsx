@@ -1,28 +1,61 @@
 import animalService from "../../services/animal.service";
 import "./AnimalFilters.css";
-import TipoAnimal from "./components/Filtros/TipoAnimal";
-import Genero from "./components/Filtros/Genero";
-import Tamano from "./components/Filtros/Tamano";
-import Etapa from "./components/Filtros/Etapa";
-import Actividad from "./components/Filtros/Actividad";
-import IconoFiltros from "./components/iconos/IconoFiltros";
+import { useState } from "react";
 
 function AnimalFilters({ updateAnimals }) {
-
-  let valoresFiltro = {
-    animalType: [],
-    gender: [],
-    age: [],
-    size: [],
-    lifestyle: [],
-  };
+  const [perro, setPerro] = useState(false);
+  const [gato, setGato] = useState(false);
+  const [exotico, setExotico] = useState(false);
+  const [macho, setMacho] = useState(false);
+  const [hembra, setHembra] = useState(false);
+  const [pequeno, setPequeno] = useState(false);
+  const [mediano, setMediano] = useState(false);
+  const [grande, setGrande] = useState(false);
+  const [cachorro, setCachorro] = useState(false);
+  const [joven, setJoven] = useState(false);
+  const [adulto, setAdulto] = useState(false);
+  const [anciano, setAnciano] = useState(false);
+  const [muyTranquilo, setMuyTranquilo] = useState(false);
+  const [tranquilo, setTranquilo] = useState(false);
+  const [activo, setActivo] = useState(false);
+  const [muyActivo, setMuyActivo] = useState(false);
 
   const submitHandler = (e) => {
     e.preventDefault();
+
+    const valoresFiltro = {
+      animalType: [],
+      gender: [],
+      age: [],
+      size: [],
+      lifestyle: [],
+    };
+
+    if (perro) valoresFiltro.animalType.push("Perro");
+    if (gato) valoresFiltro.animalType.push("Gato");
+    if (exotico) valoresFiltro.animalType.push("Exótico");
+    if (macho) valoresFiltro.gender.push("Macho");
+    if (hembra) valoresFiltro.gender.push("Hembra");
+    if (pequeno) valoresFiltro.size.push("Pequeño");
+    if (mediano) valoresFiltro.size.push("Mediano");
+    if (grande) valoresFiltro.size.push("Grande");
+    if (cachorro) valoresFiltro.age.push("Cachorro");
+    if (joven) valoresFiltro.age.push("Joven");
+    if (adulto) valoresFiltro.age.push("Adulto");
+    if (anciano) valoresFiltro.age.push("Anciano");
+    if (muyTranquilo) valoresFiltro.lifestyle.push("Muy tranquilo");
+    if (tranquilo) valoresFiltro.lifestyle.push("Tranquilo");
+    if (activo) valoresFiltro.lifestyle.push("Activo");
+    if (muyActivo) valoresFiltro.lifestyle.push("Muy activo");
+
     animalService
       .getAnimals(valoresFiltro)
-      .then(result =>  updateAnimals(result.data))
-      .catch(err => console.log("Error: ", err));
+      .then((result) => {
+        return updateAnimals(result.data);
+      })
+      .catch((err) => {
+        console.log("Error: ", err);
+      });
   };
 
   return (
@@ -36,7 +69,16 @@ function AnimalFilters({ updateAnimals }) {
           aria-controls="offcanvasNavbar"
         >
           <span>
-            <IconoFiltros />
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="36"
+              height="36"
+              fill="currentColor"
+              className="bi bi-filter-left m-2"
+              viewBox="0 0 16 16"
+            >
+              <path d="M2 10.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z" />
+            </svg>
             Buscar por filtros
           </span>
         </button>
