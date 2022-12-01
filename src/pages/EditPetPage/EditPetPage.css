@@ -6,6 +6,11 @@
   max-width: 800px;
   margin-right: 10vw;
 }
+
+.editBtn {
+  margin-right: 4vw;
+}
+
 @media (min-width: 1140px) {
   #formEdit img {
     width: 20vw;

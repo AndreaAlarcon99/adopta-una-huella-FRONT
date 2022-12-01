@@ -20,7 +20,6 @@ function ProfilePage() {
       .then((result) => {
         setProtectora(result.data);
         setIsLoading(false);
-        // console.log("result.data: ", result.data);
       })
       .catch((err) => console.log("error de profile: ", err));
     // eslint-disable-next-line
@@ -70,6 +69,7 @@ function ProfilePage() {
           <div className="col-12 col-md-6 text-start px-5 m-5 m-md-0 px-md-0">
             <div className="row p-0 w-100">
               {isLoggedIn && (user.admin || user._id === protectora._id) && (
+                <>
                 <Link to={"/perfil/" + protectora._id + "/editar"}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -86,6 +86,8 @@ function ProfilePage() {
                     />
                   </svg>
                 </Link>
+                <DeleteUser user={user} />
+                </>
               )}
               <h2 className="text-start m-3 p-0" id="nombreProtectora">
                 {protectora.username}
@@ -107,9 +109,6 @@ function ProfilePage() {
               <p className="text-start w-75" id="description">
                 {protectora.description}
               </p>
-              {isLoggedIn && (user.admin || user._id === userId) && (
-                <DeleteUser user={user} />
-              )}
             </div>
           </div>
           <h3 className="text-start pt-5 px-5 mx-5 w-50" id="nuestrosAnimales">

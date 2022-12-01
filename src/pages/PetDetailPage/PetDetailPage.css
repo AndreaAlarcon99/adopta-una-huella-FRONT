@@ -34,9 +34,7 @@
 }
 
 .penEdit {
-  width: 3vw;
+  text-decoration: none;
+  color: black;
 }
 
-/* #description {
-  text-align: justify;
-} */
