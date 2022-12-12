@@ -51,7 +51,7 @@ function InfoAdoptionPage() {
           </article>
           <article className="col-10 col-md-12 col-lg-3">
             <img src="../../../huella3.svg" alt=" " />
-            <h3>Microchip & blablabla</h3>
+            <h3>Microchip</h3>
             <p className="text-start">
               La identificación con microchip es obligatoria en perros, gatos,
               conejos, hurones y équidos. La vacuna de la rabia es obligatoria

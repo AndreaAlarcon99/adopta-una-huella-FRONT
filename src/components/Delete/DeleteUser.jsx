@@ -5,7 +5,6 @@ import { AuthContext } from "../../context/auth.context";
 import { useContext } from "react";
 
 const DeleteUser = () => {
-
   const { logOutUser } = useContext(AuthContext);
 
   const { userId } = useParams();
@@ -47,7 +46,7 @@ const DeleteUser = () => {
               ></button>
             </div>
             <div className="modal-body text-center">
-              ¿Seguro que quieres eliminar perfil?
+              ¿Está seguro que quiere eliminar el perfil?
             </div>
             <div className="modal-footer">
               <button
