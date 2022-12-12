@@ -16,6 +16,7 @@ import EditPetPage from "./pages/EditPetPage/EditPetPage";
 import EditProfilePage from "./pages/EditProfilePage/EditProfilePage";
 import Navbar from "./components/Navbar/Navbar";
 import IsAnon from "./components/IsAnon/IsAnon";
+import IsPrivate from "./components/IsPrivate/IsPrivate";
 import ProtectoraPage from "./pages/ProtectoraPage/ProtectoraPage";
 
 
@@ -31,9 +32,9 @@ function App() {
         <Route path="/animales" element={<PetListPage />} />
         <Route path="/crear-animal" element={<AddPet />} />
         <Route path="/animales/:animalId" element={<PetDetailPage />} />
-        <Route path="/animales/:animalId/editar" element={<EditPetPage />} />
+        <Route path="/animales/:animalId/editar" element={<IsPrivate><EditPetPage /></IsPrivate>} />
         <Route path="/perfil/:userId" element={ <ProfilePage />} />
-        <Route path="/perfil/:userId/editar" element={<EditProfilePage />} />
+        <Route path="/perfil/:userId/editar" element={<IsPrivate><EditProfilePage /></IsPrivate>} />
         <Route path="/protectoras" element={<ProtectoraPage />} />
 
         <Route path="/signup" element={<IsAnon> <SignupPage /> </IsAnon>}/>
