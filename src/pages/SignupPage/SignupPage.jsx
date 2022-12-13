@@ -3,6 +3,7 @@ import { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import authService from "../../services/auth.service";
 import { AuthContext } from "../../context/auth.context";
+import Error from "../../components/Error/Error";
 
 function SignupPage() {
   const [email, setEmail] = useState("");
@@ -14,6 +15,7 @@ function SignupPage() {
   const [location, setLocation] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
   const [imgUser, setImgUser] = useState("");
+  const [errorMsg, setErrorMsg] = useState("");
 
   const navigate = useNavigate();
 
@@ -21,6 +23,21 @@ function SignupPage() {
 
   const handleSignupSubmit = (e) => {
     e.preventDefault();
+    if(
+      password!==password2 ||
+      email === "" ||
+      password === "" ||
+      username === "" ||
+      description === "" ||
+      licence === "" ||
+      location === ""
+      ) {
+      setErrorMsg('Alguno de los campos del formulario es incorrecto');
+      setTimeout(() => {
+        setErrorMsg('');
+      }, 1200);
+      return;
+    }
 
     const uploadData = new FormData();
     uploadData.append("email", email);
@@ -153,6 +170,7 @@ function SignupPage() {
         </button>
       </form>
 
+      {errorMsg && <Error errorMsg={errorMsg} />}
       {errorMessage && <p className="error-message">{errorMessage}</p>}
       <br></br>
       <p>
