@@ -321,6 +321,7 @@ function PetDetailPage() {
                     <button
                       type="button"
                       className="btn"
+                      data-bs-dismiss="modal"
                       id="btSend"
                       onClick={handlerSendEmail}
                     >

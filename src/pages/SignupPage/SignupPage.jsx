@@ -43,6 +43,7 @@ function SignupPage() {
     uploadData.append("email", email);
     uploadData.append("username", username);
     uploadData.append("password", password);
+    uploadData.append("password", password2);
     uploadData.append("imgUser", imgUser);
     uploadData.append("description", description);
     uploadData.append("licence", licence);
