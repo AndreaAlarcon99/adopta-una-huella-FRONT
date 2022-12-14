@@ -1,4 +1,9 @@
 #divEdit {
   max-width: 800px;
-  margin-right: 10vw;
+  margin: auto;
+}
+
+#formEdit {
+  margin-top: 5vh;
+  margin-bottom: 10vh;
 }

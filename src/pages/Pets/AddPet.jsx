@@ -3,6 +3,7 @@ import animalService from "../../services/animal.service";
 import userService from "../../services/user.service";
 import "./AddPet.css";
 import { useNavigate } from "react-router-dom";
+import Loading from "../../components/Loading/Loading";
 
 import { AuthContext } from "../../context/auth.context";
 
@@ -21,6 +22,8 @@ function AddPet() {
   const [lifestyle, setLifestyle] = useState("");
   const [microchip, setMicrochip] = useState(false);
   const [location, setLocation] = useState("");
+
+  const [isLoading, setIsLoading] = useState(false);
 
   const { user } = useContext(AuthContext);
 
@@ -46,6 +49,7 @@ function AddPet() {
     uploadData.append("location", location);
     uploadData.append("creator", user._id);
 
+    setIsLoading(true);
 
     //relacionamos animal con user.
     let prom1 = animalService.addAnimal(uploadData);
@@ -60,12 +64,13 @@ function AddPet() {
           ...response[1].data.ourAnimals,
           response[0].data._id,
         ];
-        //hacemos copia del array ourAnimals para actualizarlo cada vez que creamos un animal nuevo. 
+        //hacemos copia del array ourAnimals para actualizarlo cada vez que creamos un animal nuevo.
         //Le metemos el nuevo id de animal al user en concreto.
-      
+
         userService
           .editUser({ ourAnimals: animalsArr }, response[1].data._id)
           .then((result) => {
+            setIsLoading(false);
             navigate("/animales");
           })
           .catch((err) => console.log(err));
@@ -116,8 +121,9 @@ function AddPet() {
             <label htmlFor="floatingInput">Nombre del animal</label>
           </div>
           <div className="text-start mt-3" id="fileUpload">
-          <h6 className="text-start m-3"> Foto del animal:</h6>
-            <input className="mb-3 px-4"
+            <h6 className="text-start m-3"> Foto del animal:</h6>
+            <input
+              className="mb-3 px-4"
               type="file"
               onChange={(e) => setImgAnimal(e.target.files[0])}
             />
@@ -230,17 +236,18 @@ function AddPet() {
           <div className="form-floating mb-3">
             <textarea
               className="form-control"
-              placeholder="Leave a comment here"
+              placeholder=" "
               id="floatingTextarea2"
               value={description}
               onChange={(e) => setDescription(e.target.value)}
               style={{ height: "100px" }}
             ></textarea>
-            <label htmlFor="floatingTextarea2">Descripción</label>
+            <label htmlFor="floatingTextarea2">Descripción del animal</label>
           </div>
-          <button type="submit" className="btn btn-primary">
+          <button type="submit" className="btn" id="btnSignUp2">
             Subir animal
           </button>
+          {isLoading ? <Loading /> : <></>}
         </form>
       </div>
     </div>
