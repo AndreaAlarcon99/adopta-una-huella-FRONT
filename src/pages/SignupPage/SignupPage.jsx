@@ -23,27 +23,42 @@ function SignupPage() {
 
   const handleSignupSubmit = (e) => {
     e.preventDefault();
-    if(
-      password!==password2 ||
-      email === "" ||
-      password === "" ||
-      username === "" ||
-      description === "" ||
-      licence === "" ||
-      location === ""
-      ) {
-      setErrorMsg('Alguno de los campos del formulario es incorrecto');
-      setTimeout(() => {
-        setErrorMsg('');
-      }, 1200);
+    setErrorMsg('');
+    setErrorMessage('');
+    
+    if(password!==password2) {
+      setErrorMsg('Las contraseñas no coinciden');
       return;
     }
-
+    if(email === "") {
+      setErrorMsg('Email requerido');
+      return;
+    }
+    if(password === "") {
+      setErrorMsg('Contraseña requerida');
+      return;
+    }
+    if(username === "") {
+      setErrorMsg('Nombre requerido');
+      return;
+    }
+    if(description === "") {
+      setErrorMsg('Descripción requerida');
+      return;
+    }
+    if(licence === "") {
+      setErrorMsg('licencia requerida');
+      return;
+    }
+    if(location === "") {
+      setErrorMsg('localización requerida');
+      return;
+    }
+    
     const uploadData = new FormData();
     uploadData.append("email", email);
     uploadData.append("username", username);
     uploadData.append("password", password);
-    uploadData.append("password", password2);
     uploadData.append("imgUser", imgUser);
     uploadData.append("description", description);
     uploadData.append("licence", licence);
@@ -165,14 +180,15 @@ function SignupPage() {
           </div>
         </div>
 
+        {errorMsg && <Error errorMsg={errorMsg} />}
+        {errorMessage && <Error errorMsg={errorMessage} />}
         <br></br>
         <button className="btn" id="btnSignUp2" type="submit">
           Registrarme
         </button>
       </form>
 
-      {errorMsg && <Error errorMsg={errorMsg} />}
-      {errorMessage && <p className="error-message">{errorMessage}</p>}
+      
       <br></br>
       <p>
         ¿Ya tienes cuenta?
