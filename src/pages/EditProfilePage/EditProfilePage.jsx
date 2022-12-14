@@ -2,17 +2,21 @@ import { useEffect, useState } from "react";
 import userService from "../../services/user.service";
 import { useParams, useNavigate } from "react-router-dom";
 import "./EditProfilePage.css";
+import Loading from "../../components/Loading/Loading";
+
 
 function EditProfilePage() {
   const [username, setUsername] = useState("");
   const [description, setDescription] = useState("");
   const [location, setLocation] = useState("");
   const [imgUser, setImgUser] = useState("");
-  const [email, setEmail] = useState("");
+
+  const [isLoading, setIsLoading] = useState(false);
 
   const { userId } = useParams();
   const navigate = useNavigate();
 
+  //to get the user data
   useEffect(() => {
     userService
       .getUser(userId)
@@ -21,24 +25,27 @@ function EditProfilePage() {
         setUsername(userToUpdate.username);
         setDescription(userToUpdate.description);
         setLocation(userToUpdate.location);
-        setEmail(userToUpdate.email);
         setImgUser(userToUpdate.imgUser);
       })
       .catch((error) => console.log("Error: ", error));
   }, [userId]);
 
+  //to change the user data (image included)
   const submitHandler = (e) => {
     e.preventDefault();
-    const user = {
-      username,
-      description,
-      location,
-      imgUser,
-    };
+    const user = new FormData();
+    user.append("username", username);
+    user.append("imgUser", imgUser);
+    user.append("description", description);
+    user.append("location", location);
 
+    setIsLoading(true);
+
+    //update user data
     userService
       .editUser(user, userId)
       .then((response) => {
+        setIsLoading(false);
         navigate("/perfil/" + userId);
       })
       .catch((error) =>
@@ -49,10 +56,7 @@ function EditProfilePage() {
   return (
     <div id="formEdit">
       <div>
-        <img className="rounded-circle" src={imgUser} alt="protectora" />
-      </div>
-      <div>
-        <form id="divEdit" className="container" onSubmit={submitHandler}>
+        <form id="divEdit" className="container" encType="multipart/form-data" onSubmit={submitHandler}>
           <h2>Editar datos de {username}</h2>
           <div className="mb-3">
             <label htmlFor="protectora" className="form-label ">
@@ -65,19 +69,6 @@ function EditProfilePage() {
               aria-describedby="emailHelp"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
-            />
-          </div>
-          <div className="mb-3">
-            <label htmlFor="email" className="form-label ">
-              Email:
-            </label>
-            <input
-              type="text"
-              className="form-control"
-              id="email"
-              aria-describedby="emailHelp"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
             />
           </div>
           <div className="mb-3">
@@ -103,9 +94,19 @@ function EditProfilePage() {
               onChange={(e) => setLocation(e.target.value)}
             />
           </div>
-          <button type="submit" className="btn btn-primary">
+          <div className="mb-5" id="fileUpload">
+            <p>Foto de perfil</p>
+            <input 
+              className="mb-4 px-4"
+              type="file"
+              onChange={(e) => setImgUser(e.target.files[0])}
+            />
+            <label htmlFor="subir imagen"></label>
+          </div>
+          <button type="submit" className="btn" id="btnSignUp2">
             Editar perfil
           </button>
+          {isLoading ? <Loading /> : <></>}
         </form>
       </div>
     </div>
