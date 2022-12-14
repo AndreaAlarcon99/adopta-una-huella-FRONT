@@ -8,7 +8,6 @@ import Loading from "../../components/Loading/Loading";
 
 
 const DeleteUser = () => {
-
   const { logOutUser } = useContext(AuthContext);
 
   const { userId } = useParams();
@@ -56,7 +55,7 @@ const DeleteUser = () => {
               ></button>
             </div>
             <div className="modal-body text-center">
-              ¿Seguro que quieres eliminar perfil?
+              ¿Está seguro que quiere eliminar el perfil?
             </div>
             {isLoading ? <Loading /> : <></>}
             <div className="modal-footer">

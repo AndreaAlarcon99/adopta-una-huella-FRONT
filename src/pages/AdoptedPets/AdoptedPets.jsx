@@ -20,11 +20,14 @@ function AdoptedPets() {
 
   return (
     <div>
-      <h1>Animales que han sido adoptados</h1>
+
       {isLoading ? (
         <Loading />
       ) : (
         <>
+
+        <h2 className="title"> Animales adoptados </h2>
+
       <p id="resultados"> {animals.length} animales han sido adoptados</p>
       <div className="container">
         <div className="row justify-content-center">
