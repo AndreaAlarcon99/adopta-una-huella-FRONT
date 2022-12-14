@@ -1,20 +1,29 @@
 import React from "react";
 import { useParams } from "react-router-dom";
+import { useState } from "react";
 import userService from "../../services/user.service";
 import { AuthContext } from "../../context/auth.context";
 import { useContext } from "react";
+import Loading from "../../components/Loading/Loading";
+
 
 const DeleteUser = () => {
   const { logOutUser } = useContext(AuthContext);
 
   const { userId } = useParams();
 
+  const [isLoading, setIsLoading] = useState(false);
+
   const deleteUserHandler = () => {
+    setIsLoading(true);
+
     userService
       .deleteUser(userId)
       .then(logOutUser)
+      .then(setIsLoading(false))
       .catch((err) => console.log(err));
   };
+
   return (
     <div className="container text-center m-1">
       <button
@@ -48,6 +57,7 @@ const DeleteUser = () => {
             <div className="modal-body text-center">
               ¿Está seguro que quiere eliminar el perfil?
             </div>
+            {isLoading ? <Loading /> : <></>}
             <div className="modal-footer">
               <button
                 type="button"

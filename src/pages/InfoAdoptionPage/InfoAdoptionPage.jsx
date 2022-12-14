@@ -7,7 +7,7 @@ function InfoAdoptionPage() {
         <h1>Cómo funcionan las adopciones</h1>
       </div>
       <header className="h-25 h-md-75">
-        <div>
+        <div className="mainImgInfo">
           <img src="../../../perro-gato.png" alt="logo" />
         </div>
       </header>
