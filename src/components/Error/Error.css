@@ -1,10 +1,9 @@
 .Error {
     color: red;
-    font-weight: bold;
     width: 60%;
     margin: auto;
     border-radius: 15px;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     padding: 10px;
     margin-top: 20px;
 }
