@@ -7,7 +7,7 @@ import { AuthContext } from "../../context/auth.context";
 function SignupPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [password2, setPassword2] = useState("");
+  // const [password2, setPassword2] = useState("");
   const [username, setUsername] = useState("");
   const [description, setDescription] = useState("");
   const [licence, setLicence] = useState("");
@@ -26,7 +26,7 @@ function SignupPage() {
     uploadData.append("email", email);
     uploadData.append("username", username);
     uploadData.append("password", password);
-    uploadData.append("password", password2);
+    // uploadData.append("password", password2);
     uploadData.append("imgUser", imgUser);
     uploadData.append("description", description);
     uploadData.append("licence", licence);
@@ -112,9 +112,8 @@ function SignupPage() {
           </div>
 
           <div className="text-start mt-3" id="fileUpload">
-          <h5 className="text-start m-4">Foto de perfil</h5>
-            <input 
-
+            <h5 className="text-start m-4">Foto de perfil</h5>
+            <input
               type="file"
               onChange={(e) => setImgUser(e.target.files[0])}
             />
@@ -135,17 +134,17 @@ function SignupPage() {
             />
             <label htmlFor="floatingPassword1">Contraseña</label>
           </div>
-          <div className="form-floating mb-3">
+          {/* <div className="form-floating mb-3">
             <input
               type="password"
               className="form-control"
               id="floatingPassword2"
               placeholder="Password"
-              value={password2}
+              value={password}
               onChange={(e) => setPassword2(e.target.value)}
             />
             <label htmlFor="floatingPassword2">Repetir contraseña</label>
-          </div>
+          </div> */}
         </div>
 
         <br></br>
