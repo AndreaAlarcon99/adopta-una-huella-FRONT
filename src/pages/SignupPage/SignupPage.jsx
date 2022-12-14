@@ -8,7 +8,7 @@ import Error from "../../components/Error/Error";
 function SignupPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  // const [password2, setPassword2] = useState("");
+  const [password2, setPassword2] = useState("");
   const [username, setUsername] = useState("");
   const [description, setDescription] = useState("");
   const [licence, setLicence] = useState("");
@@ -23,38 +23,38 @@ function SignupPage() {
 
   const handleSignupSubmit = (e) => {
     e.preventDefault();
-    setErrorMsg('');
-    setErrorMessage('');
-    
-    if(password!==password2) {
-      setErrorMsg('Las contraseñas no coinciden');
+    setErrorMsg("");
+    setErrorMessage("");
+
+    if (password !== password2) {
+      setErrorMsg("Las contraseñas no coinciden.");
       return;
     }
-    if(email === "") {
-      setErrorMsg('Email requerido');
+    if (email === "") {
+      setErrorMsg("És obligatorio introducir un correo electrónico.");
       return;
     }
-    if(password === "") {
-      setErrorMsg('Contraseña requerida');
+    if (password === "") {
+      setErrorMsg("Contraseña requerida.");
       return;
     }
-    if(username === "") {
-      setErrorMsg('Nombre requerido');
+    if (username === "") {
+      setErrorMsg("Nombre requerido.");
       return;
     }
-    if(description === "") {
-      setErrorMsg('Descripción requerida');
+    if (description === "") {
+      setErrorMsg("Descripción requerida.");
       return;
     }
-    if(licence === "") {
-      setErrorMsg('licencia requerida');
+    if (licence === "") {
+      setErrorMsg("licencia requerida.");
       return;
     }
-    if(location === "") {
-      setErrorMsg('localización requerida');
+    if (location === "") {
+      setErrorMsg("Localización requerida.");
       return;
     }
-    
+
     const uploadData = new FormData();
     uploadData.append("email", email);
     uploadData.append("username", username);
@@ -166,17 +166,17 @@ function SignupPage() {
             />
             <label htmlFor="floatingPassword1">Contraseña</label>
           </div>
-          {/* <div className="form-floating mb-3">
+          <div className="form-floating mb-3">
             <input
               type="password"
               className="form-control"
               id="floatingPassword2"
               placeholder="Password"
-              value={password}
+              value={password2}
               onChange={(e) => setPassword2(e.target.value)}
             />
             <label htmlFor="floatingPassword2">Repetir contraseña</label>
-          </div> */}
+          </div>
         </div>
 
         {errorMsg && <Error errorMsg={errorMsg} />}
@@ -187,7 +187,6 @@ function SignupPage() {
         </button>
       </form>
 
-      
       <br></br>
       <p>
         ¿Ya tienes cuenta?
