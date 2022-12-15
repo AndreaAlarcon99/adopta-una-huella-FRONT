@@ -30,16 +30,37 @@ function EditProfilePage() {
       .catch((error) => console.log("Error: ", error));
   }, [userId]);
 
-  //to change the user data (image included)
-  const submitHandler = (e) => {
+  //to change the user image
+  const submitImgUserHandler = (e) => {
     e.preventDefault();
     const user = new FormData();
-    user.append("username", username);
+    
     user.append("imgUser", imgUser);
-    user.append("description", description);
-    user.append("location", location);
+    
 
     setIsLoading(true);
+
+    //update user image
+    userService
+      .editUser(user, userId)
+      .then((response) => {
+        setIsLoading(false);
+        navigate("/perfil/" + userId);
+      })
+      .catch((error) =>
+        console.log("Error: ", error, user)
+      );
+  };
+
+  //to change the user data
+  const submitHandler = (e) => {
+    e.preventDefault();
+
+    const user = {
+      username,
+      description,
+      location
+    }
 
     //update user data
     userService
@@ -56,6 +77,82 @@ function EditProfilePage() {
   return (
     <div id="formEdit">
       <div>
+      <div className="col-10 col-md-6 p-0 m-auto px-md-5">
+      {isLoading ? <Loading /> : <>
+            <img
+              id="imgProtectora"
+              src={imgUser}
+              className="img-fluid w-75 imagenAnimal shadow-lg"
+              alt={username}
+            />
+            <br></br>
+            </>
+          }
+      <button
+              type="button"
+              className="btn m-3"
+              id="btnSignUp2"
+              data-bs-toggle="modal"
+              data-bs-target="#exampleModal"
+            >
+              Editar foto
+            </button>
+            <hr></hr>
+            <div
+              className="modal fade mt-5"
+              id="exampleModal"
+              tabIndex="-1"
+              aria-labelledby="exampleModalLabel"
+              aria-hidden="true"
+            >
+              <div className="modal-dialog">
+                <div className="modal-content ">
+                  <div className="modal-header">
+                    <h1 className="modal-title fs-5" id="exampleModalLabel">
+                      Editar foto perfil
+                    </h1>
+                    <button
+                      type="button"
+                      className="btn-close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    ></button>
+                  </div>
+                  <form
+                    onSubmit={submitImgUserHandler}
+                    encType="multipart/form-data"
+                  >
+                    <div className="modal-body imgUserModalEdit mt-5">
+                      <label className="mb-4">Nueva imagen: </label>
+                      <br></br>
+                      <input
+                        type="file"
+                        name="profileImage"
+                        onChange={(e) => setImgUser(e.target.files[0])}
+                      />
+                    </div>
+                    <div className="modal-footer">
+                      <button
+                        type="button"
+                        className="btn btn-secondary"
+                        data-bs-dismiss="modal"
+                      >
+                        Cancelar
+                      </button>
+                      <button
+                        type="submit"
+                        className="btn"
+                        id="btnSignUp2"
+                        data-bs-dismiss="modal"
+                      >
+                        Guardar
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              </div>
+            </div>
         <form id="divEdit" className="container" encType="multipart/form-data" onSubmit={submitHandler}>
           <h2>Editar datos de {username}</h2>
           <div className="mb-3">
@@ -94,7 +191,7 @@ function EditProfilePage() {
               onChange={(e) => setLocation(e.target.value)}
             />
           </div>
-          <div className="mb-5" id="fileUpload">
+          {/* <div className="mb-5" id="fileUpload">
             <p>Foto de perfil</p>
             <input 
               className="mb-4 px-4"
@@ -102,7 +199,7 @@ function EditProfilePage() {
               onChange={(e) => setImgUser(e.target.files[0])}
             />
             <label htmlFor="subir imagen"></label>
-          </div>
+          </div> */}
           <button type="submit" className="btn" id="btnSignUp2">
             Editar perfil
           </button>
