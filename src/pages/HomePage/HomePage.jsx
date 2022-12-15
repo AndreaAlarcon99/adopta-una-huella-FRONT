@@ -22,7 +22,7 @@ function HomePage() {
       <div>
         <Link to="/animales" className="dropdown-item">
           <div id="tituloPortada">
-            <p>Te ayudamos a encontrar a tu nuevo mejor amigo</p>
+            <h2>TE AYUDAMOS A ENCONTRAR A TU NUEVO MEJOR AMIGO</h2>
           </div>
           <div id="portada">
             <div id="imagen1">

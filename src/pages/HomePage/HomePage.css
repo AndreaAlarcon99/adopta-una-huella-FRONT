@@ -16,11 +16,9 @@
 }
 
 #tituloPortada {
-  height: 10vh;
   position: absolute;
   margin-top: 5%;
   margin-left: 12%;
-  color: #6c584c;
   padding: 1em;
   font-size: small;
 }
@@ -37,19 +35,12 @@
 
 @media (min-width: 768px) and (max-width: 1024px) {
   #tituloPortada {
-    background-color: rgba(255, 255, 255, 0.6);
     height: 10vh;
     position: absolute;
     margin-top: 10%;
     margin-left: 20%;
     color: #6c584c;
     padding: 2em;
-    font-size: medium;
-  }
-
-  #tituloPortada button {
-    background-color: #a98467;
-    color: white;
     font-size: medium;
   }
 }
@@ -61,19 +52,12 @@ h4 {
 
 @media (min-width: 1025px) {
   #tituloPortada {
-    background-color: rgba(255, 255, 255, 0.6);
-    height: 20vh;
+    width: 30vw;
+    height: 40vh;
     position: absolute;
-    margin-top: 10%;
-    margin-left: 35%;
-    color: #6c584c;
+    margin-top: 13%;
+    margin-left: 15%;
     padding: 2em;
-    font-size: larger;
-  }
-
-  #tituloPortada button {
-    background-color: #a98467;
-    color: white;
-    font-size: medium;
+    color: #6c584c;
   }
 }
