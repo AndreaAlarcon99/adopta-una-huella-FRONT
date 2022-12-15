@@ -5,12 +5,14 @@ import userService from "../../services/user.service";
 import { AuthContext } from "../../context/auth.context";
 import { useContext } from "react";
 import Loading from "../../components/Loading/Loading";
+import { useNavigate } from "react-router-dom";
 
 
 const DeleteUser = () => {
-  const { logOutUser } = useContext(AuthContext);
+  const { logOutUser, user } = useContext(AuthContext);
 
   const { userId } = useParams();
+  const navigate = useNavigate();
 
   const [isLoading, setIsLoading] = useState(false);
 
@@ -19,8 +21,12 @@ const DeleteUser = () => {
 
     userService
       .deleteUser(userId)
-      .then(logOutUser)
-      .then(setIsLoading(false))
+      .then(user.admin===true ? '' : logOutUser)
+      .then((response) =>{
+        setIsLoading(false);
+        navigate('/');
+      })
+      .then()
       .catch((err) => console.log(err));
   };
 
