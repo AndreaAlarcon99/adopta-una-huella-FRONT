@@ -1,6 +1,10 @@
 import axios from "axios";
 
-const apiUrl = process.env.REACT_APP_API_SERVER_URL || "http://localhost:8080";
+// DEPLOY:
+// const apiUrl = process.env.REACT_APP_API_SERVER_URL || "http://localhost:8080";
+
+// LOCAL:
+const apiUrl = "http://localhost:8080";
 
 class UserService {
   getToken() {
@@ -23,7 +27,10 @@ class UserService {
     });
   }
   sendEmail(mailData) {
-    return axios.post(apiUrl + "/perfil/" + mailData.userId + "/send", mailData);
+    return axios.post(
+      apiUrl + "/perfil/" + mailData.userId + "/send",
+      mailData
+    );
   }
 }
 

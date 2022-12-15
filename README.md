@@ -10,7 +10,7 @@ Hi! We are Andrea, Leticia and Nahuel, web developers students. This project is 
 
 ## Deployment
 
-You can check the app fully deployed [here](https://herokuapp.com/). If you wish to view the API deployment instead, check [here](https://herokuapp.com/api/).
+You can check the app fully deployed [here](https://adopta-huella.netlify.app/). If you wish to view the API deployment instead, check [here](https://adopta-una-huella.cyclic.app/).
 
 ## Work structure
 
@@ -29,20 +29,20 @@ $ npm start
 
 ## Routes
 
-| Route                  |      Privacy       | Renders          |
-| ---------------------- | :----------------: | ---------------- |
-| /                      |     public \*      | HomePage         |
-| /signup                | public (anonimous) | SignupPage       |
-| /login                 | public (anonimous) | LoginPage        |
-| /informacion-adopcion  |     public \*      | InfoAdoptionPage |
-| /adoptados             |     public \*      | AdoptedPets      |
-| /animales              |     public \*      | PetListPage      |
-| /animales/:animalId    |     public \*      | PetDetailPage    |
-| /perfil/:userId        |     public \*      | ProfilePage      |
-| /perfil/:userId/editar | private (user) \*  | EditProfilPage   |
-| /animales/:petId/editar| private (user) \*  | EditPet          |
-| /crear-animal          | private (user) \*  | AddPet           |
-| /protectoras           |     public \*      | ProtectoraPage   |
+| Route                   |      Privacy       | Renders          |
+| ----------------------- | :----------------: | ---------------- |
+| /                       |     public \*      | HomePage         |
+| /signup                 | public (anonimous) | SignupPage       |
+| /login                  | public (anonimous) | LoginPage        |
+| /informacion-adopcion   |     public \*      | InfoAdoptionPage |
+| /adoptados              |     public \*      | AdoptedPets      |
+| /animales               |     public \*      | PetListPage      |
+| /animales/:animalId     |     public \*      | PetDetailPage    |
+| /perfil/:userId         |     public \*      | ProfilePage      |
+| /perfil/:userId/editar  | private (user) \*  | EditProfilPage   |
+| /animales/:petId/editar | private (user) \*  | EditPet          |
+| /crear-animal           | private (user) \*  | AddPet           |
+| /protectoras            |     public \*      | ProtectoraPage   |
 
 \*admin
 
