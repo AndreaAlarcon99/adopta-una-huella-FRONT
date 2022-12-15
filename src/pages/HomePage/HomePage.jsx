@@ -19,19 +19,20 @@ function HomePage() {
 
   return (
     <div>
-      <div id="tituloPortada">
-        <p>Te ayudamos a encontrar a tu nuevo mejor amigo</p>
+      <div>
         <Link to="/animales" className="dropdown-item">
-          <button className="btn">Animales en adopción</button>
+          <div id="tituloPortada">
+            <p>Te ayudamos a encontrar a tu nuevo mejor amigo</p>
+          </div>
+          <div id="portada">
+            <div id="imagen1">
+              <img src="../../../perroabrazo.jpeg" alt="perro loco" />
+            </div>
+            <div id="imagen2">
+              <img src="../../../perroloco.jpeg" alt="perro loco" />
+            </div>
+          </div>
         </Link>
-      </div>
-      <div id="portada">
-        <div id="imagen1">
-          <img src="../../../perroabrazo.jpeg" alt="perro loco" />
-        </div>
-        <div id="imagen2">
-          <img src="../../../perroloco.jpeg" alt="perro loco" />
-        </div>
       </div>
       <div>
         <h4 className="text-start m-4">NUESTROS ANCIANOS</h4>
