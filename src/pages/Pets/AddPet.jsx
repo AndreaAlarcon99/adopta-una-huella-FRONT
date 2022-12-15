@@ -244,10 +244,11 @@ function AddPet() {
             ></textarea>
             <label htmlFor="floatingTextarea2">Descripción del animal</label>
           </div>
+          {isLoading ? <Loading /> : <></>}
+
           <button type="submit" className="btn" id="btnSignUp2">
             Subir animal
           </button>
-          {isLoading ? <Loading /> : <></>}
         </form>
       </div>
     </div>
