@@ -38,12 +38,17 @@
   border-radius: 0 0 1em 1em;
 }
 
-#footerCard:hover {
-  background-color: #7a8656;
-}
-
 #footerCardAdopted {
-  background-color: #6c584c;
+  background-color: #7a8656;
   height: 4vh;
   border-radius: 0 0 1em 1em;
 }
+
+#cajaAnimal:hover #footerCard {
+  background-color: #7a8656;
+}
+
+#cajaAnimal:hover #footerCardAdopted {
+  background-color: #6c584c;
+}
+
