@@ -15,49 +15,33 @@
   float: left;
 }
 
-#tituloPortada {
-  position: absolute;
-  margin-top: 5%;
-  margin-left: 12%;
-  padding: 1em;
-  font-size: small;
-}
-
-#tituloPortada button {
-  background-color: #a98467;
-  color: white;
-  font-size: small;
-}
-
-#tituloPortada button:hover {
-  background-color: #6c584c;
+@media (max-width: 1023px) {
+  h2 {
+    font-size: 1px;
+    color: white;
+  }
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
   #tituloPortada {
-    height: 10vh;
+    background-color: rgba(255, 255, 255, 0.5);
+
     position: absolute;
     margin-top: 10%;
-    margin-left: 20%;
+    margin-left: 32%;
     color: #6c584c;
     padding: 2em;
-    font-size: medium;
   }
-}
-h4 {
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: lighter;
-  color: #6c584c;
 }
 
 @media (min-width: 1025px) {
   #tituloPortada {
-    width: 30vw;
-    height: 40vh;
+    background-color: rgba(255, 255, 255, 0.5);
     position: absolute;
     margin-top: 13%;
-    margin-left: 15%;
+    margin-left: 38%;
     padding: 2em;
     color: #6c584c;
+    text-shadow: 1px 1px 5px white;
   }
 }
