@@ -3,6 +3,7 @@ import { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import authService from "../../services/auth.service";
 import { AuthContext } from "../../context/auth.context";
+import Error from "../../components/Error/Error";
 
 function SignupPage() {
   const [email, setEmail] = useState("");
@@ -14,6 +15,7 @@ function SignupPage() {
   const [location, setLocation] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
   const [imgUser, setImgUser] = useState("");
+  const [errorMsg, setErrorMsg] = useState("");
 
   const navigate = useNavigate();
 
@@ -21,6 +23,37 @@ function SignupPage() {
 
   const handleSignupSubmit = (e) => {
     e.preventDefault();
+    setErrorMsg("");
+    setErrorMessage("");
+
+    if (password !== password2) {
+      setErrorMsg("Las contraseñas no coinciden.");
+      return;
+    }
+    if (email === "") {
+      setErrorMsg("És obligatorio introducir un correo electrónico.");
+      return;
+    }
+    if (password === "") {
+      setErrorMsg("Contraseña requerida.");
+      return;
+    }
+    if (username === "") {
+      setErrorMsg("Nombre requerido.");
+      return;
+    }
+    if (description === "") {
+      setErrorMsg("Descripción requerida.");
+      return;
+    }
+    if (licence === "") {
+      setErrorMsg("licencia requerida.");
+      return;
+    }
+    if (location === "") {
+      setErrorMsg("Localización requerida.");
+      return;
+    }
 
     const uploadData = new FormData();
     uploadData.append("email", email);
@@ -111,9 +144,8 @@ function SignupPage() {
           </div>
 
           <div className="text-start mt-3" id="fileUpload">
-          <h5 className="text-start m-4">Foto de perfil</h5>
-            <input 
-
+            <h5 className="text-start m-4">Foto de perfil</h5>
+            <input
               type="file"
               onChange={(e) => setImgUser(e.target.files[0])}
             />
@@ -147,13 +179,14 @@ function SignupPage() {
           </div>
         </div>
 
+        {errorMsg && <Error errorMsg={errorMsg} />}
+        {errorMessage && <Error errorMsg={errorMessage} />}
         <br></br>
         <button className="btn" id="btnSignUp2" type="submit">
           Registrarme
         </button>
       </form>
 
-      {errorMessage && <p className="error-message">{errorMessage}</p>}
       <br></br>
       <p>
         ¿Ya tienes cuenta?

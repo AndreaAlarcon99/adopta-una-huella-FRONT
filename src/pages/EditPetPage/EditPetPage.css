@@ -1,25 +1,27 @@
-#formEdit img {
-  width: 0;
-}
-
 #divEdit {
   max-width: 800px;
-  margin-right: 10vw;
+  margin: auto;
 }
+
+#formEdit {
+  margin-top: 5vh;
+  margin-bottom: 10vh;
+}
+
+.editBtn {
+  margin-right: 4vw;
+}
+
 @media (min-width: 1140px) {
-  #formEdit img {
-    width: 20vw;
-    height: 35vh;
-    object-fit: cover;
-  }
+/* 
 
   #formEdit {
     display: flex;
     justify-content: space-between;
     margin: 3%;
-  }
+  } */
 
-  #formEdit form {
+  /* #formEdit form {
     width: 70vw;
-  }
+  } */
 }

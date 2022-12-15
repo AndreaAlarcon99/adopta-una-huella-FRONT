@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import animalService from "../../services/animal.service";
 import { useParams, useNavigate } from "react-router-dom";
 import "./EditPetPage.css";
+import Loading from "../../components/Loading/Loading";
 
 function EditPetPage() {
   const [animalName, setAnimalName] = useState("");
@@ -20,9 +21,12 @@ function EditPetPage() {
   const [location, setLocation] = useState("");
   const [adopted, setAdopted] = useState(false);
 
+  const [isLoading, setIsLoading] = useState(false);
+
   const { animalId } = useParams();
   const navigate = useNavigate();
 
+  //to get the animal data
   useEffect(() => {
     animalService
       .getAnimal(animalId)
@@ -47,40 +51,45 @@ function EditPetPage() {
       .catch((error) => console.log("Error: ", error));
   }, [animalId]);
 
+  //to change the animal data (image included)
   const submitHandler = (e) => {
     e.preventDefault();
-    const animal = {
-      animalName,
-      imgAnimal,
-      description,
-      gender,
-      birthday,
-      animalType,
-      weight,
-      age,
-      castrated,
-      vaccines,
-      size,
-      lifestyle,
-      microchip,
-      location,
-      adopted,
-    };
+    const animal = new FormData();
+    animal.append("imgAnimal", imgAnimal);
+    animal.append("animalName", animalName);
+    animal.append("description", description);
+    animal.append("gender", gender);
+    animal.append("birthday", birthday);
+    animal.append("animalType", animalType);
+    animal.append("weight", weight);
+    animal.append("age", age);
+    animal.append("castrated", castrated);
+    animal.append("vaccines", vaccines);
+    animal.append("size", size);
+    animal.append("lifestyle", lifestyle);
+    animal.append("microchip", microchip);
+    animal.append("location", location);
 
+    setIsLoading(true);
+
+    //update animal data
     animalService
       .editAnimal(animal, animalId)
       .then((response) => {
-        navigate("/animales");
+        setIsLoading(false);
+        navigate("/animales/" + animalId);
       })
-      .catch((error) =>
-        console.log("Error: ", error, animal)
-      );
+      .catch((error) => console.log("Error: ", error, animal));
   };
 
+  //delete animal
   const deleteHandler = () => {
+    setIsLoading(true);
+
     animalService
       .deleteAnimal(animalId)
       .then(() => {
+        setIsLoading(false);
         navigate("/animales");
       })
       .catch((error) => console.log("Error: ", error));
@@ -89,10 +98,12 @@ function EditPetPage() {
   return (
     <div id="formEdit">
       <div>
-        <img className="rounded-circle" src={imgAnimal} alt="perro" />
-      </div>
-      <div>
-        <form id="divEdit" className="container" onSubmit={submitHandler}>
+        <form
+          id="divEdit"
+          className="container"
+          encType="multipart/form-data"
+          onSubmit={submitHandler}
+        >
           <h2>Editar datos de {animalName}</h2>
           <div className="mb-3">
             <p>¿Este animal ha sido adoptado?</p>
@@ -159,7 +170,7 @@ function EditPetPage() {
               Fecha de nacimiento
             </label>
             <input
-              type="Date"
+              type="date"
               className="form-control"
               id="birthday"
               value={birthday}
@@ -270,8 +281,17 @@ function EditPetPage() {
               <option value={false}>No</option>
             </select>
           </div>
+          <div className="mb-5" id="fileUpload">
+            <p> Foto del animal:</p>
+            <input
+              className="mb-4 px-4"
+              type="file"
+              onChange={(e) => setImgAnimal(e.target.files[0])}
+            />
+            <label htmlFor="subir imagen"></label>
+          </div>
 
-          <button type="submit" className="btn btn-primary">
+          <button type="submit" id="btnSignUp2" className="btn editBtn">
             Editar animal
           </button>
           <button
@@ -282,6 +302,7 @@ function EditPetPage() {
           >
             Eliminar
           </button>
+          {isLoading ? <Loading /> : <></>}
           <div
             className="modal fade"
             id="exampleModal"
@@ -305,6 +326,7 @@ function EditPetPage() {
                 <div className="modal-body">
                   ¿Seguro que quieres eliminar la publicación de este animal?
                 </div>
+                {isLoading ? <Loading /> : <></>}
                 <div className="modal-footer">
                   <button
                     type="button"

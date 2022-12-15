@@ -3,11 +3,14 @@ import { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/auth.context";
 import authService from "../../services/auth.service";
+import Loading from "../../components/Loading/Loading";
 
 function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
+
+  const [isLoading, setIsLoading] = useState(false);
 
   const navigate = useNavigate();
 
@@ -20,19 +23,18 @@ function LoginPage() {
     e.preventDefault();
     const requestBody = { email, password };
 
+    setIsLoading(true);
+
     // Send a request to the server using a service
     authService
       .login(requestBody)
       .then((response) => {
-        // If the POST request is successful store the authentication token,
-        // after the token is stored authenticate the user
-        // and at last navigate to the home page
         storeToken(response.data.authToken);
         authenticateUser();
+        setIsLoading(false);
         navigate("/");
       })
       .catch((error) => {
-        // If the request resolves with an error, set the error message in the state
         const errorDescription = error.response.data.message;
         setErrorMessage(errorDescription);
       });
@@ -70,11 +72,17 @@ function LoginPage() {
         <button className="btn" id="btnLogIn" type="submit">
           Entrar
         </button>
+        {isLoading ? <Loading /> : <></>}
       </form>
       {errorMessage && <p className="error-message">{errorMessage}</p>}
       <br></br>
-      <p>¿No tienes cuenta?
-      <Link to={"/signup"} id="btnSignUp"> Regístrate</Link></p>
+      <p>
+        ¿No tienes cuenta?
+        <Link to={"/signup"} id="btnSignUp">
+          {" "}
+          Regístrate
+        </Link>
+      </p>
     </div>
   );
 }

@@ -4,9 +4,8 @@ import { AuthContext } from "../../context/auth.context";
 import { useContext } from "react";
 
 function Navbar() {
-  // Subscribe to the AuthContext to gain access to
-  // the values from AuthContext.Provider's `value` prop
   const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
+
   return (
     <nav className="navbar navbar-expand-lg  sticky-top   ">
       <div className="container-fluid">
@@ -28,7 +27,8 @@ function Navbar() {
           <ul className="navbar-nav ms-auto mb-2 mb-lg-0 ">
             <li className="nav-item">
               <Link to="/" className="nav-link active" aria-current="page">
-                Inicio
+                {" "}
+                Inicio{" "}
               </Link>
             </li>
             <li className="nav-item dropdown">
@@ -54,14 +54,18 @@ function Navbar() {
               </ul>
             </li>
             <li className="nav-item">
+              {" "}
               <Link to="/protectoras" className="nav-link">
-                Protectoras
-              </Link>
+                {" "}
+                Protectoras{" "}
+              </Link>{" "}
             </li>
             <li className="nav-item">
+              {" "}
               <Link to="/informacion-adopcion" className="nav-link">
-                Información
-              </Link>
+                {" "}
+                Información{" "}
+              </Link>{" "}
             </li>
 
             {isLoggedIn ? (
@@ -101,4 +105,3 @@ function Navbar() {
 }
 
 export default Navbar;
-
